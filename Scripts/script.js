@@ -17,6 +17,7 @@ const swiper = new Swiper('.trending-swiper', {
     speed: 4000
 });
 
+
 // NFT VIEWER MODULE (keeps your existing UX)
 (function () {
     const nftTabBtn = document.getElementById('cft') || document.getElementById('nftTabBtn');
@@ -166,7 +167,7 @@ function parseCurrencyString(str) {
 
 function formatTotalCurrency(value) {
     if (typeof value !== 'number' || !isFinite(value)) return '--';
-    return '$' + value.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    return '$' + value.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 4 });
 }
 
 function updateTotalHoldings() {
@@ -273,6 +274,31 @@ async function updateCryptoPrices() {
         });
     }
 }
+
+
+// TOGGLE EYE VISIBILITY MODULE
+const toggleEye = document.getElementById('toggle-eye');
+const totalAssets = document.getElementById('total-assets');
+let isCurrent = document.getElementById('total-assets').textContent;
+// let formatted = parseFloat(balance);
+// let balance = Number(isCurrent.replace(/\$/g, '').replace(/,/g, ''));
+// let mainBalance = "$" + balance.toLocaleString("en-US");
+let isVisible = true;
+
+toggleEye.addEventListener('click', () => {
+    if (isVisible) {
+        totalAssets.textContent = "$******";
+        toggleEye.classList.remove('fa-eye');
+        toggleEye.classList.add('fa-eye-slash');
+        isVisible = false;
+    } else {
+        toggleEye.classList.remove('fa-eye-slash');
+        toggleEye.classList.add('fa-eye');
+        document.getElementById('total-assets').textContent = isCurrent;
+        isVisible = true;
+    }
+});
+
 
 // Percentage-change updater (uses markets result when available or fallback)
 (async function changeColumnUpdater() {

@@ -53,12 +53,19 @@
             <div class="swap-area">
                 <div class="swap-box-a">
                     <div class="chosing-swap-box">
-                        <span class="swap-label">$ONE</span>
+                        <div class="chosen-ticker-and-logo">
+                            <span id="from-coin" class="swap-label">$ONE</span>
+                            <img src="Images/one.png" alt="">
+                        </div>
+
                         <div class="chose-to-swap">
                             <button>From<i class="fa-chose-chevron fa-solid fa-chevron-down"></i></button>
                         </div>
                     </div>
-                    <div class="swap-amount">$0.0000</div>
+                    <div class="swap-entry">
+                        <input type="text" placeholder="Enter amount">
+                        <span><i class="fa-solid fa-circle-info"></i>Low on funds...!</span>
+                    </div>
                 </div>
                 <div class="swap-icon-box">
                     <!-- <img src="Images/swap.png" alt=""> -->
@@ -69,10 +76,33 @@
                         <div class="chose-to-swap">
                             <button><i class="fa-chose-chevron fa-solid fa-chevron-down"></i>To</button>
                         </div>
-                        <span class="swap-label">$USDT</span>
+                        <div class="chosen-ticker-and-logo">
+                            <span class="swap-label">$USDT</span>
+                            <img src="Images/tether.png" alt="">
+                        </div>
+
                     </div>
-                    <div class="swap-amount">0.0000</div>
+                    <div class="swap-entry">
+                        <input type="text" placeholder="$0.0000">
+                        <span><i class="fa-solid fa-circle-info"></i></span>
+                    </div>
                 </div>
+
+
+                <!-- POPUP DETAILS ARE  HERE:.....👇 -->
+                <div class="popup-box">
+                    <div class="overlay" id="swap-overlay"></div>
+                    <div class="popup" id="popup">
+                        <div class="handle-bar"></div>
+                        <h3>Do you realy want to exit ONET page?</h3>
+                        <div class="y-n-box">
+                            <button id="yes-btn" class="yes-no">Yes</button>
+                            <button id="no-btn" class="yes-no">No</button>
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
             <div class="transaction">
                 <button id="buy" class="trx-buttons">

@@ -271,7 +271,7 @@ body {
 
 .swap-icon {
     color: #d3d2d2;
-    font-size: clamp(18px, 0.5vw, 100px);
+    font-size: clamp(20px, 0.5vw, 100px);
     margin: 0px;
     padding: 0px;
 }
@@ -285,8 +285,8 @@ body {
     margin: 0px;
     padding: 10px 5px;
     width: 50%;
-    height: 100px;
-    gap: 20px;
+    min-height: 100px;
+    gap: 10px;
     background: #dadcdf;
 
 }
@@ -297,6 +297,23 @@ body {
 
 .swap-box-b {
     border-radius: 10px 0px 0px 10px;
+}
+
+.chosen-ticker-and-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.chosen-ticker-and-logo img {
+    width: 25px;
+    height: 25px;
+    border: 0.1px solid #6b6b6b;
+    border-radius: 50%;
+    margin: 0px;
+    padding: 1px;
 }
 
 .chosing-swap-box {
@@ -332,10 +349,56 @@ body {
     font-weight: bold;
 }
 
-.swap-amount {
-    font-size: clamp(18px, 0.4vw, 100px);
+.swap-entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.swap-entry input {
+    min-width: 100px;
+    width: 100%;
+    max-width: 25vw;
+    margin: 0px;
+    padding: 1px 10px;
+    border: none;
+    text-align: center;
+    /* border-radius: 4px; */
+    background: none;
+    /* box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5); */
+    font-size: clamp(16px, 0.4vw, 100px);
     font-weight: bold;
     color: #5d5d5e;
+}
+
+.swap-entry input::placeholder {
+    font-weight: lighter;
+    color: #919192;
+    font-size: clamp(14px, 0.4vw, 100px);
+}
+
+.swap-entry input:hover {
+    border: none;
+    outline: none;
+    padding: 1px 10px 0px 10px;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.3);
+}
+
+.swap-entry span {
+    font-size: clamp(12px, 0.4vw, 100px);
+    color: #f83838;
+}
+
+.fa-circle-info {
+    font-size: clamp(12px, 0.4vw, 100px);
+    color: #f83838;
+    margin: 0px 2px;
+}
+
+.popup-box {
+    display: none;
 }
 
 .transaction {
@@ -676,7 +739,7 @@ body {
     gap: 5px;
     background: #6c6583;
     margin: 0px;
-    padding: 10px 10px 80px;
+    padding: 5px 5px 80px;
 }
 
 .listed-card {

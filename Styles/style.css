@@ -246,7 +246,7 @@ body {
     padding: 5px 0px;
     background: #fff;
     min-width: 100%;
-    gap: 2px;
+    gap: 4px;
     position: relative;
 }
 
@@ -283,20 +283,23 @@ body {
     align-items: center;
     flex-direction: column;
     margin: 0px;
-    padding: 10px 5px;
+    padding: 5px 5px;
     width: 50%;
-    min-height: 100px;
+    min-height: 120px;
     gap: 10px;
     background: #dadcdf;
+    border: 0.1px solid #000;
 
 }
 
 .swap-box-a {
     border-radius: 0px 10px 10px 0px;
+    border-left: none;
 }
 
 .swap-box-b {
     border-radius: 10px 0px 0px 10px;
+    border-right: none;
 }
 
 .chosen-ticker-and-logo {
@@ -305,12 +308,28 @@ body {
     align-items: center;
     flex-direction: column;
     gap: 2px;
+    position: relative;
 }
 
-.chosen-ticker-and-logo img {
-    width: 25px;
-    height: 25px;
+.network-badge {
+    /* left: 50%; */
+    right: -5px;
+    bottom: -5px;
+    position: absolute;
+}
+
+.network-badge img {
+    width: 15px;
+    height: 15px;
     border: 0.1px solid #6b6b6b;
+    border-radius: 50%;
+}
+
+.chosen-logo {
+    width: 30px;
+    height: 30px;
+    /* border: 0.1px solid #6b6b6b; */
+    border: 0.1px solid #31e67c;
     border-radius: 50%;
     margin: 0px;
     padding: 1px;
@@ -323,7 +342,7 @@ body {
     gap: 10px;
 }
 
-.chosing-swap-box button {
+.chose-to-swap button {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -338,12 +357,24 @@ body {
     box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
 }
 
+.chose-to-swap button:hover {
+    background: linear-gradient(#5025d1, #dce7f8);
+    border: 0.1px solid #6b6b6b;
+    color: #dce7f8;
+}
+
+.chose-to-swap button:active {
+    background: linear-gradient(#dce7f8, #5025d1);
+    border: 0.1px solid #6b6b6b;
+    color: #dce7f8;
+}
+
 .fa-chose-chevron {
     font-size: clamp(14px, 0.5vw, 100px);
     color: #5d5d5e;
 }
 
-.swap-label {
+.swap-coin-ticker {
     font-family: Arial, Helvetica, sans-serif;
     font-size: clamp(12px, 0.4vw, 100px);
     font-weight: bold;
@@ -357,10 +388,11 @@ body {
     gap: 5px;
 }
 
-.swap-entry input {
+.swap-from-amount,
+.swap-to-amount {
     min-width: 100px;
     width: 100%;
-    max-width: 25vw;
+    max-width: 35vw;
     margin: 0px;
     padding: 1px 10px;
     border: none;
@@ -368,25 +400,26 @@ body {
     /* border-radius: 4px; */
     background: none;
     /* box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5); */
-    font-size: clamp(16px, 0.4vw, 100px);
+    font-size: clamp(18px, 0.4vw, 100px);
     font-weight: bold;
-    color: #5d5d5e;
+    /* color: #5d5d5e; */
+    color: #808080;
 }
 
-.swap-entry input::placeholder {
+.swap-entry .swap-from-amount::placeholder {
     font-weight: lighter;
-    color: #919192;
+    color: #929291;
     font-size: clamp(14px, 0.4vw, 100px);
 }
 
-.swap-entry input:hover {
+.swap-entry .swap-from-amount:hover {
     border: none;
     outline: none;
     padding: 1px 10px 0px 10px;
     border-bottom: 0.5px solid rgba(0, 0, 0, 0.3);
 }
 
-.swap-entry span {
+.warning-span {
     font-size: clamp(12px, 0.4vw, 100px);
     color: #f83838;
 }

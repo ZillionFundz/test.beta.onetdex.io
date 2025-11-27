@@ -54,8 +54,11 @@
                 <div class="swap-box-a">
                     <div class="chosing-swap-box">
                         <div class="chosen-ticker-and-logo">
-                            <span id="from-coin" class="swap-label">$ONE</span>
-                            <img src="Images/one.png" alt="">
+                            <span id="swap-from-ticker" class="swap-coin-ticker">$ONE</span>
+                            <img class="chosen-logo" src="Images/one.png" alt="">
+                            <div class="network-badge">
+                                <img src="Images/bnb.png" alt="">
+                            </div>
                         </div>
 
                         <div class="chose-to-swap">
@@ -63,28 +66,32 @@
                         </div>
                     </div>
                     <div class="swap-entry">
-                        <input type="text" placeholder="Enter amount">
-                        <span><i class="fa-solid fa-circle-info"></i>Low on funds...!</span>
+                        <input id="swap-from-amount" class="swap-from-amount" type="text" placeholder="USD $:">
+                        <span class="warning-span"><i class="fa-solid fa-circle-info"></i>Low on funds...!</span>
                     </div>
                 </div>
-                <div class="swap-icon-box">
+                <button class="swap-icon-box">
                     <!-- <img src="Images/swap.png" alt=""> -->
                     <i class=" swap-icon fa-solid fa-right-left"></i>
-                </div>
+                </button>
                 <div class="swap-box-b">
                     <div class="chosing-swap-box">
                         <div class="chose-to-swap">
                             <button><i class="fa-chose-chevron fa-solid fa-chevron-down"></i>To</button>
                         </div>
                         <div class="chosen-ticker-and-logo">
-                            <span class="swap-label">$USDT</span>
-                            <img src="Images/tether.png" alt="">
+                            <span id="swap-to-ticker" class="swap-coin-ticker">$USDT</span>
+                            <img class="chosen-logo" src="Images/tether.png" alt="">
+                            <div class="network-badge">
+                                <img src="Images/bnb.png" alt="">
+                            </div>
                         </div>
 
                     </div>
                     <div class="swap-entry">
-                        <input type="text" placeholder="$0.0000">
-                        <span><i class="fa-solid fa-circle-info"></i></span>
+                        <!-- <input id="swap-to-amount" type="text" placeholder="$0.0000"> -->
+                        <span id="swap-to-amount" class="swap-to-amount">$0.0000</span>
+                        <span class="warning-span"><i class="fa-solid fa-circle-info"></i></span>
                     </div>
                 </div>
 
@@ -197,7 +204,7 @@
             </div>
         </div>
 
-        <!-- COINS LISTED IN THIS EXCHANGE OFTEN APPER HERE:👇 -->
+        <!-- COINS LISTED IN ONET EXCHANGE OFTEN APPER HERE:👇 -->
         <div class="listed-area">
             <div class="listed-card">
                 <div class="coin-and-ticker">
@@ -211,8 +218,8 @@
                 </div>
                 <div class="percentage-change-box">
                     <div class="volume-and-amount">
-                        <div class="coin-volume">1B</div>
-                        <div class="coin-amount">0.00</div>
+                        <div id="coin-volume" class="coin-volume">1B</div>
+                        <div id="coin-amount" class="coin-amount">0.00</div>
                     </div>
                     <button class="percentage-change">%</button>
                 </div>
@@ -229,8 +236,8 @@
                 </div>
                 <div class="percentage-change-box">
                     <div class="volume-and-amount">
-                        <div class="coin-volume">0.001</div>
-                        <div class="coin-amount">$0.00</div>
+                        <div id="coin-volume" class="coin-volume">0.001</div>
+                        <div id="coin-amount" class="coin-amount">$0.00</div>
                     </div>
                     <button class="percentage-change">%</button>
                 </div>
@@ -247,8 +254,8 @@
                 </div>
                 <div class="percentage-change-box">
                     <div class="volume-and-amount">
-                        <div class="coin-volume">0.012</div>
-                        <div class="coin-amount">$0.00</div>
+                        <div id="coin-volume" class="coin-volume">0.012</div>
+                        <div id="coin-amount" class="coin-amount">$0.00</div>
                     </div>
                     <button class="percentage-change">%</button>
                 </div>
@@ -265,8 +272,8 @@
                 </div>
                 <div class="percentage-change-box">
                     <div class="volume-and-amount">
-                        <div class="coin-volume">5M</div>
-                        <div class="coin-amount">$0.00</div>
+                        <div id="coin-volume" class="coin-volume">5M</div>
+                        <div id="coin-amount" class="coin-amount">$0.00</div>
                     </div>
                     <button class="percentage-change">%</button>
                 </div>
@@ -283,8 +290,8 @@
                 </div>
                 <div class="percentage-change-box">
                     <div class="volume-and-amount">
-                        <div class="coin-volume">4,743</div>
-                        <div class="coin-amount">$0.00</div>
+                        <div id="coin-volume" class="coin-volume">4,743</div>
+                        <div id="coin-amount" class="coin-amount">$0.00</div>
                     </div>
                     <button class="percentage-change">%</button>
                 </div>
@@ -303,8 +310,8 @@
                 </div>
                 <div class="percentage-change-box">
                     <div class="volume-and-amount">
-                        <div class="coin-volume">500</div>
-                        <div class="coin-amount">$0.00</div>
+                        <div id="coin-volume" class="coin-volume">500</div>
+                        <div id="coin-amount" class="coin-amount">$0.00</div>
                     </div>
                     <button class="percentage-change">%</button>
                 </div>
@@ -321,8 +328,8 @@
                 </div>
                 <div class="percentage-change-box">
                     <div class="volume-and-amount">
-                        <div class="coin-volume">0.025</div>
-                        <div class="coin-amount">$0.00</div>
+                        <div id="coin-volume" class="coin-volume">0.025</div>
+                        <div id="coin-amount" class="coin-amount">$0.00</div>
                     </div>
                     <button class="percentage-change">%</button>
                 </div>
@@ -339,8 +346,8 @@
                 </div>
                 <div class="percentage-change-box">
                     <div class="volume-and-amount">
-                        <div class="coin-volume">2T</div>
-                        <div class="coin-amount">$0.00</div>
+                        <div id="coin-volume" class="coin-volume">2T</div>
+                        <div id="coin-amount" class="coin-amount">$0.00</div>
                     </div>
                     <button class="percentage-change">%</button>
                 </div>
@@ -357,8 +364,8 @@
                 </div>
                 <div class="percentage-change-box">
                     <div class="volume-and-amount">
-                        <div class="coin-volume">82</div>
-                        <div class="coin-amount">$0.00</div>
+                        <div id="coin-volume" class="coin-volume">82</div>
+                        <div id="coin-amount" class="coin-amount">$0.00</div>
                     </div>
                     <button class="percentage-change">%</button>
                 </div>
@@ -375,8 +382,8 @@
                 </div>
                 <div class="percentage-change-box">
                     <div class="volume-and-amount">
-                        <div class="coin-volume">120,181.53</div>
-                        <div class="coin-amount">$0.00</div>
+                        <div id="coin-volume" class="coin-volume">120,181.53</div>
+                        <div id="coin-amount" class="coin-amount">$0.00</div>
                     </div>
                     <button class="percentage-change">%</button>
                 </div>
@@ -393,8 +400,8 @@
                 </div>
                 <div class="percentage-change-box">
                     <div class="volume-and-amount">
-                        <div class="coin-volume">76,288.16</div>
-                        <div class="coin-amount">$0.00</div>
+                        <div id="coin-volume" class="coin-volume">76,288.16</div>
+                        <div id="coin-amount" class="coin-amount">$0.00</div>
                     </div>
                     <button class="percentage-change">%</button>
                 </div>
@@ -411,8 +418,8 @@
                 </div>
                 <div class="percentage-change-box">
                     <div class="volume-and-amount">
-                        <div class="coin-volume">250</div>
-                        <div class="coin-amount">$0.00</div>
+                        <div id="coin-volume" class="coin-volume">250</div>
+                        <div id="coin-amount" class="coin-amount">$0.00</div>
                     </div>
                     <button class="percentage-change">%</button>
                 </div>

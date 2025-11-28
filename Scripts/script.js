@@ -299,14 +299,13 @@ toggleEye.addEventListener('click', () => {
     }
 });
 
-
 //POPUP NOTIFICATIONS AND ANIMATED PAGES START HERE:...👇
 const fromCoinTicker = document.getElementById('swap-from-ticker');
 const fromCoinBtn = document.getElementById('swap-from-button');
 const fromCoinAmount = document.getElementById('swap-from-amount');
 const popUp = document.getElementById('popup');
 const overlay = document.getElementById('swap-overlay');
-const exitBtn = document.getElementById('no-btn');
+const exitBtn = document.getElementById('exit-btn');
 
 
 fromCoinBtn.addEventListener('click', () => {
@@ -314,8 +313,8 @@ fromCoinBtn.addEventListener('click', () => {
     popUp.style.display = 'block';
     popUp.style.marginTop = '20px';
     setTimeout(() => {
-        popup.style.bottom = '0%';
-    }, 200)
+        popUp.style.bottom = '0%';
+    }, 200);
 });
 
 //DRAG VARIABLES HERE:...👇
@@ -324,39 +323,39 @@ let currentY = 0;
 let dragging = false;
 
 
-popup.addEventListener('touchstart', (e) => {
+popUp.addEventListener('touchstart', (e) => {
     startY = e.touches[0].clientY;
     dragging = true;
-    popup.style.transition = 'none'; // Disable transition during drag
+    popUp.style.transition = 'none'; // Disable transition during drag
 });
 
-popup.addEventListener('touchmove', (e) => {
+popUp.addEventListener('touchmove', (e) => {
     if (!dragging) return;
     currentY = e.touches[0].clientY;
     let diffY = currentY - startY;
     if (diffY > 0) { // Only allow dragging downwards
-        popup.style.transform = `translateY(${diffY}px)`; // Move the popup with finger
+        popUp.style.transform = `translateY(${diffY}px)`; // Move the popup with finger
     }
 });
 
-popup.addEventListener('touchend', () => {
+popUp.addEventListener('touchend', () => {
     dragging = false;
-    popup.style.transition = 'bottom 0.5s ease, transform 0.25s ease'; // Re-enable transition
+    popUp.style.transition = 'bottom 0.5s ease, transform 0.25s ease'; // Re-enable transition
 
     //if dragged down enough, close it
     if (currentY - startY > 500) {
         closePopup();
     } else {
         //Return to normal
-        popup.style.transform = 'translateY(0)';
+        popUp.style.transform = 'translateY(0)';
     }
 });
 
 function closePopup() {
-    popup.style.bottom = '-100%';
-    popup.style.transform = 'translateY(0)';
+    popUp.style.bottom = '-100%';
+    popUp.style.transform = 'translateY(0)';
     setTimeout(() => {
-        popup.style.display = 'none';
+        popUp.style.display = 'none';
         overlay.style.display = 'none';
         exitBtn.style.display = 'block';
     }, 300);
@@ -375,95 +374,93 @@ exitBtn.addEventListener('click', () => {
     // exitBtn.style.display = 'block';
 })
 
+// Percentage-change updater (uses markets result when available or fallback)
+(async function changeColumnUpdater() {
+    async function updateChangeColumn() {
+        try {
+            const cards = Array.from(document.querySelectorAll('.listed-card, .trending-card'));
+            if (!cards.length) return;
+            const map = [];
+            const ids = [];
+            cards.forEach(card => {
+                const coinVal = card.querySelector('.coin-value');
+                let uiKey = coinVal?.dataset?.coin?.trim?.().toLowerCase() || '';
+                if (!uiKey) {
+                    const ticker = card.querySelector('.coin-ticker');
+                    if (ticker) uiKey = ticker.textContent.replace(/^\s*\$?/, '').trim().toLowerCase();
+                }
+                if (!uiKey) return;
+                const apiId = (window.coinIdMap && (window.coinIdMap[uiKey] || uiKey)) || uiKey;
+                if (!apiId) return;
+                ids.push(apiId);
+                map.push({ card, apiId });
+            });
+            const uniqueIds = [...new Set(ids)].filter(Boolean);
+            if (!uniqueIds.length) return;
 
-
-    // Percentage-change updater (uses markets result when available or fallback)
-    (async function changeColumnUpdater() {
-        async function updateChangeColumn() {
+            const marketsUrl = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${encodeURIComponent(uniqueIds.join(','))}&order=market_cap_desc&per_page=250&page=1&sparkline=false&price_change_percentage=24h`;
+            let dataArr = [];
             try {
-                const cards = Array.from(document.querySelectorAll('.listed-card, .trending-card'));
-                if (!cards.length) return;
-                const map = [];
-                const ids = [];
-                cards.forEach(card => {
-                    const coinVal = card.querySelector('.coin-value');
-                    let uiKey = coinVal?.dataset?.coin?.trim?.().toLowerCase() || '';
-                    if (!uiKey) {
-                        const ticker = card.querySelector('.coin-ticker');
-                        if (ticker) uiKey = ticker.textContent.replace(/^\s*\$?/, '').trim().toLowerCase();
-                    }
-                    if (!uiKey) return;
-                    const apiId = (window.coinIdMap && (window.coinIdMap[uiKey] || uiKey)) || uiKey;
-                    if (!apiId) return;
-                    ids.push(apiId);
-                    map.push({ card, apiId });
-                });
-                const uniqueIds = [...new Set(ids)].filter(Boolean);
-                if (!uniqueIds.length) return;
+                const r = await fetch(marketsUrl);
+                if (r.ok) dataArr = await r.json();
+            } catch (err) { console.warn('markets fetch failed', err); }
 
-                const marketsUrl = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${encodeURIComponent(uniqueIds.join(','))}&order=market_cap_desc&per_page=250&page=1&sparkline=false&price_change_percentage=24h`;
-                let dataArr = [];
-                try {
-                    const r = await fetch(marketsUrl);
-                    if (r.ok) dataArr = await r.json();
-                } catch (err) { console.warn('markets fetch failed', err); }
+            const dataById = {};
+            (Array.isArray(dataArr) ? dataArr : []).forEach(it => { if (it && it.id) dataById[it.id] = it; });
 
-                const dataById = {};
-                (Array.isArray(dataArr) ? dataArr : []).forEach(it => { if (it && it.id) dataById[it.id] = it; });
-
-                function fallbackChange() {
-                    return (Math.random() * 40 - 20); // -20% to +20% range for more realistic crypto volatility
-                }
-
-                function formatPercentage(value) {
-                    const abs = Math.abs(value);
-                    // For extreme changes (>1000%), show fewer decimals
-                    const decimals = abs >= 1000 ? 0 : 2;
-                    const sign = value >= 0 ? '+' : '';
-                    return `${sign}${value.toFixed(decimals)}%`;
-                }
-
-                map.forEach(({ card, apiId }) => {
-                    const pcEl = card.querySelector('.percentage-change');
-                    if (!pcEl) return;
-                    const entry = dataById[apiId];
-                    let change = null;
-                    let source = 'unknown';
-
-                    if (entry && typeof entry.price_change_percentage_24h === 'number') {
-                        change = Number(entry.price_change_percentage_24h);
-                        source = 'api';
-                    } else if (window.previousPrices && window.previousPrices[apiId]) {
-                        const prev = window.previousPrices[apiId];
-                        const curr = entry?.current_price;
-                        if (prev && curr) {
-                            change = ((curr - prev) / prev) * 100;
-                            source = 'computed';
-                        }
-                    }
-
-                    if (change === null) {
-                        change = fallbackChange();
-                        source = 'fallback';
-                    }
-
-                    // Log extreme changes to help debug
-                    if (Math.abs(change) > 1000) {
-                        console.warn(`Extreme change detected for ${apiId}: ${change.toFixed(2)}% (${source})`);
-                    }
-
-                    pcEl.textContent = formatPercentage(change);
-                    pcEl.classList.remove('positive', 'negative');
-                    pcEl.classList.add(change >= 0 ? 'positive' : 'negative');
-                });
-
-            } catch (err) {
-                console.error('Update change column failed:', err);
+            function fallbackChange() {
+                return (Math.random() * 40 - 20); // -20% to +20% range for more realistic crypto volatility
             }
+
+            function formatPercentage(value) {
+                const abs = Math.abs(value);
+                // For extreme changes (>1000%), show fewer decimals
+                const decimals = abs >= 1000 ? 0 : 2;
+                const sign = value >= 0 ? '+' : '';
+                return `${sign}${value.toFixed(decimals)}%`;
+            }
+
+            map.forEach(({ card, apiId }) => {
+                const pcEl = card.querySelector('.percentage-change');
+                if (!pcEl) return;
+                const entry = dataById[apiId];
+                let change = null;
+                let source = 'unknown';
+
+                if (entry && typeof entry.price_change_percentage_24h === 'number') {
+                    change = Number(entry.price_change_percentage_24h);
+                    source = 'api';
+                } else if (window.previousPrices && window.previousPrices[apiId]) {
+                    const prev = window.previousPrices[apiId];
+                    const curr = entry?.current_price;
+                    if (prev && curr) {
+                        change = ((curr - prev) / prev) * 100;
+                        source = 'computed';
+                    }
+                }
+
+                if (change === null) {
+                    change = fallbackChange();
+                    source = 'fallback';
+                }
+
+                // Log extreme changes to help debug
+                if (Math.abs(change) > 1000) {
+                    console.warn(`Extreme change detected for ${apiId}: ${change.toFixed(2)}% (${source})`);
+                }
+
+                pcEl.textContent = formatPercentage(change);
+                pcEl.classList.remove('positive', 'negative');
+                pcEl.classList.add(change >= 0 ? 'positive' : 'negative');
+            });
+
+        } catch (err) {
+            console.error('Update change column failed:', err);
         }
-        await updateChangeColumn();
-        setInterval(updateChangeColumn, POLL_INTERVAL_MS);
-    })();
+    }
+    await updateChangeColumn();
+    setInterval(updateChangeColumn, POLL_INTERVAL_MS);
+})();
 
 // Start price updates and schedule
 updateCryptoPrices();

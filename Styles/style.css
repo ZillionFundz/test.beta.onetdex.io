@@ -450,7 +450,7 @@ body {
     /* height: 250px; */
     width: 100%;
     max-width: 700px;
-    max-height: 65%;
+    max-height: 60%;
     /* background: #dce7f8; */
     background: linear-gradient(#dce7f8, #5025d1);
     margin: 0px;
@@ -459,8 +459,6 @@ body {
     position: fixed;
     z-index: 1;
     transform: translate(0%, 0%);
-    /* left: 0;
-    right: 0; */
     bottom: -100%;
     transition: bottom 0.5s ease;
     touch-action: none;
@@ -570,13 +568,21 @@ body {
 .listed-popup {
     font-size: clamp(14px, 0.5vw, 100px);
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-direction: column;
     gap: 5px;
     background: #6c6583;
     margin: 0px;
-    padding: 5px 5px 50px;
+    padding: 5px 5px 180px;
+    overflow-y: auto;
+    /* padding-bottom: 200px; */
+    /* SCROLL SMOOTHING FOR POPUP LIST HERE:👇 */
+    max-height: 65vh;
+    /* or keep your existing percentage-based value */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+
 }
 
 .popup-card {
@@ -589,7 +595,7 @@ body {
     background: #545474;
     border-radius: 5px;
     margin: 0px;
-    padding: 0px 10px;
+    padding: 5px 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;

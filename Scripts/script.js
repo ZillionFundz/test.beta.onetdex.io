@@ -343,7 +343,7 @@ popUp.addEventListener('touchend', () => {
     popUp.style.transition = 'bottom 0.5s ease, transform 0.25s ease'; // Re-enable transition
 
     //if dragged down enough, close it
-    if (currentY - startY > 500) {
+    if (currentY - startY > 255) {
         closePopup();
     } else {
         //Return to normal
@@ -357,7 +357,7 @@ function closePopup() {
     setTimeout(() => {
         popUp.style.display = 'none';
         overlay.style.display = 'none';
-        exitBtn.style.display = 'block';
+        // exitBtn.style.display = 'block';
     }, 300);
 }
 

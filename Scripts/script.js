@@ -343,7 +343,7 @@ popUp.addEventListener('touchend', () => {
     popUp.style.transition = 'bottom 0.5s ease, transform 0.25s ease'; // Re-enable transition
 
     //if dragged down enough, close it
-    if (currentY - startY > 255) {
+    if (currentY - startY > 350) {
         closePopup();
     } else {
         //Return to normal

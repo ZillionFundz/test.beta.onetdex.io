@@ -438,7 +438,7 @@ body {
 .overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.2);
     display: none;
 }
 
@@ -450,8 +450,9 @@ body {
     /* height: 250px; */
     width: 100%;
     max-width: 700px;
-    max-height: 70%;
-    background: #dce7f8;
+    max-height: 65%;
+    /* background: #dce7f8; */
+    background: linear-gradient(#dce7f8, #5025d1);
     margin: 0px;
     padding: 5px 5px 25px;
     border-radius: 30px 30px 0px 0px;
@@ -477,6 +478,7 @@ body {
     border: 1px dashed #424244;
     margin: 0px;
     padding: 10px;
+    border-bottom: 4px solid #424244;
 }
 
 .exit-btn {
@@ -492,6 +494,7 @@ body {
 
 .popup-icon {
     color: #fff;
+    font-size: clamp(16px, 2vh, 100px);
 
 }
 
@@ -531,7 +534,8 @@ body {
 }
 
 .search-token {
-    min-width: 98%;
+    width: 100%;
+    max-width: 85%;
     padding: 8px 12px;
     font-size: clamp(16px, 0.4vw, 100px);
     border: 1px solid #ccc;
@@ -541,6 +545,26 @@ body {
 
 .search-token::placeholder {
     color: #aaaaf0;
+}
+
+.swap-networks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    padding: 5px 4px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.network-btn {
+    margin: 0px;
+    padding: 2px;
+    background: none;
+    border: none;
+    font-size: clamp(16px, 0.5vw, 100px);
+    color: #dce7f8;
+
 }
 
 .listed-popup {
@@ -1043,7 +1067,7 @@ body {
     width: 100%;
     min-height: 70px;
     position: fixed;
-    z-index: 2;
+    z-index: 0;
     margin: 0px;
     padding: 10px 65px;
     bottom: 0;

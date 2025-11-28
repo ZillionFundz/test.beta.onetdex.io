@@ -321,7 +321,7 @@ body {
 .network-badge img {
     width: 18px;
     height: 18px;
-    border: 0.2px solid #6b6b6b;
+    border: 0.8px solid #505050;
     border-radius: 50%;
 }
 
@@ -329,7 +329,7 @@ body {
     width: 30px;
     height: 30px;
     /* border: 0.1px solid #6b6b6b; */
-    border: 0.2px solid #01e962;
+    border: 1px solid #01e962;
     border-radius: 50%;
     margin: 0px;
     padding: 1px;
@@ -450,7 +450,7 @@ body {
     /* height: 250px; */
     width: 100%;
     max-width: 700px;
-    max-height: 60%;
+    max-height: 66%;
     /* background: #dce7f8; */
     background: linear-gradient(#dce7f8, #5025d1);
     margin: 0px;
@@ -600,6 +600,15 @@ body {
     justify-content: space-between;
     align-items: center;
     gap: 4px;
+    cursor: pointer;
+}
+
+.popup-card:hover {
+    background: #444468;
+}
+
+.popup-card:active {
+    border: 1px solid #111;
 }
 
 .transaction {

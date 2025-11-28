@@ -365,14 +365,14 @@ overlay.addEventListener('click', () => {
     overlay.style.display = 'none';
     popUp.style.display = 'none';
     popUp.style.bottom = '-100%';
-})
+});
 
 exitBtn.addEventListener('click', () => {
     overlay.style.display = 'none';
-    popup.style.display = 'none';
-    popup.style.bottom = '-100%';
+    popUp.style.display = 'none';
+    popUp.style.bottom = '-100%';
     // exitBtn.style.display = 'block';
-})
+});
 
 // Percentage-change updater (uses markets result when available or fallback)
 (async function changeColumnUpdater() {
@@ -485,4 +485,5 @@ if (viewMoreBtn) {
 }
 
 // End of script.js
+
 

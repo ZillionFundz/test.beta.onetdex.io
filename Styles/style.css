@@ -118,7 +118,7 @@ body {
     flex-direction: column;
     font-family: Arial, Helvetica, sans-serif;
     font-size: clamp(12px, 0.5vw, 100px);
-    margin: 10px 0px 5px;
+    margin: 5px 0px 5px;
 }
 
 .balance-details {
@@ -313,15 +313,15 @@ body {
 
 .network-badge {
     /* left: 50%; */
-    right: -5px;
+    right: -8px;
     bottom: -5px;
     position: absolute;
 }
 
 .network-badge img {
-    width: 15px;
-    height: 15px;
-    border: 0.1px solid #6b6b6b;
+    width: 18px;
+    height: 18px;
+    border: 0.2px solid #6b6b6b;
     border-radius: 50%;
 }
 
@@ -329,7 +329,7 @@ body {
     width: 30px;
     height: 30px;
     /* border: 0.1px solid #6b6b6b; */
-    border: 0.1px solid #31e67c;
+    border: 0.2px solid #01e962;
     border-radius: 50%;
     margin: 0px;
     padding: 1px;
@@ -430,8 +430,56 @@ body {
     margin: 0px 2px;
 }
 
+/*Actual Popup Codes Start here:...👇*/
 .popup-box {
     display: none;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    display: none;
+}
+
+.popup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 250px;
+    width: 100%;
+    max-width: 380px;
+    background: #dce7f8;
+    margin: 0px;
+    padding: 10px 15px 25px;
+    border-radius: 30px 30px 0px 0px;
+    position: fixed;
+    transform: translate(0%, 0%);
+    /* left: 0;
+    right: 0; */
+    bottom: -100%;
+    transition: bottom 0.5s ease;
+    touch-action: none;
+    display: none;
+    box-shadow: 0px -4px 12px 4px rgba(18, 38, 63, 0.2);
+
+}
+
+.handle-bar {
+    width: 50px;
+    height: 5px;
+    background: #aaaaaa;
+    border-radius: 3px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.popup h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(14px, 2vh, 100px);
+    text-align: center;
+    padding: 25px 0px 2px;
 }
 
 .transaction {
@@ -441,7 +489,7 @@ body {
     gap: 4px;
     /* width: 60vw; */
     /* background: red; */
-    margin: 10px 0px 5px;
+    margin: 5px 0px 5px;
 }
 
 .trx-buttons {

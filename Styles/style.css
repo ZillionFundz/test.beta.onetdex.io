@@ -450,6 +450,7 @@ body {
     /* height: 250px; */
     width: 100%;
     max-width: 700px;
+    max-height: 70%;
     background: #dce7f8;
     margin: 0px;
     padding: 5px 5px 25px;

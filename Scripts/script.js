@@ -361,7 +361,6 @@ function closePopup() {
     setTimeout(() => {
         popUp.style.display = 'none';
         overlay.style.display = 'none';
-        // exitBtn.style.display = 'block';
     }, 300);
 }
 
@@ -380,7 +379,6 @@ exitBtn.addEventListener('click', () => {
 });
 
 swapSwitchBtn.addEventListener('click', () => {
-    // swapSwitchIcon.style.translateX = 'rotate(360deg)';
     let isDefault = false;
     if (!isDefault) {
         const temp = fromCoinTicker.textContent;
@@ -393,7 +391,7 @@ swapSwitchBtn.addEventListener('click', () => {
         toCoinTicker.textContent = temp;
         isDefault = false;
     }
-    // isDefault = false;
+
 });
 
 

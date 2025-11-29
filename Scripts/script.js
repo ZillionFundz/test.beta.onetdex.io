@@ -303,6 +303,7 @@ toggleEye.addEventListener('click', () => {
 const fromCoinTicker = document.getElementById('swap-from-ticker');
 const toCoinTicker = document.getElementById('swap-to-ticker');
 const fromCoinBtn = document.getElementById('swap-from-button');
+const toCoinBtn = document.getElementById('swap-to-button');
 const fromCoinAmount = document.getElementById('swap-from-amount');
 const popUp = document.getElementById('popup');
 const overlay = document.getElementById('swap-overlay');
@@ -316,6 +317,15 @@ const swapNetworkLogo = document.getElementById('swap-network-Logo');
 
 
 fromCoinBtn.addEventListener('click', () => {
+    overlay.style.display = 'block';
+    popUp.style.display = 'block';
+    popUp.style.marginTop = '20px';
+    setTimeout(() => {
+        popUp.style.bottom = '0%';
+    }, 200);
+});
+
+toCoinBtn.addEventListener('click', () => {
     overlay.style.display = 'block';
     popUp.style.display = 'block';
     popUp.style.marginTop = '20px';

@@ -405,10 +405,13 @@ const swapBLogo = swapToLogo;
 let srcA = swapALogo.getAttribute("src");
 let srcB = swapBLogo.getAttribute("src");
 
+//When user chooses a new token from first option to swap, update the logos accordingly
 function swapChoiceA(newSrc) {
     swapALogo.src = newSrc;
     srcA = newSrc;
 }
+
+//When user chooses a new token from second option to swap, update the logos accordingly
 function swapChoiceB(newSrc) {
     swapBLogo.src = newSrc;
     srcB = newSrc;

@@ -595,10 +595,12 @@ body {
     border: 1px solid #ccc;
     border-radius: 8px;
     background: none;
+    text-transform: uppercase;
 }
 
 .search-token::placeholder {
     color: #aaaaf0;
+    text-transform: lowercase;
 }
 
 .swap-networks {

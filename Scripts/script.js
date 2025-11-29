@@ -310,6 +310,9 @@ const exitBtn = document.getElementById('exit-btn');
 const searchToken = document.getElementById('search-token');
 const swapSwitchBtn = document.getElementById('swap-switch');
 const swapSwitchIcon = document.getElementById('swap-switch-icon');
+const swapFromLogo = document.getElementById('swap-from-logo');
+const swapToLogo = document.getElementById('swap-to-logo');
+const swapNetworkLogo = document.getElementById('swap-network-Logo');
 
 
 fromCoinBtn.addEventListener('click', () => {
@@ -378,6 +381,7 @@ exitBtn.addEventListener('click', () => {
     searchToken.value = '';
 });
 
+//Clicking the Inter-Switch button changes the Swapping order: (From and To).
 swapSwitchBtn.addEventListener('click', () => {
     let isDefault = false;
     if (!isDefault) {
@@ -392,6 +396,28 @@ swapSwitchBtn.addEventListener('click', () => {
         isDefault = false;
     }
 
+});
+
+//Clicking the Inter-Switch button changes the Swapping icon order: (From and To).
+
+const swapALogo = swapFromLogo;
+const swapBLogo = swapToLogo;
+let srcA = swapALogo.getAttribute("src");
+let srcB = swapBLogo.getAttribute("src");
+
+function swapChoiceA(newSrc) {
+    swapALogo.src = newSrc;
+    srcA = newSrc;
+}
+function swapChoiceB(newSrc) {
+    swapBLogo.src = newSrc;
+    srcB = newSrc;
+}
+swapSwitchBtn.addEventListener('click', () => {
+    [srcA, srcB] = [srcB, srcA];
+
+    swapALogo.src = srcA;
+    swapBLogo.src = srcB;
 });
 
 

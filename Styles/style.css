@@ -308,24 +308,27 @@ body {
     align-items: center;
     flex-direction: column;
     gap: 2px;
+}
+
+.wrap-swap-logos {
     position: relative;
 }
 
-.network-badge {
+.swap-network {
     /* left: 50%; */
     right: -8px;
     bottom: -5px;
     position: absolute;
 }
 
-.network-badge img {
+.swap-network img {
     width: 18px;
     height: 18px;
     border: 0.8px solid #505050;
     border-radius: 50%;
 }
 
-.chosen-logo {
+.swap-logo {
     width: 30px;
     height: 30px;
     /* border: 0.1px solid #6b6b6b; */

@@ -301,11 +301,15 @@ toggleEye.addEventListener('click', () => {
 
 //POPUP NOTIFICATIONS AND ANIMATED PAGES START HERE:...👇
 const fromCoinTicker = document.getElementById('swap-from-ticker');
+const toCoinTicker = document.getElementById('swap-to-ticker');
 const fromCoinBtn = document.getElementById('swap-from-button');
 const fromCoinAmount = document.getElementById('swap-from-amount');
 const popUp = document.getElementById('popup');
 const overlay = document.getElementById('swap-overlay');
 const exitBtn = document.getElementById('exit-btn');
+const searchToken = document.getElementById('search-token');
+const swapSwitchBtn = document.getElementById('swap-switch');
+const swapSwitchIcon = document.getElementById('swap-switch-icon');
 
 
 fromCoinBtn.addEventListener('click', () => {
@@ -365,14 +369,34 @@ overlay.addEventListener('click', () => {
     overlay.style.display = 'none';
     popUp.style.display = 'none';
     popUp.style.bottom = '-100%';
+    searchToken.value = '';
 });
 
 exitBtn.addEventListener('click', () => {
     overlay.style.display = 'none';
     popUp.style.display = 'none';
     popUp.style.bottom = '-100%';
-    // exitBtn.style.display = 'block';
+    searchToken.value = '';
 });
+
+swapSwitchBtn.addEventListener('click', () => {
+    // swapSwitchIcon.style.translateX = 'rotate(360deg)';
+    let isDefault = false;
+    if (!isDefault) {
+        const temp = fromCoinTicker.textContent;
+        fromCoinTicker.textContent = toCoinTicker.textContent;
+        toCoinTicker.textContent = temp;
+        isDefault = true;
+    } else {
+        const temp = fromCoinTicker.textContent;
+        fromCoinTicker.textContent = toCoinTicker.textContent;
+        toCoinTicker.textContent = temp;
+        isDefault = false;
+    }
+    // isDefault = false;
+});
+
+
 
 // Percentage-change updater (uses markets result when available or fallback)
 (async function changeColumnUpdater() {

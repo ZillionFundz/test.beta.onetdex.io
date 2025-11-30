@@ -467,15 +467,28 @@ body {
     border-bottom: 0.5px solid rgba(0, 0, 0, 0.3);
 }
 
-.warning-span {
+.error-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-message {
     font-size: clamp(12px, 0.4vw, 100px);
     color: #f83838;
+    display: none;
 }
 
 .fa-circle-info {
     font-size: clamp(12px, 0.4vw, 100px);
-    color: #f83838;
+    /* color: #f83838; */
+    color: #dadcdf;
     margin: 0px 2px;
+    display: block;
+}
+
+.fa-circle-info:hover {
+    color: #dadcdf;
 }
 
 /*Actual Popup Codes Start here:...👇*/

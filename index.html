@@ -75,7 +75,10 @@
                     </div>
                     <div class="swap-entry">
                         <input id="swap-from-amount" class="swap-from-amount" type="text" placeholder="USD $:">
-                        <span class="warning-span"><i class="fa-solid fa-circle-info"></i>Low on funds...!</span>
+                        <div class="error-box">
+                            <i id="circle-info" class="fa-solid fa-circle-info"></i>
+                            <span id="error-message" class="error-message"></span>
+                        </div>
                     </div>
                 </div>
                 <button id="swap-switch" class="swap-switch-btn">
@@ -102,10 +105,12 @@
                     <div class="swap-entry">
                         <!-- <input id="swap-to-amount" type="text" placeholder="$0.0000"> -->
                         <span id="swap-to-amount" class="swap-to-amount">$0.0000</span>
-                        <span class="warning-span"><i class="fa-solid fa-circle-info"></i></span>
+                        <div class="error-box">
+                            <i id="circle-info" class="fa-solid fa-circle-info"></i>
+                            <!-- <span class="error-message">Low on funds...!</span> -->
+                        </div>
                     </div>
                 </div>
-
             </div>
             <div class="transaction">
                 <button id="buy" class="trx-buttons">

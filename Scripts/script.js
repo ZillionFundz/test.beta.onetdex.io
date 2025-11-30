@@ -305,6 +305,7 @@ const toCoinTicker = document.getElementById('swap-to-ticker');
 const fromCoinBtn = document.getElementById('swap-from-button');
 const toCoinBtn = document.getElementById('swap-to-button');
 const fromCoinAmount = document.getElementById('swap-from-amount');
+const toCoinAmount = document.getElementById('swap-to-amount');
 const popUp = document.getElementById('popup');
 const overlay = document.getElementById('swap-overlay');
 const exitBtn = document.getElementById('exit-btn');
@@ -314,6 +315,11 @@ const swapSwitchIcon = document.getElementById('swap-switch-icon');
 const swapFromLogo = document.getElementById('swap-from-logo');
 const swapToLogo = document.getElementById('swap-to-logo');
 const swapNetworkLogo = document.getElementById('swap-network-Logo');
+const swapBtn = document.getElementById('swap');
+const errorMessage = document.getElementById('error-message');
+const circleInfo = document.getElementById('circle-info');
+
+
 
 
 fromCoinBtn.addEventListener('click', () => {
@@ -409,7 +415,6 @@ swapSwitchBtn.addEventListener('click', () => {
 });
 
 //Clicking the Inter-Switch button changes the Swapping icon order: (From and To).
-
 const swapALogo = swapFromLogo;
 const swapBLogo = swapToLogo;
 let srcA = swapALogo.getAttribute("src");
@@ -433,6 +438,35 @@ swapSwitchBtn.addEventListener('click', () => {
     swapBLogo.src = srcB;
 });
 
+//WSAPPING ERROR HERE....!
+swapBtn.addEventListener('click', () => {
+
+    try {
+        const rawValue = fromCoinAmount.value.trim();
+
+        if (rawValue === "") {
+            throw new Error("Enter amount...!");
+        }
+
+        const amount = Number(rawValue);
+        if (isNaN(amount)) {
+            throw new Error("invalid input!");
+        }
+
+        if (amount < 2) {
+            throw new Error("Minimum Swap = $2");
+        }
+
+        errorMessage.style.display = "none";
+        circleInfo.style.color = "#dadcdf";
+
+    } catch (err) {
+        errorMessage.style.display = "block";
+        errorMessage.textContent = err.message;
+        circleInfo.style.color = "#f83838";
+    }
+
+});
 
 
 // Percentage-change updater (uses markets result when available or fallback)

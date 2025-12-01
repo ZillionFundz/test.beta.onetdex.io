@@ -390,6 +390,8 @@ overlay.addEventListener('click', () => {
     searchToken.value = '';
 
     //FOR CLOSING THE NOTIFICATION POPUP
+    fromCoinAmount.value = '';
+    toCoinAmount.textContent = '$0.0000';
     notificationPopup.style.display = "none";
 });
 
@@ -474,6 +476,8 @@ swapBtn.addEventListener('click', () => {
 });
 
 notificationOk.addEventListener('click', () => {
+    fromCoinAmount.value = '';
+    toCoinAmount.textContent = '$0.0000';
     notificationPopup.style.display = "none";
     overlay.style.display = "none";
 });

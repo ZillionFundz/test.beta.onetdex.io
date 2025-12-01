@@ -334,7 +334,7 @@ body {
     margin: 0px;
     padding: 5px 5px;
     width: 50%;
-    min-height: 125px;
+    min-height: 130px;
     gap: 10px;
     background: #dadcdf;
     border: 0.1px solid #000;
@@ -549,7 +549,7 @@ body {
 .overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.1);
     display: none;
     z-index: 2;
 }

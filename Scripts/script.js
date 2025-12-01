@@ -318,8 +318,8 @@ const swapNetworkLogo = document.getElementById('swap-network-Logo');
 const swapBtn = document.getElementById('swap');
 const errorMessage = document.getElementById('error-message');
 const circleInfo = document.getElementById('circle-info');
-
-
+const notificationPopup = document.getElementById('notification-popup');
+const notificationOk = document.getElementById('notification-ok');
 
 
 fromCoinBtn.addEventListener('click', () => {
@@ -388,6 +388,9 @@ overlay.addEventListener('click', () => {
     popUp.style.display = 'none';
     popUp.style.bottom = '-100%';
     searchToken.value = '';
+
+    //FOR CLOSING THE NOTIFICATION POPUP
+    notificationPopup.style.display = "none";
 });
 
 exitBtn.addEventListener('click', () => {
@@ -459,6 +462,8 @@ swapBtn.addEventListener('click', () => {
 
         errorMessage.style.display = "none";
         circleInfo.style.color = "#dadcdf";
+        notificationPopup.style.display = "block";
+        overlay.style.display = "block";
 
     } catch (err) {
         errorMessage.style.display = "block";
@@ -466,6 +471,11 @@ swapBtn.addEventListener('click', () => {
         circleInfo.style.color = "#f83838";
     }
 
+});
+
+notificationOk.addEventListener('click', () => {
+    notificationPopup.style.display = "none";
+    overlay.style.display = "none";
 });
 
 

@@ -393,6 +393,7 @@ overlay.addEventListener('click', () => {
     fromCoinAmount.value = '';
     toCoinAmount.textContent = '$0.0000';
     notificationPopup.style.display = "none";
+    document.body.classList.remove("no-scroll");
 });
 
 exitBtn.addEventListener('click', () => {
@@ -464,6 +465,7 @@ swapBtn.addEventListener('click', () => {
 
         errorMessage.style.display = "none";
         circleInfo.style.color = "#dadcdf";
+        document.body.classList.add("no-scroll");
         notificationPopup.style.display = "block";
         overlay.style.display = "block";
 
@@ -478,6 +480,7 @@ swapBtn.addEventListener('click', () => {
 notificationOk.addEventListener('click', () => {
     fromCoinAmount.value = '';
     toCoinAmount.textContent = '$0.0000';
+    document.body.classList.remove("no-scroll");
     notificationPopup.style.display = "none";
     overlay.style.display = "none";
 });

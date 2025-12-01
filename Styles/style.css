@@ -27,6 +27,10 @@ body {
     padding: 0px;
 }
 
+.no-scroll {
+    overflow: hidden;
+}
+
 /* explicit weights so you can notice changes */
 .coin-ticker {
     font-weight: 700;
@@ -330,7 +334,7 @@ body {
     margin: 0px;
     padding: 5px 5px;
     width: 50%;
-    min-height: 120px;
+    min-height: 125px;
     gap: 10px;
     background: #dadcdf;
     border: 0.1px solid #000;

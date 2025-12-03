@@ -382,6 +382,8 @@ function closePopup() {
     setTimeout(() => {
         popUp.style.display = 'none';
         overlay.style.display = 'none';
+        document.body.classList.remove("no-scroll");
+        searchToken.value = '';
     }, 300);
 }
 
@@ -403,6 +405,7 @@ exitBtn.addEventListener('click', () => {
     popUp.style.display = 'none';
     popUp.style.bottom = '-100%';
     searchToken.value = '';
+    document.body.classList.remove("no-scroll");
 });
 
 //Clicking the Inter-Switch button changes the Swapping order: (From and To).

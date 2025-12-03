@@ -1223,6 +1223,9 @@ body {
 
 
 .more-listed button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: none;
     margin: 4px;
     padding: 10px 25px;
@@ -1230,7 +1233,12 @@ body {
     border-radius: 10px;
     color: #68ffb8;
     border: 1px solid #424244;
-    /* width: 100%; */
+    gap: 10px;
+}
+
+.fa-view-more {
+    color: #d3d2d2;
+    font-size: clamp(16px, 0.5vw, 100px);
 }
 
 .more-listed button:hover {

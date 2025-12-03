@@ -334,6 +334,7 @@ fromCoinBtn.addEventListener('click', () => {
 });
 
 toCoinBtn.addEventListener('click', () => {
+    document.body.classList.add("no-scroll");
     overlay.style.display = 'block';
     popUp.style.display = 'block';
     popUp.style.marginTop = '20px';

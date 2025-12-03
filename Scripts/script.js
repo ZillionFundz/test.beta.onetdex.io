@@ -102,7 +102,8 @@ window.coinIdMap = {
     ice: 'ice',
     one: 'harmony',
     dogs: 'dogs-2',
-    dogecoin: 'dogecoin'
+    dogecoin: 'dogecoin',
+    tether: 'tether'
 };
 
 // Price formatting
@@ -241,7 +242,7 @@ async function updateCryptoPrices() {
             }
 
             // update holding amount if present
-            const container = target.closest('.listed-card') || target.closest('.trending-card') || target.parentElement;
+            const container = target.closest('.listed-card') || target.closest('.trending-card') || target.closest('.popup-card') || target.parentElement;
             if (container) {
                 const volumeEl = container.querySelector('.coin-volume');
                 const amountEl = container.querySelector('.coin-amount');
@@ -323,6 +324,7 @@ const notificationOk = document.getElementById('notification-ok');
 
 
 fromCoinBtn.addEventListener('click', () => {
+    document.body.classList.add("no-scroll");
     overlay.style.display = 'block';
     popUp.style.display = 'block';
     popUp.style.marginTop = '20px';

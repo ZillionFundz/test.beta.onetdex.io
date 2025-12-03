@@ -571,7 +571,7 @@ body {
     /* height: 250px; */
     width: 100%;
     max-width: 700px;
-    max-height: 50%;
+    max-height: 55%;
     /* background: #dce7f8; */
     background: linear-gradient(#dce7f8, #5025d1);
     margin: 0px;
@@ -714,7 +714,7 @@ body {
     gap: 5px;
     background: #6c6583;
     margin: 0px;
-    padding: 5px 5px 155px;
+    padding: 5px 5px 220px;
     overflow-y: auto;
     /* padding-bottom: 200px; */
     /* SCROLL SMOOTHING FOR POPUP LIST HERE:👇 */
@@ -1144,7 +1144,7 @@ body {
     gap: 5px;
     background: #6c6583;
     margin: 0px;
-    padding: 5px 5px 80px;
+    padding: 5px 5px 65px;
 }
 
 .listed-card {
@@ -1158,9 +1158,6 @@ body {
     border-radius: 5px;
     margin: 0px;
     padding: 0px 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     gap: 4px;
 }
 
@@ -1211,15 +1208,29 @@ body {
     text-align: center;
 }
 
+.more-listed {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 100%;
+    height: 62px;
+    background: #545474;
+    border-radius: 5px;
+    margin: 0px;
+    padding: 0px 10px;
+    gap: 4px;
+}
+
 
 .more-listed button {
     background: none;
     margin: 4px;
-    padding: 5px 10px;
-    border: none;
+    padding: 10px 25px;
+    /* border: none; */
     border-radius: 10px;
     color: #68ffb8;
     border: 1px solid #424244;
+    /* width: 100%; */
 }
 
 .more-listed button:hover {

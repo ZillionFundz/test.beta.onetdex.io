@@ -978,6 +978,19 @@ body {
     color: #b8b8b8;
 }
 
+.popup-coin-volume {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: clamp(14px, 0.5vw, 100px);
+    font-weight: bold;
+    color: #dfdede;
+}
+
+.popup-coin-amount {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: clamp(12px, 0.5vw, 100px);
+    color: #b8b8b8;
+}
+
 .percentage-change {
     display: flex;
     justify-content: center;

@@ -589,15 +589,27 @@ const viewMoreBtn = document.getElementById('viewMoreBtn');
 if (viewMoreBtn) {
     viewMoreBtn.addEventListener('click', function () {
         const hiddenCoins = document.querySelectorAll('.hidden-coin');
+
+        // Toggle logic
+        let isOpening = true;
+
         hiddenCoins.forEach(coin => {
             if (coin.classList.contains('visible')) {
+                isOpening = false;
                 coin.classList.remove('visible');
                 this.textContent = 'View More';
             } else {
                 coin.classList.add('visible');
-                this.textContent = 'View Less';
             }
         });
+
+        // Update button content + icon
+        if (isOpening) {
+            this.innerHTML = 'View Less <i class="fa fa-chevron-up"></i>';
+        } else {
+            this.innerHTML = 'View More <i class="fa fa-chevron-down"></i>';
+        }
+
         updateCryptoPrices();
     });
 }

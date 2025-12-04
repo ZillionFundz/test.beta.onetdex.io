@@ -301,8 +301,8 @@ toggleEye.addEventListener('click', () => {
 });
 
 //POPUP NOTIFICATIONS AND ANIMATED PAGES START HERE:...👇
-const fromCoinTicker = document.getElementById('swap-from-ticker');
-const toCoinTicker = document.getElementById('swap-to-ticker');
+const fromCoinTicker = document.getElementById('chosen-ticker-from');
+const toCoinTicker = document.getElementById('chosen-ticker-to');
 const fromCoinBtn = document.getElementById('swap-from-button');
 const toCoinBtn = document.getElementById('swap-to-button');
 const fromCoinAmount = document.getElementById('swap-from-amount');
@@ -313,8 +313,8 @@ const exitBtn = document.getElementById('exit-btn');
 const searchToken = document.getElementById('search-token');
 const swapSwitchBtn = document.getElementById('swap-switch');
 const swapSwitchIcon = document.getElementById('swap-switch-icon');
-const swapFromLogo = document.getElementById('swap-from-logo');
-const swapToLogo = document.getElementById('swap-to-logo');
+const swapFromLogo = document.getElementById('chosen-logo-from');
+const swapToLogo = document.getElementById('chosen-logo-to');
 const swapNetworkLogo = document.getElementById('swap-network-Logo');
 const swapBtn = document.getElementById('swap');
 const errorMessage = document.getElementById('error-message');
@@ -323,31 +323,71 @@ const notificationPopup = document.getElementById('notification-popup');
 const notificationOk = document.getElementById('notification-ok');
 
 
+// SELECTING A COIN FROM THE POPUP CARDS:...👇
+const popupCards = document.querySelectorAll('.popup-card');
+const chosenLogoFrom = document.getElementById('chosen-logo-from');
+const chosenLogoTo = document.getElementById('chosen-logo-to');
+const chosenTickerFrom = document.getElementById('chosen-ticker-from');
+const chosenTickerTo = document.getElementById('chosen-ticker-to');
+
+
+
+let currentSelection = null;
+// can be "from" or "to"
+
+// FROM button
 fromCoinBtn.addEventListener('click', () => {
-    document.body.classList.add("no-scroll");
-    overlay.style.display = 'block';
-    popUp.style.display = 'block';
-    popUp.style.marginTop = '20px';
-    setTimeout(() => {
-        popUp.style.bottom = '0%';
-    }, 200);
+    currentSelection = "from";
+    openPopup();
 });
 
+// TO button
 toCoinBtn.addEventListener('click', () => {
+    currentSelection = "to";
+    openPopup();
+});
+
+function openPopup() {
     document.body.classList.add("no-scroll");
     overlay.style.display = 'block';
     popUp.style.display = 'block';
     popUp.style.marginTop = '20px';
+
     setTimeout(() => {
         popUp.style.bottom = '0%';
     }, 200);
+}
+
+// Add click listeners ONCE
+popupCards.forEach(card => {
+    card.addEventListener('click', () => {
+
+        const logoImg = card.querySelector('img');
+        const tickerText = card.querySelector('span');
+
+        if (currentSelection === "from") {
+            if (logoImg) chosenLogoFrom.src = logoImg.src;
+            if (tickerText) chosenTickerFrom.textContent = tickerText.textContent;
+        }
+
+        if (currentSelection === "to") {
+            if (logoImg) chosenLogoTo.src = logoImg.src;
+            if (tickerText) chosenTickerTo.textContent = tickerText.textContent;
+        }
+
+        closePopup();
+    });
 });
+
+
+
+
+
 
 //DRAG VARIABLES HERE:...👇
 let startY = 0;
 let currentY = 0;
 let dragging = false;
-
 
 popUp.addEventListener('touchstart', (e) => {
     startY = e.touches[0].clientY;
@@ -388,6 +428,7 @@ function closePopup() {
     }, 300);
 }
 
+
 overlay.addEventListener('click', () => {
     overlay.style.display = 'none';
     popUp.style.display = 'none';
@@ -409,6 +450,24 @@ exitBtn.addEventListener('click', () => {
     document.body.classList.remove("no-scroll");
 });
 
+
+
+//Clicking the Inter-Switch button changes the Swapping icon order: (From and To).
+const swapALogo = swapFromLogo;
+const swapBLogo = swapToLogo;
+let srcA = swapALogo.getAttribute("src");
+let srcB = swapBLogo.getAttribute("src");
+
+//When user chooses a new token from first option to swap, update the logos accordingly
+function swapChoiceA(newSrc) {
+    swapALogo.src = newSrc;
+}
+
+//When user chooses a new token from second option to swap, update the logos accordingly
+function swapChoiceB(newSrc) {
+    swapBLogo.src = newSrc;
+}
+
 //Clicking the Inter-Switch button changes the Swapping order: (From and To).
 swapSwitchBtn.addEventListener('click', () => {
     let isDefault = false;
@@ -424,31 +483,14 @@ swapSwitchBtn.addEventListener('click', () => {
         isDefault = false;
     }
 
+    // SWITCHING THE LOGOS TOO:...👇
+    const tempLogo = swapALogo.src;
+    swapALogo.src = swapBLogo.src;
+    swapBLogo.src = tempLogo;
+
 });
 
-//Clicking the Inter-Switch button changes the Swapping icon order: (From and To).
-const swapALogo = swapFromLogo;
-const swapBLogo = swapToLogo;
-let srcA = swapALogo.getAttribute("src");
-let srcB = swapBLogo.getAttribute("src");
 
-//When user chooses a new token from first option to swap, update the logos accordingly
-function swapChoiceA(newSrc) {
-    swapALogo.src = newSrc;
-    srcA = newSrc;
-}
-
-//When user chooses a new token from second option to swap, update the logos accordingly
-function swapChoiceB(newSrc) {
-    swapBLogo.src = newSrc;
-    srcB = newSrc;
-}
-swapSwitchBtn.addEventListener('click', () => {
-    [srcA, srcB] = [srcB, srcA];
-
-    swapALogo.src = srcA;
-    swapBLogo.src = srcB;
-});
 
 //WSAPPING ERROR HERE....!
 swapBtn.addEventListener('click', () => {
@@ -584,6 +626,8 @@ notificationOk.addEventListener('click', () => {
 updateCryptoPrices();
 setInterval(updateCryptoPrices, POLL_INTERVAL_MS);
 
+
+
 // View More button
 const viewMoreBtn = document.getElementById('viewMoreBtn');
 if (viewMoreBtn) {
@@ -615,5 +659,3 @@ if (viewMoreBtn) {
 }
 
 // End of script.js
-
-

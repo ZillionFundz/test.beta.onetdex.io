@@ -714,7 +714,7 @@ body {
     gap: 5px;
     background: #6c6583;
     margin: 0px;
-    padding: 5px 5px 255px;
+    padding: 5px 5px 260px;
     overflow-y: auto;
     /* padding-bottom: 200px; */
     /* SCROLL SMOOTHING FOR POPUP LIST HERE:👇 */
@@ -1144,7 +1144,7 @@ body {
     gap: 5px;
     background: #6c6583;
     margin: 0px;
-    padding: 5px 5px 70px;
+    padding: 5px 5px 72px;
 }
 
 .listed-card {
@@ -1230,10 +1230,14 @@ body {
     margin: 4px;
     padding: 10px 25px;
     /* border: none; */
-    border-radius: 10px;
+    border-radius: 12px;
     color: #68ffb8;
     border: 1px solid #424244;
     gap: 10px;
+}
+
+.fa-sliders {
+    font-size: clamp(16px, 0.5vw, 100px);
 }
 
 .fa-view-more {

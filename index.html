@@ -45,13 +45,13 @@
                 <label for="amount-details" id="pnl">+$63 (219% PNL)</label>
             </div>
             <div class="exchange">
-                <button id="send-btn" class="cta-buttons">
+                <button id="deposit-btn" class="cta-buttons">
                     <i class="fa-solid fa-square-arrow-up-right"></i>
-                    Send
+                    Deposit
                 </button>
-                <button id="receive-btn" class="cta-buttons">
+                <button id="withdraw-btn" class="cta-buttons">
                     <i class="fa-solid fa-money-bill-transfer"></i>
-                    Receive
+                    Withdraw
                 </button>
             </div>
             <div class="swap-area">
@@ -447,12 +447,39 @@
             <div id="nft" class="nft-card">
                 <img src="Images/nft.png" alt="">
             </div>
-            <div class="more-listed">
+            <div class="more-listed-box ">
                 <button id="manageTokens">Manage Tokens<i class="fa-solid fa-sliders"></i></button>
                 <button id="viewMoreBtn">View More<i id="fa-chevron-down"
                         class="fa-view-more fa-solid fa-chevron-down"></i></button>
             </div>
         </div>
+
+
+        <!-- ASSETS DEPOSITS HAPEN HERE:.... 👇 -->
+        <div class="deposit-box" id="deposit-box">
+            <button id="deposit-exit-btn" class="deposit-exit-btn">
+                <i class="popup-icon fa-solid fa-xmark"></i>
+            </button>
+            <div class="receive-box">
+                <h3>ONET Wallet Address:</h3>
+                <div class="deposit-logo-and-ticker">
+                    <img id="deposit-logo" class="deposit-logo" src="Images/tether.png" alt="">
+                    <span id="deposit-ticker" class="deposit-ticker">$USDT</span>
+                </div>
+                <div class="qr-code-box">
+                    <div class="deposit-network-box">
+                        <span id="deposit-network" class="deposit-network">BEP20</span>
+                    </div>
+                    <img id="qr-code" class="qr-code" src="Images/usdtqrcode.jpg" alt="">
+                </div>
+                <div class="wallet-address-box">
+                    <span id="wallet-address" class="wallet-address">0x52095A3d02fF59d6f17BfD0E426564Cb2cfc6067</span>
+                    <button id="copy-wallet-btn" class="copy-wallet-btn"><i class="fa-solid fa-copy"></i>Copy</button>
+                </div>
+            </div>
+        </div>
+
+
 
 
         <!-- POPUP DETAILS ARE  HERE:.....👇 -->

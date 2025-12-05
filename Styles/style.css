@@ -25,6 +25,7 @@ body {
     color: #111;
     margin: 0px;
     padding: 0px;
+    height: 100%;
 }
 
 .no-scroll {
@@ -603,6 +604,148 @@ body {
     display: none;
     box-shadow: 0px -4px 12px 4px rgba(18, 38, 63, 0.2);
 
+}
+
+.deposit-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #dce7f8;
+    text-align: center;
+    width: 100%;
+    max-width: 700px;
+    height: 100vh;
+    margin: 0px auto;
+    padding: 15px 15px 10px;
+    visibility: hidden;
+    position: fixed;
+    left: -100%;
+    top: 0;
+    bottom: 0%;
+    z-index: 4;
+    transition: 0.3s, left 0.4s;
+    opacity: 0.5;
+}
+
+.deposit-exit-btn {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 5%;
+    left: 8%;
+    background: #000;
+    margin: 0px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+}
+
+.receive-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    margin: auto;
+    padding: 20px 10px 20px;
+    width: 100%;
+    max-width: 400px;
+    background: #f0f0f5;
+    border-radius: 15px;
+    box-shadow: 0px 0px 12px 4px rgba(18, 38, 63, 0.2);
+}
+
+.receive-box {
+    text-transform: uppercase;
+}
+
+.deposit-logo-and-ticker {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.deposit-logo {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 0.8px solid #505050;
+}
+
+.deposit-ticker {
+    font-weight: bold;
+}
+
+.qr-code-box {
+    position: relative;
+    margin: auto;
+}
+
+.deposit-network-box {
+    margin: 0px;
+    padding: 2px 10px;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* background: #e0e0e5; */
+    background: #000;
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+
+.deposit-network {
+    font-size: clamp(16px, 0.4vw, 100px);
+    font-weight: bold;
+    color: #fff;
+}
+
+.qr-code {
+    width: 200px;
+    height: 200px;
+    margin: 10px auto 10px;
+    padding: 5px;
+    border: 1px solid #000;
+    border-radius: 20px;
+}
+
+.wallet-address-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+    margin: 0px;
+    padding: 5px 10px;
+    background: #e0e0e5;
+    border: 1px solid #000;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.wallet-address {
+    /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+    font-size: clamp(10px, 0.4vw, 100px);
+    font-weight: bold;
+    color: #505050;
+}
+
+.copy-wallet-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 10px;
+    /* background: #5025d1; */
+    background: linear-gradient(#dce7f8, #5025d1);
+    border: none;
+    border-radius: 10px;
+    font-size: clamp(12px, 0.4vw, 100px);
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5);
 }
 
 .popup-header {
@@ -1267,7 +1410,7 @@ body {
     text-align: center;
 }
 
-.more-listed {
+.more-listed-box {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1277,22 +1420,23 @@ body {
     border-radius: 5px;
     margin: 0px;
     padding: 10px 10px;
-    gap: 4px;
+    gap: 5px;
 }
 
 
-.more-listed button {
+.more-listed-box button {
     display: flex;
     justify-content: center;
     align-items: center;
     background: none;
-    margin: 4px;
-    padding: 10px 25px;
-    /* border: none; */
+    margin: 4px 0px;
+    padding: 10px 18px;
+    background: #5025D1;
     border-radius: 12px;
-    color: #68ffb8;
+    /* color: #d3d2d2; */
+    color: #fff;
     border: 1px solid #424244;
-    gap: 10px;
+    gap: 5px;
 }
 
 .fa-sliders {
@@ -1304,15 +1448,14 @@ body {
     font-size: clamp(16px, 0.5vw, 100px);
 }
 
-.more-listed button:hover {
+.more-listed-box button:hover {
     border: none;
-    color: #ffffff;
     border-bottom: 2px solid #04ec65;
     background: #5025D1;
-    color: #d3d2d2;
+    color: #68ffb8;
 }
 
-.more-listed button:active {
+.more-listed-box button:active {
     border: 1px solid #000;
     border-bottom: 2px solid #0166ff;
     background: #4f2cb8;

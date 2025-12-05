@@ -468,6 +468,9 @@ overlay.addEventListener('click', () => {
     document.body.classList.remove("no-scroll");
 
     //FOR CLOSING THE DEPODIT PAGE:....👇
+    depositBox.style.left = '-100%';
+    depositBox.style.opacity = '0.5';
+    overlay.style.display = 'none';
     depositBox.style.visibility = 'hidden';
 });
 

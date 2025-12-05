@@ -323,6 +323,11 @@ const notificationPopup = document.getElementById('notification-popup');
 const notificationExitBtn = document.getElementById('notification-exit-btn');
 const notificationCancel = document.getElementById('notification-cancel');
 const notificationOk = document.getElementById('notification-ok');
+const maxBtn = document.getElementById('max-btn');
+const depositBox = document.getElementById('deposit-box');
+const depositBtn = document.getElementById('deposit-btn');
+const depositExitBtn = document.getElementById('deposit-exit-btn');
+
 
 
 
@@ -332,6 +337,23 @@ const chosenLogoFrom = document.getElementById('chosen-logo-from');
 const chosenLogoTo = document.getElementById('chosen-logo-to');
 const chosenTickerFrom = document.getElementById('chosen-ticker-from');
 const chosenTickerTo = document.getElementById('chosen-ticker-to');
+
+
+// DEPOSIT PAGE ANIMATION:...👇
+depositBtn.addEventListener('click', () => {
+    overlay.style.display = 'block';
+    depositBox.style.visibility = 'visible';
+    depositBox.style.left = '0';
+    depositBox.style.opacity = '1';
+});
+
+depositExitBtn.addEventListener('click', () => {
+    depositBox.style.left = '-100%';
+    depositBox.style.opacity = '0.5';
+    overlay.style.display = 'none';
+    depositBox.style.visibility = 'hidden';
+});
+
 
 
 
@@ -439,13 +461,14 @@ overlay.addEventListener('click', () => {
     searchToken.value = '';
 
     //FOR CLOSING THE NOTIFICATION POPUP
-    // fromCoinAmount.value = '';
-    // toCoinAmount.textContent = '$0.0000';
     notificationPopup.style.top = "35%";
     notificationPopup.style.opacity = "0";
     notificationPopup.style.visibility = "hidden";
     notificationPopup.style.transform = "translate(-50%, -50%) scale(0.1)";
     document.body.classList.remove("no-scroll");
+
+    //FOR CLOSING THE DEPODIT PAGE:....👇
+    depositBox.style.visibility = 'hidden';
 });
 
 exitBtn.addEventListener('click', () => {
@@ -557,7 +580,7 @@ notificationCancel.addEventListener('click', () => {
 });
 
 notificationOk.addEventListener('click', () => {
-    const usd = document.getElementById('')
+    const usdBalance = document.getElementById('')
     fromCoinAmount.value
 });
 

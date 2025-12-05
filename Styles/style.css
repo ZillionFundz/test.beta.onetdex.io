@@ -611,13 +611,14 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    gap: 10px;
     background: #dce7f8;
     text-align: center;
     width: 100%;
-    max-width: 700px;
+    /* max-width: 700px; */
     height: 100vh;
     margin: 0px auto;
-    padding: 15px 15px 10px;
+    padding: 15px 0px 10px;
     visibility: hidden;
     position: fixed;
     left: -100%;
@@ -628,16 +629,44 @@ body {
     opacity: 0.5;
 }
 
+.deposit-header {
+    width: 100%;
+    /* max-width: 400px; */
+    position: relative;
+    padding: 15px;
+    background: linear-gradient(#dce7f8, #5025d1);
+    /* border-radius: 15px 15px 0px 0px; */
+    /* border: 1px dashed #424244; */
+    margin: 0px;
+    padding: 10px;
+    border-bottom: 4px solid #424244;
+    text-align: center;
+}
+
 .deposit-exit-btn {
     position: absolute;
     transform: translate(-50%, -50%);
-    top: 5%;
-    left: 8%;
+    top: 20px;
+    left: 25px;
     background: #000;
     margin: 0px;
     padding: 5px;
     border: none;
     border-radius: 5px;
+}
+
+.deposit-header h3 {
+    font-size: clamp(16px, 0.4vw, 100px);
+    text-transform: uppercase;
+    margin: 0px;
+    padding: 10px 0px 5px;
+}
+
+.Deposit-powered-by {
+    font-size: clamp(14px, 0.4vw, 100px);
+    text-transform: uppercase;
+    font-weight: lighter;
+    color: #000;
 }
 
 .receive-box {
@@ -736,8 +765,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5px;
-    padding: 6px 10px;
+    gap: 10px;
+    padding: 6px 20px;
     /* background: #5025d1; */
     background: linear-gradient(#dce7f8, #5025d1);
     border: none;
@@ -746,6 +775,21 @@ body {
     color: #fff;
     cursor: pointer;
     box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5);
+}
+
+.deposit-footer {
+    width: 100%;
+    /* max-width: 400px; */
+    height: 50px;
+    position: relative;
+    padding: 15px;
+    background: linear-gradient(#5025d1, #dce7f8);
+    /* border-radius: 15px 15px 0px 0px; */
+    /* border: 1px dashed #424244; */
+    margin: 0px;
+    padding: 10px;
+    border-top: 4px solid #424244;
+    text-align: center;
 }
 
 .popup-header {

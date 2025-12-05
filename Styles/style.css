@@ -676,7 +676,7 @@ body {
     align-items: center;
     flex-direction: column;
     gap: 10px;
-    margin: auto;
+    margin: 15px 15px;
     padding: 20px 10px 20px;
     width: 100%;
     max-width: 400px;

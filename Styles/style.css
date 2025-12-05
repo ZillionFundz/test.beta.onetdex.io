@@ -803,41 +803,71 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* flex-direction: column; */
+    flex-direction: column;
     /* height: 250px; */
     width: 100%;
     max-width: 300px;
     background: #dce7f8;
     margin: 0px;
-    padding: 5px 15px 25px;
+    padding: 5px 20px 25px;
     border-radius: 10px 10px 10px 10px;
     position: fixed;
-    bottom: 28%;
+    transform: translate(-50%, -50%) scale(0.1);
+    transition: 0.3s, top 0.5s;
+    top: 45%;
+    left: 50%;
     z-index: 5;
-    display: none;
+    visibility: hidden;
     box-shadow: 0px 0px 12px 4px rgba(18, 38, 63, 0.2);
     text-align: center;
+    opacity: 0.1;
 }
 
-.notification-popup p {
+.notification-exit-btn {
+
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    margin: 0px;
+    padding: 5px;
+    background: #000;
+    border: none;
+    border-radius: 5px;
+    font-size: clamp(16px, 0.5vw, 100px);
+    /* color: #292929; */
+    cursor: pointer;
+    z-index: 10000;
+}
+
+.notification-popup h3 {
     font-size: clamp(16px, 0.5vw, 100px);
     margin: 0px;
     padding: 15px 5px 10px;
+    text-transform: uppercase;
     /* text-align: center; */
 }
 
-.notification-popup hr {
+.notification-hr {
     margin: 10px 0px;
-    padding: 0px;
+    padding: 0px 0px;
+    width: 100%;
 }
 
-.notification-popup button {
+.notification-cta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.notification-btn {
     font-size: clamp(16px, 0.5vw, 100px);
     padding: 10px 25px 10px;
     border-radius: 10px 10px 10px 10px;
-    min-width: 150px;
+    min-width: 100px;
     border: none;
-    background: #545474;
+    /* background: #545474; */
+    background: #5025d1;
     color: #dadcdf;
 }
 

@@ -612,8 +612,7 @@ body {
     align-items: center;
     flex-direction: column;
     gap: 25px;
-    /* background: #dce7f8; */
-    background: #dadcdf;
+    background: #dce7f8;
     text-align: center;
     width: 100%;
     /* max-width: 700px; */
@@ -689,8 +688,7 @@ body {
     width: 100%;
     max-width: 400px;
     /* background: #f0f0f5; */
-    /* background: #dadcdf; */
-    background: #dce7f8;
+    background: #dadcdf;
     border-radius: 15px;
     box-shadow: 0px 0px 12px 4px rgba(18, 38, 63, 0.2);
 }

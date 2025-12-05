@@ -787,15 +787,15 @@ body {
     cursor: pointer;
 }
 
-#buy {
+#buy-btn {
     background: #5025d1;
 }
 
-#swap {
+#swap-btn {
     background: #05c957;
 }
 
-#sell {
+#sell-btn {
     background: #5025d1;
 }
 

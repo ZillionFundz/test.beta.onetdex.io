@@ -122,7 +122,7 @@
                     <i class="fa-solid fa-money-check-dollar"></i>
                     Buy
                 </button>
-                <button id="swap" class="trx-buttons">
+                <button id="swap-btn" class="trx-buttons">
                     <i class="fa-solid fa-right-left"></i>
                     Swap
                 </button>
@@ -132,9 +132,15 @@
                 </button>
             </div>
             <div id="notification-popup" class="notification-popup">
-                <p> Token Swap Coming Soon...!</p>
+                <button id="notification-exit" class="notification-exit-btn"><i
+                        class="popup-icon fa-solid fa-xmark"></i></button>
+                <h3> Test Transaction...?</h3>
+                <div class="load-progress"></div>
                 <hr>
-                <div><button id="notification-ok">Ok</button></div>
+                <div class="notification-cta">
+                    <button id="notification-cancel" class="notification-btn">Cancel</button>
+                    <button id="notification-ok" class="notification-btn">Ok</button>
+                </div>
 
             </div>
         </div>

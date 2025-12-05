@@ -611,12 +611,12 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 10px;
+    gap: 25px;
     background: #dce7f8;
     text-align: center;
     width: 100%;
     /* max-width: 700px; */
-    height: 100%;
+    min-height: 100vh;
     margin: 0px auto;
     padding: 15px 0px 10px;
     visibility: hidden;
@@ -650,7 +650,7 @@ body {
     left: 25px;
     background: #000;
     margin: 0px;
-    padding: 5px;
+    padding: 10px 15px;
     border: none;
     border-radius: 5px;
 }
@@ -670,13 +670,18 @@ body {
     color: #000;
 }
 
+.deposit-area {
+    margin: 0px;
+    padding: 0px 15px;
+}
+
 .receive-box {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 10px;
-    margin: 15px 15px;
+    margin: 0px;
     padding: 20px 10px 20px;
     width: 100%;
     max-width: 400px;
@@ -720,8 +725,8 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     /* background: #e0e0e5; */
-    background: #000;
-    border: 1px solid #000;
+    background: #05c957;
+    border: 0.1px solid #000;
     border-radius: 10px;
 }
 
@@ -732,12 +737,12 @@ body {
 }
 
 .qr-code {
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     margin: 10px auto 10px;
     padding: 5px;
     border: 1px solid #000;
-    border-radius: 20px;
+    border-radius: 15px;
 }
 
 .wallet-address-box {

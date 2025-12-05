@@ -806,7 +806,7 @@ body {
     flex-direction: column;
     /* height: 250px; */
     width: 100%;
-    max-width: 300px;
+    max-width: 325px;
     background: #dce7f8;
     margin: 0px;
     padding: 5px 20px 25px;
@@ -814,7 +814,7 @@ body {
     position: fixed;
     transform: translate(-50%, -50%) scale(0.1);
     transition: 0.3s, top 0.5s;
-    top: 45%;
+    top: 35%;
     left: 50%;
     z-index: 5;
     visibility: hidden;
@@ -857,7 +857,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
 }
 
 .notification-btn {
@@ -867,8 +867,20 @@ body {
     min-width: 100px;
     border: none;
     /* background: #545474; */
+    background: linear-gradient(#dce7f8, #5025d1);
+    color: #1b1b1b;
+    box-shadow: 0px 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.notification-btn:hover {
+    color: #fff;
+    background: linear-gradient(#5025d1, #dce7f8);
+}
+
+.notification-btn:active {
+    /* border: 1px solid #545474; */
     background: #5025d1;
-    color: #dadcdf;
+    color: #d3d2d2;
 }
 
 .trending-title {

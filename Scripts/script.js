@@ -441,7 +441,7 @@ overlay.addEventListener('click', () => {
     //FOR CLOSING THE NOTIFICATION POPUP
     // fromCoinAmount.value = '';
     // toCoinAmount.textContent = '$0.0000';
-    notificationPopup.style.top = "45%";
+    notificationPopup.style.top = "35%";
     notificationPopup.style.opacity = "0";
     notificationPopup.style.visibility = "hidden";
     notificationPopup.style.transform = "translate(-50%, -50%) scale(0.1)";
@@ -520,7 +520,7 @@ swapBtn.addEventListener('click', () => {
         errorMessage.style.display = "none";
         circleInfo.style.color = "#dadcdf";
         document.body.classList.add("no-scroll");
-        notificationPopup.style.top = "60%";
+        notificationPopup.style.top = "50%";
         notificationPopup.style.opacity = "1";
         notificationPopup.style.visibility = "visible";
         notificationPopup.style.transform = "translate(-50%, -50%) scale(1)";
@@ -538,7 +538,7 @@ notificationExitBtn.addEventListener('click', () => {
     // fromCoinAmount.value = '';
     // toCoinAmount.textContent = '$0.0000';
     document.body.classList.remove("no-scroll");
-    notificationPopup.style.top = "45%";
+    notificationPopup.style.top = "35%";
     notificationPopup.style.opacity = "0";
     notificationPopup.style.visibility = "hidden";
     notificationPopup.style.transform = "translate(-50%, -50%) scale(0.1)";
@@ -549,7 +549,7 @@ notificationCancel.addEventListener('click', () => {
     // fromCoinAmount.value = '';
     // toCoinAmount.textContent = '$0.0000';
     document.body.classList.remove("no-scroll");
-    notificationPopup.style.top = "45%";
+    notificationPopup.style.top = "35%";
     notificationPopup.style.opacity = "0";
     notificationPopup.style.visibility = "hidden";
     notificationPopup.style.transform = "translate(-50%, -50%) scale(0.1)";

@@ -316,11 +316,14 @@ const swapSwitchIcon = document.getElementById('swap-switch-icon');
 const swapFromLogo = document.getElementById('chosen-logo-from');
 const swapToLogo = document.getElementById('chosen-logo-to');
 const swapNetworkLogo = document.getElementById('swap-network-Logo');
-const swapBtn = document.getElementById('swap');
+const swapBtn = document.getElementById('swap-btn');
 const errorMessage = document.getElementById('error-message');
 const circleInfo = document.getElementById('circle-info');
 const notificationPopup = document.getElementById('notification-popup');
+const notificationExitBtn = document.getElementById('notification-exit-btn');
+const notificationCancel = document.getElementById('notification-cancel');
 const notificationOk = document.getElementById('notification-ok');
+
 
 
 // SELECTING A COIN FROM THE POPUP CARDS:...👇
@@ -436,9 +439,12 @@ overlay.addEventListener('click', () => {
     searchToken.value = '';
 
     //FOR CLOSING THE NOTIFICATION POPUP
-    fromCoinAmount.value = '';
-    toCoinAmount.textContent = '$0.0000';
-    notificationPopup.style.display = "none";
+    // fromCoinAmount.value = '';
+    // toCoinAmount.textContent = '$0.0000';
+    notificationPopup.style.top = "45%";
+    notificationPopup.style.opacity = "0";
+    notificationPopup.style.visibility = "hidden";
+    notificationPopup.style.transform = "translate(-50%, -50%) scale(0.1)";
     document.body.classList.remove("no-scroll");
 });
 
@@ -514,7 +520,10 @@ swapBtn.addEventListener('click', () => {
         errorMessage.style.display = "none";
         circleInfo.style.color = "#dadcdf";
         document.body.classList.add("no-scroll");
-        notificationPopup.style.display = "block";
+        notificationPopup.style.top = "60%";
+        notificationPopup.style.opacity = "1";
+        notificationPopup.style.visibility = "visible";
+        notificationPopup.style.transform = "translate(-50%, -50%) scale(1)";
         overlay.style.display = "block";
 
     } catch (err) {
@@ -525,12 +534,31 @@ swapBtn.addEventListener('click', () => {
 
 });
 
-notificationOk.addEventListener('click', () => {
-    fromCoinAmount.value = '';
-    toCoinAmount.textContent = '$0.0000';
+notificationExitBtn.addEventListener('click', () => {
+    // fromCoinAmount.value = '';
+    // toCoinAmount.textContent = '$0.0000';
     document.body.classList.remove("no-scroll");
-    notificationPopup.style.display = "none";
+    notificationPopup.style.top = "45%";
+    notificationPopup.style.opacity = "0";
+    notificationPopup.style.visibility = "hidden";
+    notificationPopup.style.transform = "translate(-50%, -50%) scale(0.1)";
     overlay.style.display = "none";
+});
+
+notificationCancel.addEventListener('click', () => {
+    // fromCoinAmount.value = '';
+    // toCoinAmount.textContent = '$0.0000';
+    document.body.classList.remove("no-scroll");
+    notificationPopup.style.top = "45%";
+    notificationPopup.style.opacity = "0";
+    notificationPopup.style.visibility = "hidden";
+    notificationPopup.style.transform = "translate(-50%, -50%) scale(0.1)";
+    overlay.style.display = "none";
+});
+
+notificationOk.addEventListener('click', () => {
+    const usd = document.getElementById('')
+    fromCoinAmount.value
 });
 
 

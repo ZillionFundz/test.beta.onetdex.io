@@ -657,7 +657,7 @@ body {
 
 .deposit-header h3 {
     /* font-family: Arial, Helvetica, sans-serif; */
-    font-size: clamp(16px, 2vh, 100px);
+    font-size: clamp(18px, 2vh, 100px);
     text-align: center;
     padding: 10px 0px 2px;
     text-transform: uppercase;
@@ -665,7 +665,7 @@ body {
 
 .Deposit-powered-by {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: clamp(10px, 1.5vh, 100px);
+    font-size: clamp(12px, 1.5vh, 100px);
     text-align: center;
     padding: 2px 0px 10px;
     text-transform: uppercase;
@@ -705,13 +705,16 @@ body {
 }
 
 .deposit-logo {
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     border-radius: 50%;
-    border: 0.8px solid #505050;
+    /* border: 0.8px solid #505050; */
+    border: 0.8px solid #909090;
 }
 
 .deposit-ticker {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: clamp(16px, 1.5vh, 100px);
     font-weight: bold;
 }
 
@@ -722,14 +725,14 @@ body {
 
 .deposit-network-box {
     margin: 0px;
-    padding: 2px 10px;
+    padding: 0px 15px;
     position: absolute;
     top: 10px;
     left: 50%;
     transform: translate(-50%, -50%);
     /* background: #e0e0e5; */
     background: #05c957;
-    border: 0.1px solid #000;
+    border: 0.1px solid #909090;
     border-radius: 10px;
 }
 
@@ -737,6 +740,8 @@ body {
     font-size: clamp(16px, 0.4vw, 100px);
     font-weight: bold;
     color: #fff;
+    margin: 0px;
+    padding: 0px;
 }
 
 .qr-code {
@@ -744,7 +749,7 @@ body {
     height: 250px;
     margin: 10px auto 10px;
     padding: 5px;
-    border: 1px solid #000;
+    border: 0.1px solid #909090;
     border-radius: 15px;
 }
 
@@ -756,9 +761,10 @@ body {
     text-align: center;
     gap: 10px;
     margin: 0px;
-    padding: 5px 10px;
+    padding: 10px 10px;
     background: #e0e0e5;
-    border: 1px solid #000;
+    /* border: 0.1px solid #909090; */
+    box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     width: 100%;
 }
@@ -1488,7 +1494,7 @@ body {
     border-radius: 12px;
     /* color: #d3d2d2; */
     color: #fff;
-    border: 1px solid #424244;
+    border: 0.1px solid #909090;
     gap: 5px;
 }
 

@@ -737,7 +737,7 @@ body {
 }
 
 .deposit-network {
-    font-size: clamp(16px, 0.4vw, 100px);
+    font-size: clamp(14px, 0.4vw, 100px);
     font-weight: bold;
     color: #fff;
     margin: 0px;

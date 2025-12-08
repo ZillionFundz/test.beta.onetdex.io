@@ -196,14 +196,18 @@ body {
     padding: 2px 7px;
     border: 0.1px solid #909090;
     border-radius: 8px;
+    color: #707070;
+    background: #e8e8ee;
 }
 
 .major-networks-list-card:hover {
-    background: #e5e9ee;
+    color: #969696;
+    background: #eff3f7;
 }
 
 .major-networks-list-card:active {
-    background: #c9c9ca;
+    color: #c9c9ca;
+    border: 0.1px solid #494949;
 }
 
 .major-networks-list img {
@@ -219,7 +223,7 @@ body {
     line-height: 14px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 550;
-    color: #909090;
+    /* color: #909090; */
 }
 
 .controls-panel {
@@ -634,41 +638,6 @@ body {
     color: #dadcdf;
 }
 
-/*Actual Popup Codes Start here:...👇*/
-
-.overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.1);
-    display: none;
-    z-index: 2;
-}
-
-.popup {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    /* height: 250px; */
-    width: 100%;
-    max-width: 700px;
-    max-height: 56%;
-    /* background: #dce7f8; */
-    background: linear-gradient(#dce7f8, #5025d1);
-    margin: 0px;
-    padding: 5px 5px 25px;
-    border-radius: 30px 30px 0px 0px;
-    position: fixed;
-    z-index: 2;
-    transform: translate(0%, 0%);
-    bottom: -100%;
-    transition: bottom 0.5s ease;
-    touch-action: none;
-    display: none;
-    box-shadow: 0px -4px 12px 4px rgba(18, 38, 63, 0.2);
-
-}
-
 .deposit-box {
     display: flex;
     justify-content: center;
@@ -870,6 +839,41 @@ body {
     text-align: center;
 }
 
+/*Actual Popup Codes Start here:...👇*/
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 2;
+}
+
+.popup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* height: 250px; */
+    width: 100%;
+    max-width: 700px;
+    max-height: 70%;
+    /* background: #dce7f8; */
+    background: linear-gradient(#dce7f8, #5025d1);
+    margin: 0px;
+    padding: 5px 5px 25px;
+    border-radius: 30px 30px 0px 0px;
+    position: fixed;
+    z-index: 2;
+    transform: translate(0%, 0%);
+    bottom: -100%;
+    transition: bottom 0.5s ease;
+    touch-action: none;
+    visibility: hidden;
+    box-shadow: 0px -4px 12px 4px rgba(18, 38, 63, 0.2);
+
+}
+
 .popup-header {
     width: 100%;
     position: relative;
@@ -882,7 +886,7 @@ body {
     border-bottom: 4px solid #424244;
 }
 
-.exit-btn {
+.popup-exit-btn {
     position: absolute;
     top: 15px;
     right: 20px;
@@ -996,11 +1000,12 @@ body {
     gap: 5px;
     background: #6c6583;
     margin: 0px;
-    padding: 5px 5px 260px;
+    padding: 5px 5px 5px;
     overflow-y: auto;
     /* padding-bottom: 200px; */
     /* SCROLL SMOOTHING FOR POPUP LIST HERE:👇 */
     max-height: 65vh;
+    width: 100%;
     /* or keep your existing percentage-based value */
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;

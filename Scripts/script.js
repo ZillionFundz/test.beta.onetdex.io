@@ -17,6 +17,24 @@ const swiper = new Swiper('.trending-swiper', {
     speed: 4000
 });
 
+const MajorNetworkSwiper = new Swiper('.major-networks-list-swiper', {
+    slidesPerView: 'auto',
+    spaceBetween: 4,
+    loop: true,
+    freeMode: {
+        enabled: true,
+        momentum: true,
+        momentumRatio: 1,
+        sticky: false,
+    },
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+        waitForTransition: true
+    },
+    speed: 8000
+});
+
 
 // NFT VIEWER MODULE (keeps your existing UX)
 (function () {
@@ -281,9 +299,7 @@ async function updateCryptoPrices() {
 const toggleEye = document.getElementById('toggle-eye');
 const totalAssets = document.getElementById('total-assets');
 let isCurrent = document.getElementById('total-assets').textContent;
-// let formatted = parseFloat(balance);
-// let balance = Number(isCurrent.replace(/\$/g, '').replace(/,/g, ''));
-// let mainBalance = "$" + balance.toLocaleString("en-US");
+
 let isVisible = true;
 
 toggleEye.addEventListener('click', () => {
@@ -311,6 +327,8 @@ const popUp = document.getElementById('popup');
 const overlay = document.getElementById('swap-overlay');
 const exitBtn = document.getElementById('exit-btn');
 const searchToken = document.getElementById('search-token');
+
+//SWAPPING INITIALISATIONS:...👇
 const swapSwitchBtn = document.getElementById('swap-switch');
 const swapSwitchIcon = document.getElementById('swap-switch-icon');
 const swapFromLogo = document.getElementById('chosen-logo-from');
@@ -319,6 +337,8 @@ const swapNetworkLogo = document.getElementById('swap-network-Logo');
 const swapBtn = document.getElementById('swap-btn');
 const errorMessage = document.getElementById('error-message');
 const circleInfo = document.getElementById('circle-info');
+
+//NOTIFICATIONS INITIALISATIONS:...👇
 const notificationPopup = document.getElementById('notification-popup');
 const notificationExitBtn = document.getElementById('notification-exit-btn');
 const notificationCancel = document.getElementById('notification-cancel');
@@ -328,7 +348,15 @@ const depositBox = document.getElementById('deposit-box');
 const depositBtn = document.getElementById('deposit-btn');
 const depositExitBtn = document.getElementById('deposit-exit-btn');
 
+//MAJOR NETWORKS INITIALISATIONS:...👇
+const majorNetworksBtn = document.getElementById('major-networks-btn');
+const majorNetworksList = document.getElementById('major-networks-list');
+const majorNetworkChosenLogo = document.getElementById('major-network-chosen-logo');
+const majorNetworkChosenName = document.getElementById('major-network-chosen-name');
 
+
+// SELECTING A NETWORK FROM THE DROPDOWN LIST:...👇
+const networkList = document.querySelectorAll('.major-networks-list-card');
 
 
 // SELECTING A COIN FROM THE POPUP CARDS:...👇
@@ -337,6 +365,28 @@ const chosenLogoFrom = document.getElementById('chosen-logo-from');
 const chosenLogoTo = document.getElementById('chosen-logo-to');
 const chosenTickerFrom = document.getElementById('chosen-ticker-from');
 const chosenTickerTo = document.getElementById('chosen-ticker-to');
+
+
+
+// MAJOR NEWORK PAGE ANIMATION:...👇
+majorNetworksBtn.addEventListener('click', () => {
+    majorNetworksList.style.visibility = 'visible';
+    majorNetworksList.style.top = '75px';
+    majorNetworksList.style.opacity = '1';
+});
+
+// CHOSING NETWORK AND EXITING THE MAJOR NETWORKS MENU:...👇
+networkList.forEach(networkChoice => {
+    networkChoice.addEventListener('click', () => {
+        const ChosenNetworkLogo = networkChoice.querySelector('img');
+        const chosenNetworkName = networkChoice.querySelector('span');
+        if (ChosenNetworkLogo) majorNetworkChosenLogo.src = ChosenNetworkLogo.src;
+        if (chosenNetworkName) majorNetworkChosenName.textContent = chosenNetworkName.textContent;
+        majorNetworksList.style.top = '55px';
+        majorNetworksList.style.opacity = '0';
+        majorNetworksList.style.visibility = 'hidden';
+    });
+});
 
 
 // DEPOSIT PAGE ANIMATION:...👇

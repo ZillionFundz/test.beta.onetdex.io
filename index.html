@@ -15,20 +15,160 @@
 <body>
     <div class="container">
         <div class="header">
-            <div class="controls">
-                <i class="fa-head fa-solid fa-gear"></i>
-                <div class="wallet-box">
-                    <i class="fa-solid fa-wallet"></i>
-                    <span>ONET-Wallet</span>
+            <div class="header-box">
+                <div class="controls">
+                    <i class="fa-head fa-solid fa-gear"></i>
+                    <div class="wallet-box">
+                        <i class="fa-solid fa-wallet"></i>
+                        <span>ONET-Wallet</span>
+                    </div>
+                    <button id="major-networks-btn" class="major-network-choice">
+                        <img id="major-network-chosen-logo" src="Images/bnb.png" alt="">
+                        <i class="fa-major-network-choice popup-icon fa-solid fa-chevron-down"></i>
+                        <!-- <button id="network-btn" class="network-btn">Network</button> -->
+                    </button>
                 </div>
-                <div class="swap-networks-all">
-                    <img src="Images/bnb.png" alt="">
-                    <i class="fa-all-networks popup-icon fa-solid fa-chevron-down"></i>
-                    <!-- <button id="network-btn" class="network-btn">Network</button> -->
+                <div class="scanner">
+                    <i class="fa-solid fa-qrcode"></i>
                 </div>
             </div>
-            <div class="scanner">
-                <i class="fa-solid fa-qrcode"></i>
+            <div id="major-networks-list" class="major-networks-list">
+                <div class="swiper major-networks-list-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide major-networks-list-card">
+                            <img class="major-networks-list-logo" src="Images/onet.png" alt="">
+                            <span class="major-networks-list-name">ONETChain</span>
+                        </div>
+                        <div class="swiper-slide major-networks-list-card">
+                            <img class="major-networks-list-logo" src="Images/bnb.png" alt="">
+                            <span class="major-networks-list-name">BNBChain</span>
+                        </div>
+                        <div class="swiper-slide major-networks-list-card">
+                            <img class="major-networks-list-logo" src="Images/arbitrum.png" alt="">
+                            <span class="major-networks-list-name">ArbitrumOne</span>
+                        </div>
+                        <div class="swiper-slide major-networks-list-card">
+                            <img class="major-networks-list-logo" src="Images/base.png" alt="">
+                            <span class="major-networks-list-name">Base</span>
+                        </div>
+                        <div class="swiper-slide major-networks-list-card">
+                            <img class="major-networks-list-logo" src="Images/bitcoin.png" alt="">
+                            <span class="major-networks-list-name">Bitcoin</span>
+                        </div>
+                        <div class="swiper-slide major-networks-list-card">
+                            <img class="major-networks-list-logo" src="Images/ethereum.png" alt="">
+                            <span class="major-networks-list-name">Ethereum</span>
+                        </div>
+                        <div class="swiper-slide major-networks-list-card">
+                            <img class="major-networks-list-logo" src="Images/ion.png" alt="">
+                            <span class="major-networks-list-name">ION</span>
+                        </div>
+                        <div class="swiper-slide major-networks-list-card">
+                            <img class="major-networks-list-logo" src="Images/algorand.png" alt="">
+                            <span class="major-networks-list-name">Algorand</span>
+                        </div>
+                        <div class="swiper-slide major-networks-list-card">
+                            <img class="major-networks-list-logo" src="Images/cardano.png" alt="">
+                            <span class="major-networks-list-name">Cardano</span>
+                        </div>
+                        <div class="swiper-slide major-networks-list-card">
+                            <img class="major-networks-list-logo" src="Images/kaspa.png" alt="">
+                            <span class="major-networks-list-name">Kaspa</span>
+                        </div>
+                        <div class="swiper-slide major-networks-list-card">
+                            <img class="major-networks-list-logo" src="Images/near.png" alt="">
+                            <span class="major-networks-list-name">Near</span>
+                        </div>
+                        <div class="swiper-slide major-networks-list-card">
+                            <img class="major-networks-list-logo" src="Images/litecoin.png" alt="">
+                            <span class="major-networks-list-name">Litecoin</span>
+                        </div>
+                        <div class="swiper-slide major-networks-list-card">
+                            <img class="major-networks-list-logo" src="Images/polkadot.png" alt="">
+                            <span class="major-networks-list-name">Polkadot</span>
+                        </div>
+                        <div class="swiper-slide major-networks-list-card">
+                            <img class="major-networks-list-logo" src="Images/stellar.png" alt="">
+                            <span class="major-networks-list-name">Stellar</span>
+                        </div>
+                        <div class="swiper-slide major-networks-list-card">
+                            <img class="major-networks-list-logo" src="Images/icp.png" alt="">
+                            <span class="major-networks-list-name">ICP</span>
+                        </div>
+                        <div class="swiper-slide major-networks-list-card">
+                            <img class="major-networks-list-logo" src="Images/solana.png" alt="">
+                            <span class="major-networks-list-name">Solana</span>
+                        </div>
+                        <div class="swiper-slide major-networks-list-card">
+                            <img class="major-networks-list-logo" src="Images/ton.png" alt="">
+                            <span class="major-networks-list-name">TON</span>
+                        </div>
+                        <div class="swiper-slide major-networks-list-card">
+                            <img class="major-networks-list-logo" src="Images/dogecoin.png" alt="">
+                            <span class="major-networks-list-name">Dogecoin</span>
+                        </div>
+                        <div class="swiper-slide major-networks-list-card">
+                            <img class="major-networks-list-logo" src="Images/sei.png" alt="">
+                            <span class="major-networks-list-name">SeiNetwork</span>
+                        </div>
+                        <div class="swiper-slide major-networks-list-card">
+                            <img class="major-networks-list-logo" src="Images/polygon.png" alt="">
+                            <span class="major-networks-list-name">Polygon</span>
+                        </div>
+                        <div class="swiper-slide major-networks-list-card">
+                            <img class="major-networks-list-logo" src="Images/avalanche.png" alt="">
+                            <span class="major-networks-list-name">Avalanche</span>
+                        </div>
+                        <div class="swiper-slide major-networks-list-card">
+                            <img class="major-networks-list-logo" src="Images/berachain.png" alt="">
+                            <span class="major-networks-list-name">BeraChain</span>
+                        </div>
+                        <div class="swiper-slide major-networks-list-card">
+                            <img class="major-networks-list-logo" src="Images/tron.png" alt="">
+                            <span class="major-networks-list-name">TRON</span>
+                        </div>
+                        <div class="swiper-slide major-networks-list-card">
+                            <img class="major-networks-list-logo" src="Images/plume.png" alt="">
+                            <span class="major-networks-list-name">Plume</span>
+                        </div>
+                        <div class="swiper-slide major-networks-list-card">
+                            <img class="major-networks-list-logo" src="Images/kusama.png" alt="">
+                            <span class="major-networks-list-name">Kusama</span>
+                        </div>
+                        <div class="swiper-slide major-networks-list-card">
+                            <img class="major-networks-list-logo" src="Images/aptos.png" alt="">
+                            <span class="major-networks-list-name">Aptos</span>
+                        </div>
+                        <div class="swiper-slide major-networks-list-card">
+                            <img class="major-networks-list-logo" src="Images/optimism.png" alt="">
+                            <span class="major-networks-list-name">Optimism</span>
+                        </div>
+                        <div class="swiper-slide major-networks-list-card">
+                            <img class="major-networks-list-logo" src="Images/tezos.png" alt="">
+                            <span class="major-networks-list-name">Tezos</span>
+                        </div>
+                        <div class="swiper-slide major-networks-list-card">
+                            <img class="major-networks-list-logo" src="Images/kusama.png" alt="">
+                            <span class="major-networks-list-name">Kusama</span>
+                        </div>
+                        <div class="swiper-slide major-networks-list-card">
+                            <img class="major-networks-list-logo" src="Images/berachain.png" alt="">
+                            <span class="major-networks-list-name">BeraChain</span>
+                        </div>
+                        <div class="swiper-slide major-networks-list-card">
+                            <img class="major-networks-list-logo" src="Images/berachain.png" alt="">
+                            <span class="major-networks-list-name">BeraChain</span>
+                        </div>
+                        <div class="swiper-slide major-networks-list-card">
+                            <img class="major-networks-list-logo" src="Images/berachain.png" alt="">
+                            <span class="major-networks-list-name">BeraChain</span>
+                        </div>
+                        <div class="swiper-slide major-networks-list-card">
+                            <img class="major-networks-list-logo" src="Images/berachain.png" alt="">
+                            <span class="major-networks-list-name">BeraChain</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="controls-panel">
@@ -58,9 +198,9 @@
                 <div class="swap-box-a">
                     <div class="chosing-swap-box">
                         <div class="chosen-ticker-and-logo">
-                            <span id="chosen-ticker-from" class="swap-coin-ticker">$ONE</span>
+                            <span id="chosen-ticker-from" class="swap-coin-ticker">$ONET</span>
                             <div class="wrap-swap-logos">
-                                <img id="chosen-logo-from" class="swap-logo" src="Images/one.png" alt="">
+                                <img id="chosen-logo-from" class="swap-logo" src="Images/onet.png" alt="">
                                 <div class="swap-network">
                                     <img id="swap-Anetwork-Logo" src="Images/bnb.png" alt="">
                                 </div>
@@ -154,7 +294,7 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide trending-card">
                         <div class="coin-logo">
-                            <img src="Images/one.png" alt="">
+                            <img src="Images/onet.png" alt="">
                         </div>
                         <div class="ticker-and-trend-value">
                             <div class="coin-ticker">$ONE</div>
@@ -226,7 +366,7 @@
             <div class="listed-card">
                 <div class="coin-and-ticker">
                     <div class="coin-logo">
-                        <img src="Images/btc.png" alt="">
+                        <img src="Images/bitcoin.png" alt="">
                     </div>
                     <div class="ticker-and-value">
                         <div class="coin-ticker">$BTC</div>
@@ -259,13 +399,10 @@
                     <button class="percentage-change">%</button>
                 </div>
             </div>
-
-
-            <!-- HIDDEN LISTED COINS ARE HERE -->
-            <div class="listed-card hidden-coin">
+            <div class="listed-card">
                 <div class="coin-and-ticker">
                     <div class="coin-logo">
-                        <img src="Images/eth.png" alt="">
+                        <img src="Images/ethereum.png" alt="">
                     </div>
                     <div class="ticker-and-value">
                         <div class="coin-ticker">$ETH</div>
@@ -280,7 +417,7 @@
                     <button class="percentage-change">%</button>
                 </div>
             </div>
-            <div class="listed-card hidden-coin">
+            <div class="listed-card">
                 <div class="coin-and-ticker">
                     <div class="coin-logo">
                         <img src="Images/pi.jpg" alt="">
@@ -298,10 +435,13 @@
                     <button class="percentage-change">%</button>
                 </div>
             </div>
+
+
+            <!-- HIDDEN LISTED COINS ARE HERE -->
             <div class="listed-card hidden-coin">
                 <div class="coin-and-ticker">
                     <div class="coin-logo">
-                        <img src="Images/one.png" alt="">
+                        <img src="Images/onet.png" alt="">
                     </div>
                     <div class="ticker-and-value">
                         <div class="coin-ticker">$ONE</div>
@@ -473,10 +613,10 @@
                         <span id="deposit-ticker" class="deposit-ticker">$RKC</span>
                     </div>
                     <div class="qr-code-box">
-                        <div class="deposit-network-box">
-                            <span id="deposit-network" class="deposit-network">BNB CHAIN</span>
+                        <div id="deposit-network-box" class="deposit-network-box">
+                            <span id="major-network-chosen-name" class="deposit-network">BNBChain</span>
                         </div>
-                        <img id="qr-code" class="qr-code" src="Images/usdtqrcode.jpg" alt="">
+                        <img id="qr-code" class="qr-code" src="Images/rkcqrcode.jpg" alt="">
                     </div>
                     <div class="wallet-address-box">
                         <span id="wallet-address"
@@ -519,7 +659,7 @@
                     <div class="popup-card">
                         <div class="coin-and-ticker">
                             <div class="coin-logo">
-                                <img src="Images/one.png" alt="">
+                                <img src="Images/onet.png" alt="">
                             </div>
                             <div class="ticker-and-value">
                                 <span class="coin-ticker">$ONE</span>
@@ -549,7 +689,7 @@
                     <div class="popup-card">
                         <div class="coin-and-ticker">
                             <div class="coin-logo">
-                                <img src="Images/btc.png" alt="">
+                                <img src="Images/bitcoin.png" alt="">
                             </div>
                             <div class="ticker-and-value">
                                 <span class="coin-ticker">$BTC</span>
@@ -564,7 +704,7 @@
                     <div class="popup-card">
                         <div class="coin-and-ticker">
                             <div class="coin-logo">
-                                <img src="Images/eth.png" alt="">
+                                <img src="Images/ethereum.png" alt="">
                             </div>
                             <div class="ticker-and-value">
                                 <span class="coin-ticker">$ETH</span>

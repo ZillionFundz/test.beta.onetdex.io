@@ -380,30 +380,6 @@ networkList.forEach(networkChoice => {
 });
 
 
-// DEPOSIT PAGE ANIMATION:...👇
-depositBtn.addEventListener('click', () => {
-
-    popUp.style.visibility = 'visible';
-    popUp.style.bottom = '0%';
-    document.body.classList.add("no-scroll");
-    overlay.style.display = 'block';
-    depositBox.style.left = '0';
-    depositBox.style.opacity = '1';
-
-    // overlay.style.display = 'block';
-    // depositBox.style.visibility = 'visible';
-    // depositBox.style.left = '0';
-    // depositBox.style.opacity = '1';
-});
-
-depositExitBtn.addEventListener('click', () => {
-    depositBox.style.left = '-100%';
-    depositBox.style.opacity = '0.5';
-    overlay.style.display = 'none';
-    depositBox.style.visibility = 'hidden';
-});
-
-
 
 
 let currentSelection = null;
@@ -421,6 +397,12 @@ toCoinBtn.addEventListener('click', () => {
     openPopup();
 });
 
+// DEPOSIT BUTTON
+depositBtn.addEventListener('click', () => {
+    currentSelection = "deposit";
+    openPopup();
+});
+
 function openPopup() {
     document.body.classList.add("no-scroll");
     overlay.style.display = 'block';
@@ -434,7 +416,15 @@ function openPopup() {
 
 
 // SELECTING A COIN FROM THE POPUP CARDS:...👇
-const popupCards = document.querySelectorAll('.popup-card');
+let popupCards = document.querySelectorAll('.popup-card');
+const chosenLogoFrom = document.getElementById('chosen-logo-from');
+const chosenTickerFrom = document.getElementById('chosen-ticker-from');
+const chosenLogoTo = document.getElementById('chosen-logo-to');
+const chosenTickerTo = document.getElementById('chosen-ticker-to');
+const depositLogo = document.getElementById('deposit-logo');
+const depositTicker = document.getElementById('deposit-ticker');
+
+
 
 // Add click listeners ONCE
 popupCards.forEach(card => {
@@ -444,21 +434,45 @@ popupCards.forEach(card => {
         const tickerText = card.querySelector('span');
 
         if (currentSelection === "from") {
-            const chosenLogoFrom = document.getElementById('chosen-logo-from');
-            const chosenTickerFrom = document.getElementById('chosen-ticker-from');
             if (logoImg) chosenLogoFrom.src = logoImg.src;
             if (tickerText) chosenTickerFrom.textContent = tickerText.textContent;
         }
 
         if (currentSelection === "to") {
-            const chosenLogoTo = document.getElementById('chosen-logo-to');
-            const chosenTickerTo = document.getElementById('chosen-ticker-to');
             if (logoImg) chosenLogoTo.src = logoImg.src;
             if (tickerText) chosenTickerTo.textContent = tickerText.textContent;
         }
 
+        if (currentSelection === "deposit") {
+            const depositCard = card;
+            const depoLogo = depositCard.querySelector('img');
+            const depoTicker = depositCard.querySelector('span');
+            if (depoLogo) depositLogo.src = depoLogo.src;
+            if (depoTicker) depositTicker.textContent = depoTicker.textContent;
+            openDepositPage();
+        }
+
         closePopup();
+
+
     });
+});
+
+
+// DEPOSIT PAGE ANIMATION:...👇
+
+function openDepositPage() {
+    depositBox.style.left = '0';
+    depositBox.style.opacity = '1';
+    depositBox.style.visibility = 'visible';
+    overlay.style.display = 'block';
+}
+
+depositExitBtn.addEventListener('click', () => {
+    depositBox.style.left = '-100%';
+    depositBox.style.opacity = '0.5';
+    overlay.style.display = 'none';
+    depositBox.style.visibility = 'hidden';
 });
 
 

@@ -325,7 +325,7 @@ const fromCoinAmount = document.getElementById('swap-from-amount');
 const toCoinAmount = document.getElementById('swap-to-amount');
 const popUp = document.getElementById('popup');
 const overlay = document.getElementById('swap-overlay');
-const exitBtn = document.getElementById('exit-btn');
+const popUpExitBtn = document.getElementById('popup-exit-btn');
 const searchToken = document.getElementById('search-token');
 
 //SWAPPING INITIALISATIONS:...👇
@@ -359,15 +359,6 @@ const majorNetworkChosenName = document.getElementById('major-network-chosen-nam
 const networkList = document.querySelectorAll('.major-networks-list-card');
 
 
-// SELECTING A COIN FROM THE POPUP CARDS:...👇
-const popupCards = document.querySelectorAll('.popup-card');
-const chosenLogoFrom = document.getElementById('chosen-logo-from');
-const chosenLogoTo = document.getElementById('chosen-logo-to');
-const chosenTickerFrom = document.getElementById('chosen-ticker-from');
-const chosenTickerTo = document.getElementById('chosen-ticker-to');
-
-
-
 // MAJOR NEWORK PAGE ANIMATION:...👇
 majorNetworksBtn.addEventListener('click', () => {
     majorNetworksList.style.visibility = 'visible';
@@ -391,10 +382,18 @@ networkList.forEach(networkChoice => {
 
 // DEPOSIT PAGE ANIMATION:...👇
 depositBtn.addEventListener('click', () => {
+
+    popUp.style.visibility = 'visible';
+    popUp.style.bottom = '0%';
+    document.body.classList.add("no-scroll");
     overlay.style.display = 'block';
-    depositBox.style.visibility = 'visible';
     depositBox.style.left = '0';
     depositBox.style.opacity = '1';
+
+    // overlay.style.display = 'block';
+    // depositBox.style.visibility = 'visible';
+    // depositBox.style.left = '0';
+    // depositBox.style.opacity = '1';
 });
 
 depositExitBtn.addEventListener('click', () => {
@@ -425,13 +424,17 @@ toCoinBtn.addEventListener('click', () => {
 function openPopup() {
     document.body.classList.add("no-scroll");
     overlay.style.display = 'block';
-    popUp.style.display = 'block';
+    popUp.style.visibility = 'visible';
     popUp.style.marginTop = '20px';
 
     setTimeout(() => {
         popUp.style.bottom = '0%';
     }, 200);
 }
+
+
+// SELECTING A COIN FROM THE POPUP CARDS:...👇
+const popupCards = document.querySelectorAll('.popup-card');
 
 // Add click listeners ONCE
 popupCards.forEach(card => {
@@ -441,11 +444,15 @@ popupCards.forEach(card => {
         const tickerText = card.querySelector('span');
 
         if (currentSelection === "from") {
+            const chosenLogoFrom = document.getElementById('chosen-logo-from');
+            const chosenTickerFrom = document.getElementById('chosen-ticker-from');
             if (logoImg) chosenLogoFrom.src = logoImg.src;
             if (tickerText) chosenTickerFrom.textContent = tickerText.textContent;
         }
 
         if (currentSelection === "to") {
+            const chosenLogoTo = document.getElementById('chosen-logo-to');
+            const chosenTickerTo = document.getElementById('chosen-ticker-to');
             if (logoImg) chosenLogoTo.src = logoImg.src;
             if (tickerText) chosenTickerTo.textContent = tickerText.textContent;
         }
@@ -496,7 +503,7 @@ function closePopup() {
     popUp.style.bottom = '-100%';
     popUp.style.transform = 'translateY(0)';
     setTimeout(() => {
-        popUp.style.display = 'none';
+        popUp.style.visibility = 'hidden';
         overlay.style.display = 'none';
         document.body.classList.remove("no-scroll");
         searchToken.value = '';
@@ -506,7 +513,7 @@ function closePopup() {
 
 overlay.addEventListener('click', () => {
     overlay.style.display = 'none';
-    popUp.style.display = 'none';
+    popUp.style.visibility = 'hidden';
     popUp.style.bottom = '-100%';
     searchToken.value = '';
 
@@ -524,9 +531,9 @@ overlay.addEventListener('click', () => {
     depositBox.style.visibility = 'hidden';
 });
 
-exitBtn.addEventListener('click', () => {
+popUpExitBtn.addEventListener('click', () => {
     overlay.style.display = 'none';
-    popUp.style.display = 'none';
+    popUp.style.visibility = 'hidden';
     popUp.style.bottom = '-100%';
     searchToken.value = '';
     document.body.classList.remove("no-scroll");

@@ -298,7 +298,7 @@ body {
 
 .amount {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: clamp(24px, 0.3vw, 100px);
+    font-size: clamp(32px, 0.4vw, 100px);
     /* font-size: 1.5rem; */
     font-weight: bold;
     margin: 0px 2px;
@@ -969,7 +969,7 @@ body {
     text-transform: lowercase;
 }
 
-.swap-networks {
+.swap-networks-btn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -977,6 +977,7 @@ body {
     padding: 5px 4px;
     border: 1px solid #ccc;
     border-radius: 8px;
+    background: none;
 }
 
 /* .network-btn {
@@ -989,7 +990,7 @@ body {
 
 } */
 
-.swap-networks img {
+.swap-networks-logo {
     width: 25px;
     height: 25px;
     border-radius: 30px;

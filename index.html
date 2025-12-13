@@ -644,7 +644,7 @@
         <div class="popup-box">
             <div class="overlay" id="swap-overlay"></div>
             <div class="popup" id="popup">
-                <div class="popup-header">
+                <div id="popup-header" class="popup-header">
                     <button id="popup-exit-btn" class="popup-exit-btn"><i
                             class="popup-icon fa-solid fa-xmark"></i></button>
                     <!-- <i class="fa-solid fa-arrow-right-from-bracket"></i> -->
@@ -654,11 +654,14 @@
                     <div class="search-box">
                         <input id="search-token" class="search-token" type="text" placeholder="Search token here...!">
                         <!-- <i class="popup-icon fa-solid fa-magnifying-glass"></i> -->
-                        <div class="swap-networks">
-                            <img src="Images/bnb.png" alt="">
+                        <button class="swap-networks-btn">
+                            <img id="swap-networks-logo" src="Images/bnb.png" alt="">
                             <i class="popup-icon fa-solid fa-chevron-down"></i>
                             <!-- <button id="network-btn" class="network-btn">Network</button> -->
-                        </div>
+                        </button>
+                    </div>
+                    <div class="swap-networks-box">
+
                     </div>
                 </div>
                 <div class="listed-popup">

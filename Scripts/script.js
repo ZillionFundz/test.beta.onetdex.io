@@ -484,14 +484,15 @@ depositExitBtn.addEventListener('click', () => {
 let startY = 0;
 let currentY = 0;
 let dragging = false;
+const popupHeader = document.getElementById('popup-header');
 
-popUp.addEventListener('touchstart', (e) => {
+popupHeader.addEventListener('touchstart', (e) => {
     startY = e.touches[0].clientY;
     dragging = true;
     popUp.style.transition = 'none'; // Disable transition during drag
 });
 
-popUp.addEventListener('touchmove', (e) => {
+popupHeader.addEventListener('touchmove', (e) => {
     if (!dragging) return;
     currentY = e.touches[0].clientY;
     let diffY = currentY - startY;
@@ -500,7 +501,7 @@ popUp.addEventListener('touchmove', (e) => {
     }
 });
 
-popUp.addEventListener('touchend', () => {
+popupHeader.addEventListener('touchend', () => {
     dragging = false;
     popUp.style.transition = 'bottom 0.5s ease, transform 0.25s ease'; // Re-enable transition
 
@@ -784,3 +785,4 @@ if (viewMoreBtn) {
 }
 
 // End of script.js
+

@@ -118,10 +118,11 @@ window.coinIdMap = {
     rockycat: 'rockycat',
     snowman: 'snowman',
     ice: 'ice',
-    one: 'harmony',
+    onet: 'onet',
     dogs: 'dogs-2',
     dogecoin: 'dogecoin',
-    tether: 'tether'
+    tether: 'tether',
+    wikicat: 'wiki-cat',
 };
 
 // Price formatting
@@ -553,6 +554,99 @@ popUpExitBtn.addEventListener('click', () => {
     searchToken.value = '';
     document.body.classList.remove("no-scroll");
 });
+
+
+
+
+// CHART.JS INITIALISATION:...👇
+document.addEventListener('DOMContentLoaded', () => {
+
+    const ctx = document.getElementById('priceChart').getContext('2d');
+
+    const candleData = [
+        { x: '2025-01-01T10:00', o: 0.021, h: 0.025, l: 0.020, c: 0.023 },
+        { x: '2025-01-01T11:00', o: 0.023, h: 0.027, l: 0.022, c: 0.026 },
+        { x: '2025-01-01T12:00', o: 0.026, h: 0.028, l: 0.024, c: 0.025 },
+        { x: '2025-01-01T13:00', o: 0.025, h: 0.030, l: 0.025, c: 0.029 },
+        { x: '2025-01-01T14:00', o: 0.029, h: 0.032, l: 0.028, c: 0.031 }
+    ];
+
+    const priceChart = new Chart(ctx, {
+        type: 'candlestick',
+        data: {
+            datasets: [{
+                label: 'RKC/USDT',
+                data: candleData,
+                upColor: '#16c784',
+                downColor: '#ea3943',
+                borderUpColor: '#16c784',
+                borderDownColor: '#ea3943',
+                wickUpColor: '#16c784',
+                wickDownColor: '#ea3943'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            animation: false,
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    mode: 'index',
+                    intersect: false,
+                    callbacks: {
+                        label: ctx => {
+                            const d = ctx.raw;
+                            return [
+                                `Open:  $${d.o}`,
+                                `High:  $${d.h}`,
+                                `Low:   $${d.l}`,
+                                `Close: $${d.c}`
+                            ];
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    type: 'time',
+                    time: {
+                        tooltipFormat: 'HH:mm',
+                        unit: 'hour'
+                    },
+                    grid: { display: false }
+                },
+                y: {
+                    position: 'right',
+                    ticks: {
+                        callback: v => `$${v}`
+                    }
+                }
+            }
+        }
+    });
+
+    const priceEl = document.querySelector('.chart-coin-value');
+    const percentEl = document.querySelector('.chart-percentage-change');
+
+    const firstCandle = candleData[0];
+    const lastCandle = candleData[candleData.length - 1];
+
+    priceEl.textContent = `$${lastCandle.c}`;
+
+    const percentChange =
+        (((lastCandle.c - firstCandle.o) / firstCandle.o) * 100).toFixed(2);
+
+    percentEl.textContent = `${percentChange}%`;
+    percentEl.style.color = percentChange >= 0 ? '#16c784' : '#ea3943';
+
+});
+
+
+
+
+
+
 
 
 

@@ -83,7 +83,7 @@ body {
     padding: 10px 15px;
     gap: 5px;
     width: 100%;
-    /* background: #0166ff; */
+    background: #815dee;
     /* border-bottom: 4px solid#5025d1; */
 }
 
@@ -156,6 +156,7 @@ body {
 .fa-major-network-choice:active {
     color: #fff !important;
 }
+
 
 .scanner {
     display: flex;
@@ -230,7 +231,7 @@ body {
     flex-direction: column;
     margin: 0px;
     padding: 0px;
-    background: #dadcdf;
+    background: #f0f0f0;
 }
 
 .balance-box {
@@ -240,7 +241,8 @@ body {
     flex-direction: column;
     font-family: Arial, Helvetica, sans-serif;
     font-size: clamp(12px, 0.5vw, 100px);
-    margin: 5px 0px 5px;
+    margin: 0px 0px 5px;
+    background: linear-gradient(360deg, #f0f0f0, #815dee);
 }
 
 .balance-details {
@@ -352,16 +354,14 @@ body {
 }
 
 .fa-footer {
-    color: #292929;
+    color: #d3d2d2;
     /* font-size: clamp(26px, 0.5vw, 100px); */
     margin: 0px;
     padding: 4px 0px;
 }
 
 .fa-footer:hover {
-    color: #000;
-    font-size: clamp(26px, 0.5vw, 100px);
-    border-bottom: 2px solid #04ec65;
+    color: #5025D1;
 }
 
 .cta-buttons {
@@ -430,7 +430,7 @@ body {
     width: 50%;
     min-height: 130px;
     gap: 10px;
-    background: #dddfe2;
+    background: #f0f0f0;
     border: 0.1px solid #000;
 
 }
@@ -464,11 +464,11 @@ body {
     position: absolute;
 }
 
-.swap-network img {
+.swap-network-logo {
     width: 18px;
     height: 18px;
-    border: 0.8px solid #505050;
-    border-radius: 50%;
+    border: 0.2px solid #505063;
+    border-radius: 20%;
 }
 
 .swap-logo {
@@ -540,7 +540,7 @@ body {
     gap: 4px;
     max-width: 25vw;
     margin: 0px 0px 0px 5px;
-    padding: 6px 5px;
+    padding: 5px 8px;
     border: 0.5px solid #fff;
     border-radius: 10px;
     font-size: clamp(12px, 0.5vw, 100px);
@@ -552,7 +552,7 @@ body {
     background: #000;
     /* color: #dce7f8; */
     color: #d3d2d2;
-    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5);
+    /* box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5); */
 }
 
 .max-btn:hover {
@@ -629,7 +629,7 @@ body {
 .fa-circle-info {
     font-size: clamp(12px, 0.4vw, 100px);
     /* color: #f83838; */
-    color: #dadcdf;
+    color: #f0f0f0;
     margin: 0px 2px;
     display: block;
 }
@@ -863,7 +863,7 @@ body {
     max-width: 700px;
     max-height: 56%;
     /* background: #dce7f8; */
-    background: linear-gradient(#dce7f8, #5025d1);
+    background: linear-gradient(#f0f0f0, #5025d1);
     margin: 0px;
     padding: 5px 5px 25px;
     border-radius: 30px 30px 0px 0px;
@@ -882,7 +882,7 @@ body {
     width: 100%;
     position: relative;
     padding: 15px;
-    background: linear-gradient(#dce7f8, #5025d1);
+    background: linear-gradient(#f0f0f0, #5025d1);
     border-radius: 25px 25px 0px 0px;
     border: 1px dashed #424244;
     margin: 0px;
@@ -1050,7 +1050,8 @@ body {
     gap: 4px;
     /* width: 60vw; */
     /* background: red; */
-    margin: 5px 0px 5px;
+    margin: 0px;
+    padding: 5px 0px 5px;
 }
 
 .trx-buttons {
@@ -1170,14 +1171,15 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: clamp(16px, 0.5vw, 100px);
     font-weight: bold;
-    padding: 0px 15px;
-    margin: 10px 0px 2px;
+    margin: 0px;
+    padding: 10px 0px 2px 15px;
+    background: #f0f0f0;
 }
 
 .trending-area {
     width: 100%;
     padding: 5px 0px 5px 10px;
-    background: #dadcdf;
+    background: #f0f0f0;
     /* background: linear-gradient(360deg, #dadcdf, #5025d1, #5025d1); */
     /* display: flex; */
     /* justify-content: center; */
@@ -1195,9 +1197,8 @@ body {
     min-width: 165px;
     /* max-width: 500px; */
     height: 62px;
-    /* background: #d34c4c; */
-    /* background: #68688b; */
-    background: #545474;
+    /* background: #545474; */
+    background: #505063;
     border-radius: 10px;
     margin: 0px;
     padding: 0px 10px;
@@ -1426,8 +1427,8 @@ body {
     /* background: #454563; */
     /* background: #dadcdf; */
     background: #6c6583;
-    background: linear-gradient(360deg, #5025d1, #5025d1, #dadcdf);
-    border-bottom: 4px solid #424244;
+    background: linear-gradient(360deg, #815dee, #815dee, #f0f0f0);
+    border-bottom: 4px solid #505063;
 }
 
 .tabs {
@@ -1469,6 +1470,169 @@ body {
     border-bottom: 2px solid #0166ff;
 }
 
+.charts-box {
+    margin: 0px;
+    padding: 10px;
+    background: #3f3f44;
+    /* display: none; */
+}
+
+.charts-header {
+    margin: 0px;
+    padding: 5px 10px 5px;
+    background: #fff;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.chart-pair-and-value {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px;
+    margin-bottom: 5px;
+}
+
+.chart-exit-and-detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+
+.chart-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Chart-coin-ticker {
+    font-size: clamp(18px, 0.4vw, 100px);
+    font-weight: bold;
+}
+
+.chart-value-and-percentage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.favorite-star-btn {
+    background: none;
+    border: none;
+    font-size: clamp(18px, 0.4vw, 100px);
+    cursor: pointer;
+}
+
+.fa-star {
+    font-size: clamp(18px, 0.4vw, 100px);
+    color: #f3d422;
+}
+
+.Chart-coin-pair {
+    font-size: clamp(14px, 0.4vw, 100px);
+    font-weight: bold;
+    margin: 0px;
+    padding: 2px 0px;
+}
+
+.time-interval-area {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 4px;
+    margin-top: 5px;
+}
+
+.time-interval-btn {
+    margin: 0px;
+    padding: 4px 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: clamp(12px, 0.4vw, 100px);
+    /* background: #0166ff; */
+    background: #505063;
+    color: #fff;
+}
+
+.time-interval-btn:hover {
+    background: #000;
+}
+
+.more-tf-btn {
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    border-radius: 5px;
+    font-size: clamp(12px, 0.4vw, 100px);
+    /* background: #0166ff; */
+    background: none;
+    color: #fff;
+}
+
+.more-timeframes {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2px;
+    margin: 0px;
+    padding: 4px 10px;
+    background: #505063;
+    border-radius: 5px;
+}
+
+.fa-basic-icons {
+    font-size: clamp(10px, 0.5vw, 100px);
+}
+
+.charts-area {
+    margin: 0px;
+    padding: 10px;
+    background: #000;
+    width: 100%;
+    height: 250px;
+    position: relative;
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+
+.chart-trade-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    padding: 10px;
+    background: #7c8296;
+}
+
+.chart-trade-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin: 0px;
+    padding: 10px 0px;
+}
+
+.chart-trade-btn {
+    width: 100px;
+    margin: 0px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: clamp(14px, 0.5vw, 100px);
+    background: #0166ff;
+    color: #fff;
+}
+
 .listed-area {
     font-size: clamp(14px, 0.5vw, 100px);
     display: flex;
@@ -1476,7 +1640,8 @@ body {
     align-items: center;
     flex-direction: column;
     gap: 5px;
-    background: #6c6583;
+    /* background: #6c6583; */
+    background: #3f3f44;
     margin: 0px;
     padding: 5px 5px 72px;
 }
@@ -1488,11 +1653,21 @@ body {
     align-items: center;
     min-width: 100%;
     height: 62px;
-    background: #545474;
+    /* background: #545474; */
+    background: #505063;
     border-radius: 5px;
     margin: 0px;
     padding: 0px 10px;
     gap: 4px;
+}
+
+.listed-card:hover {
+    background: #444468;
+}
+
+.listed-card:active {
+    border: 0.2px solid #000;
+    background: #444468;
 }
 
 .coin-and-ticker {
@@ -1548,7 +1723,8 @@ body {
     align-items: center;
     min-width: 100%;
     height: 62px;
-    background: #545474;
+    /* background: #545474; */
+    background: #505063;
     border-radius: 5px;
     margin: 0px;
     padding: 10px 10px;
@@ -1625,8 +1801,10 @@ body {
     justify-content: space-between;
     align-items: center;
     gap: 10px;
-    background: #5025D1;
-    color: #ffffff;
+    /* background: #5025D1; */
+    /* background: #f0f0f0; */
+    background: linear-gradient(360deg, #815dee, #815dee, #f0f0f0);
+    color: #fff;
     /* border-top: 4px solid #545474; */
     border-top: 4px solid #424244;
     font-size: clamp(12px, 0.5vw, 100px);
@@ -1634,9 +1812,9 @@ body {
     width: 100%;
     min-height: 70px;
     position: fixed;
-    z-index: 0;
+    z-index: 1;
     margin: 0px;
-    padding: 10px 65px;
+    padding: 10px 60px;
     bottom: 0;
     /* right: 0; */
     left: 50%;
@@ -1646,7 +1824,33 @@ body {
     transform: translateX(-50%);
 }
 
-.footer-icon {
+.footer-separator {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background: #0166ff; */
+    gap: 5vw;
+}
+
+.footer-icon-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0px;
+    padding: 2px 5px;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.footer-icon-box:hover {
+    background: #e7e7e7;
+    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.3);
+    color: #000;
+}
+
+.footer-trading {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1654,7 +1858,43 @@ body {
     gap: 5px;
     margin: 0px;
     padding: 0px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 10px;
+}
+
+.footer-trading-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+    margin: 0px;
+    padding: 4px;
+    background: #0166ff;
     color: #d3d2d2;
+    border-radius: 50%;
+    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5);
+}
+
+.footer-trading-btn:hover {
+    background: #5025D1;
+    color: #5025D1;
+}
+
+.trading-btn-logo {
+    width: 35px;
+    height: 35;
+    margin: 0px;
+    padding: 2px;
+    border-radius: 50%;
+    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5);
+    background: #0166ff;
+}
+
+.trading-btn-logo:hover {
+    background: #f0f0f0;
 }
 
 
@@ -1667,7 +1907,8 @@ body {
         min-width: 240px;
         max-width: 100%;
         min-height: 100vh;
-        background: #dadcdf;
+        /* background: #dadcdf; */
+        background: #f0f0f0;
         overflow: hidden;
         /* margin-bottom: 65px; */
         /* padding-bottom: 130px; */
@@ -1710,8 +1951,8 @@ body {
         /* background: #454563; */
         /* background: #dadcdf; */
         background: #6c6583;
-        background: linear-gradient(360deg, #5025d1, #5025d1, #dadcdf);
-        border-bottom: 4px solid #424244;
+        background: linear-gradient(360deg, #5025d1, #815dee, #f0f0f0);
+        border-bottom: 4px solid #505063;
     }
 
     .footer {
@@ -1719,10 +1960,11 @@ body {
         justify-content: space-between;
         align-items: center;
         gap: 5px;
-        background: #5025D1;
+        /* background: #f0f0f0; */
+        background: linear-gradient(360deg, #815dee, #815dee, #f0f0f0);
         color: #ffffff;
         /* border-top: 4px solid #545474; */
-        border-top: 4px solid #424244;
+        border-top: 4px solid #505063;
         font-size: clamp(12px, 0.5vw, 100px);
         text-align: center;
         width: 100%;
@@ -1738,4 +1980,25 @@ body {
         backdrop-filter: blur(45px);
         transform: translateX(-50%);
     }
+
+    .footer-icon-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 5px;
+        margin: 0px;
+        padding: 2px 5px;
+        color: #fff;
+        border-radius: 5px;
+    }
+
+
+}
+
+@media screen and (max-width: 350px) {
+    .no-show {
+        display: none;
+    }
+
 }

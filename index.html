@@ -23,7 +23,7 @@
                         <span>ONET-Wallet</span>
                     </div>
                     <button id="major-networks-btn" class="major-network-choice">
-                        <img id="major-network-chosen-logo" src="Images/bnb.png" alt="">
+                        <img id="major-network-chosen-logo" src="Images/binancenetwork.png" alt="">
                         <i class="fa-major-network-choice popup-icon fa-solid fa-chevron-down"></i>
                         <!-- <button id="network-btn" class="network-btn">Network</button> -->
                     </button>
@@ -40,7 +40,7 @@
                             <span class="major-networks-list-name">ONETChain</span>
                         </div>
                         <div class="swiper-slide major-networks-list-card">
-                            <img class="major-networks-list-logo" src="Images/bnb.png" alt="">
+                            <img class="major-networks-list-logo" src="Images/binancenetwork.png" alt="">
                             <span class="major-networks-list-name">BNBChain</span>
                         </div>
                         <div class="swiper-slide major-networks-list-card">
@@ -206,7 +206,8 @@
                             <div class="wrap-swap-logos">
                                 <img id="chosen-logo-from" class="swap-logo" src="Images/onet.png" alt="">
                                 <div class="swap-network">
-                                    <img id="swap-Anetwork-Logo" src="Images/bnb.png" alt="">
+                                    <img id="swap-Anetwork-Logo" class="swap-network-logo"
+                                        src="Images/binancenetwork.png" alt="">
                                 </div>
                             </div>
 
@@ -220,7 +221,7 @@
                     <div class="swap-entry">
                         <div class="max-input">
                             <button id="max-btn" class="max-btn"><i
-                                    class="fa-max-icon  fa-solid fa-arrow-right"></i>Max:</button>
+                                    class="fa-max-icon  fa-solid fa-arrow-right"></i>Max</button>
                             <input id="swap-from-amount" class="swap-from-amount" type="text"
                                 placeholder="Type USD $:...">
                         </div>
@@ -245,7 +246,8 @@
                             <div class="wrap-swap-logos">
                                 <img id="chosen-logo-to" class="swap-logo" src="Images/tether.png" alt="">
                                 <div class="swap-network">
-                                    <img id="swap-Bnetwork-Logo" src="Images/bnb.png" alt="">
+                                    <img id="swap-Bnetwork-Logo" class="swap-network-logo"
+                                        src="Images/binancenetwork.png" alt="">
                                 </div>
                             </div>
                         </div>
@@ -301,8 +303,8 @@
                             <img src="Images/onet.png" alt="">
                         </div>
                         <div class="ticker-and-trend-value">
-                            <div class="coin-ticker">$ONE</div>
-                            <div class="coin-value" data-coin="one">$2M.00</div>
+                            <div class="coin-ticker">$ONET</div>
+                            <div class="coin-value" data-coin="onet">$2M.00</div>
                         </div>
                     </div>
                     <div class=" swiper-slide trending-card">
@@ -365,8 +367,53 @@
             </div>
         </div>
 
+
+
+        <!-- PRICE CHARTS HERE:.... 👇 -->
+        <div id="charts-box" class="charts-box">
+            <div class="charts-header">
+                <div class="chart-pair-and-value">
+                    <div class="chart-exit-and-detail">
+                        <button class="chart-exit"><i class="fa-solid fa-xmark"></i></button>
+                        <div class="chart-detail">
+                            <div class="Chart-coin-ticker">RockyCat <i
+                                    class="fa-basic-icons fa-solid fa-chevron-down"></i></div>
+                            <div class="chart-value-and-percentage">
+                                <div class="chart-coin-value" data-coin="rockycat">$0.00</div>
+                                <div class="chart-percentage-change">%</div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="favorite-star-btn"><i class="fa-solid fa-star"></i></button>
+                </div>
+                <span class="Chart-coin-pair">RKC/USDT</span>
+                <div class="time-interval-area">
+                    <button class="time-interval-btn">5m</button>
+                    <button class="time-interval-btn">15m</button>
+                    <button class="time-interval-btn no-show">30m</button>
+                    <button class="time-interval-btn">1h</button>
+                    <button class="time-interval-btn">4h</button>
+                    <button class="time-interval-btn">1D</button>
+                    <div class="more-timeframes">
+                        <button id="more-tf-btn" class="more-tf-btn">More</button>
+                        <i class="fa-basic-icons fa-solid fa-chevron-down"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="charts-area">
+                <canvas id="priceChart"></canvas>
+            </div>
+            <div class="chart-trade-box">
+                <button class="chart-trade-btn">P2P</button>
+                <button class="chart-trade-btn">Transfer</button>
+                <button class="chart-trade-btn">Trade</button>
+            </div>
+        </div>
+
+
+
         <!-- COINS LISTED IN ONET EXCHANGE OFTEN APPER HERE:👇 -->
-        <div class="listed-area">
+        <div id="listed-area" class="listed-area">
             <div class="listed-card">
                 <div class="coin-and-ticker">
                     <div class="coin-logo">
@@ -424,6 +471,27 @@
             <div class="listed-card">
                 <div class="coin-and-ticker">
                     <div class="coin-logo">
+                        <img src="Images/wikicat.png" alt="">
+                    </div>
+                    <div class="ticker-and-value">
+                        <div class="coin-ticker">$WKC</div>
+                        <div class="coin-value" data-coin="wiki-cat">$0.00</div>
+                    </div>
+                </div>
+                <div class="percentage-change-box">
+                    <div class="volume-and-amount">
+                        <div id="coin-volume" class="coin-volume">782M</div>
+                        <div id="coin-amount" class="coin-amount">$0.00</div>
+                    </div>
+                    <button class="percentage-change">%</button>
+                </div>
+            </div>
+
+
+            <!-- HIDDEN LISTED COINS ARE HERE -->
+            <div class="listed-card hidden-coin">
+                <div class="coin-and-ticker">
+                    <div class="coin-logo">
                         <img src="Images/pi.jpg" alt="">
                     </div>
                     <div class="ticker-and-value">
@@ -439,9 +507,6 @@
                     <button class="percentage-change">%</button>
                 </div>
             </div>
-
-
-            <!-- HIDDEN LISTED COINS ARE HERE -->
             <div class="listed-card hidden-coin">
                 <div class="coin-and-ticker">
                     <div class="coin-logo">
@@ -598,6 +663,7 @@
                         class="fa-view-more fa-solid fa-chevron-down"></i></button>
             </div>
         </div>
+
 
 
         <!-- ASSETS DEPOSITS HAPEN HERE:.... 👇 -->
@@ -867,27 +933,42 @@
 
 
         <footer class="footer">
-            <div class="footer-icon active">
-                <i class="fa-footer fa-solid fa-house"></i>
-                <span>Home</span>
+            <div class="footer-separator">
+                <div class="footer-icon-box">
+                    <i class="fa-footer fa-solid fa-house"></i>
+                    <span>Home</span>
+                </div>
+                <div class="footer-icon-box">
+                    <i class="fa-footer fa-solid fa-money-bill-trend-up"></i>
+                    <span>Market</span>
+                </div>
             </div>
-            <div class="footer-icon">
-                <i class="fa-footer fa-solid fa-money-bill-trend-up"></i>
-                <span>Market</span>
+
+            <div class="footer-trading">
+                <button class="footer-trading-btn"><img class="trading-btn-logo" src="Images/onet.png" alt=""></button>
+                <span>Trade</span>
             </div>
-            <div class="footer-icon">
-                <i class="fa-footer fa-solid fa-business-time"></i>
-                <span>Portfolio</span>
+            <div class="footer-separator">
+                <div class="footer-icon-box">
+                    <i class="fa-footer fa-solid fa-mask-face"></i>
+                    <span>Explore</span>
+                </div>
+                <div class="footer-icon-box">
+                    <i class="fa-footer fa-solid fa-business-time"></i>
+                    <span>Assets</span>
+                </div>
             </div>
-            <div class="footer-icon">
-                <i class="fa-footer fa-solid fa-mask-face"></i>
-                <span>Discover</span>
-            </div>
+
         </footer>
     </div>
     <!-- SWIPER JS BELOW -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-financial"></script>
     <script src="Scripts/script.js" defer></script>
+
 </body>
 
 </html>

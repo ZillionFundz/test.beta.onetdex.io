@@ -84,7 +84,7 @@ body {
     gap: 5px;
     width: 100%;
     /* background: #815dee; */
-    background: #5c27f8;
+    background: #7141ff;
     /* border-bottom: 4px solid#5025d1; */
 }
 
@@ -245,7 +245,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: clamp(12px, 0.5vw, 100px);
     margin: 0px 0px 5px;
-    background: linear-gradient(360deg, #f0f0f0, #815dee, #5c27f8);
+    background: linear-gradient(360deg, #f0f0f0, #7141ff);
 }
 
 
@@ -434,7 +434,7 @@ body {
     width: 50%;
     min-height: 130px;
     gap: 10px;
-    background: #f0f0f0;
+    background: #efeff0;
     border: 0.1px solid #000;
 
 }
@@ -1431,7 +1431,8 @@ body {
     /* background: #454563; */
     /* background: #dadcdf; */
     background: #6c6583;
-    background: linear-gradient(360deg, #815dee, #815dee, #f0f0f0);
+    /* background: linear-gradient(360deg, #815dee, #815dee, #f0f0f0); */
+    background: #f0f0f0;
     border-bottom: 4px solid #505063;
 }
 
@@ -1446,17 +1447,18 @@ body {
 }
 
 .tabs button {
-    width: 60px;
-    height: 25px;
+    width: 65px;
+    height: 30px;
     border: none;
     background: none;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: clamp(14px, 0.5vw, 100px);
-    font-weight: bold;
+    /* font-weight: bold; */
     /* color: #292929; */
-    color: #d3d2d2;
+    color: #fff;
     border: 0.5px solid #1e1e85;
-    border-radius: 10px;
+    border-radius: 20px;
+    background: #7141ff;
 }
 
 .tabs button:hover {
@@ -1928,7 +1930,7 @@ canvas {
 }
 
 .trading-btn-logo:hover {
-    background: #f0f0f0;
+    background: #efeff0;
 }
 
 
@@ -1942,7 +1944,7 @@ canvas {
         max-width: 100%;
         min-height: 100vh;
         /* background: #dadcdf; */
-        background: #f0f0f0;
+        background: #efeff0;
         overflow: hidden;
         /* margin-bottom: 65px; */
         /* padding-bottom: 130px; */
@@ -1976,7 +1978,7 @@ canvas {
 
     .listed-control-area {
         margin: 0px;
-        padding: 5px 20px;
+        padding: 10px 20px;
         padding-top: 20px;
         display: flex;
         justify-content: space-between;
@@ -1985,7 +1987,7 @@ canvas {
         /* background: #454563; */
         /* background: #dadcdf; */
         background: #6c6583;
-        background: linear-gradient(360deg, #5025d1, #815dee, #f0f0f0);
+        background: #efeff0;
         border-bottom: 4px solid #505063;
     }
 

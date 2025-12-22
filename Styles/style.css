@@ -84,7 +84,7 @@ body {
     gap: 5px;
     width: 100%;
     /* background: #815dee; */
-    background: #5025d1;
+    background: #5c27f8;
     /* border-bottom: 4px solid#5025d1; */
 }
 
@@ -245,8 +245,9 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: clamp(12px, 0.5vw, 100px);
     margin: 0px 0px 5px;
-    background: linear-gradient(360deg, #f0f0f0, #815dee, #5025d1);
+    background: linear-gradient(360deg, #f0f0f0, #815dee, #5c27f8);
 }
+
 
 .balance-details {
     display: flex;

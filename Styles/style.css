@@ -132,7 +132,7 @@ body {
 }
 
 .major-network-choice:hover {
-    background: #e8e8ee;
+    background: #000;
 }
 
 .major-network-choice:active {
@@ -146,11 +146,11 @@ body {
 }
 
 .fa-major-network-choice {
-    color: #5d5d5e !important;
+    color: #f0f0f0 !important;
 }
 
 .fa-major-network-choice:hover {
-    color: #000 !important;
+    color: #0166ff !important;
 }
 
 .fa-major-network-choice:active {
@@ -1076,7 +1076,7 @@ body {
 }
 
 #swap-btn {
-    background: #05c957;
+    background: #01e962;
 }
 
 #sell-btn {
@@ -1479,7 +1479,7 @@ body {
 
 .charts-header {
     margin: 0px;
-    padding: 5px 10px 5px;
+    padding: 5px 15px 5px;
     background: #fff;
     border-radius: 5px 5px 0px 0px;
 }
@@ -1496,7 +1496,11 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
+}
+
+.chart-exit-btn {
+    border: none;
 }
 
 .chart-details {
@@ -1530,6 +1534,14 @@ body {
 .fa-star {
     font-size: clamp(18px, 0.4vw, 100px);
     color: #f3d422;
+}
+
+.fa-star:hover {
+    color: #000;
+}
+
+.fa-star:active {
+    color: #0166ff;
 }
 
 .Chart-coin-pair {
@@ -1584,8 +1596,13 @@ body {
     border-radius: 5px;
 }
 
-.fa-basic-icons {
-    font-size: clamp(10px, 0.5vw, 100px);
+.fa-global-icons {
+    font-size: clamp(14px, 0.5vw, 100px);
+    color: #000;
+}
+
+.fa-global-icons:hover {
+    color: #0166ff;
 }
 
 .charts-area {
@@ -1838,10 +1855,12 @@ canvas {
     align-items: center;
     flex-direction: column;
     gap: 10px;
+    font-size: clamp(10px, 0.5vw, 100px);
     margin: 0px;
     padding: 2px 5px;
     color: #fff;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .footer-icon-box:hover {
@@ -1857,11 +1876,20 @@ canvas {
     flex-direction: column;
     gap: 5px;
     margin: 0px;
-    padding: 0px;
+    padding: 5px;
     position: absolute;
     transform: translate(-50%, -50%);
     left: 50%;
     top: 10px;
+    cursor: pointer;
+    border-radius: 45% 45% 20% 20%;
+    background: #01e962;
+}
+
+.footer-trading:hover {
+    background: #e7e7e7;
+    color: #000;
+    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5);
 }
 
 .footer-trading-btn {
@@ -1874,6 +1902,7 @@ canvas {
     padding: 4px;
     background: #0166ff;
     color: #d3d2d2;
+    cursor: pointer;
     border-radius: 50%;
     box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5);
 }

@@ -83,7 +83,8 @@ body {
     padding: 10px 15px;
     gap: 5px;
     width: 100%;
-    background: #815dee;
+    /* background: #815dee; */
+    background: #5025d1;
     /* border-bottom: 4px solid#5025d1; */
 }
 
@@ -108,6 +109,7 @@ body {
     /* border: 0.5px solid #000; */
     border-radius: 7px;
     gap: 5px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .wallet-box span {
@@ -166,6 +168,7 @@ body {
     background: #5025d1;
     /* border: 0.5px solid #000; */
     border-radius: 7px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .major-networks-list {
@@ -242,7 +245,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: clamp(12px, 0.5vw, 100px);
     margin: 0px 0px 5px;
-    background: linear-gradient(360deg, #f0f0f0, #815dee);
+    background: linear-gradient(360deg, #f0f0f0, #815dee, #5025d1);
 }
 
 .balance-details {
@@ -1884,6 +1887,7 @@ canvas {
     cursor: pointer;
     border-radius: 45% 45% 20% 20%;
     background: #01e962;
+    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5);
 }
 
 .footer-trading:hover {

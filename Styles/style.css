@@ -371,7 +371,7 @@ body {
     font-size: clamp(14px, 0.5vw, 100px);
     padding: 10px 45px;
     background: #0166ff;
-    color: #d3d2d2;
+    color: #fff;
     border: none;
     gap: 5px;
     border-radius: 10px;
@@ -1061,7 +1061,7 @@ body {
     font-size: clamp(14px, 0.5vw, 100px);
     padding: 10px 45px;
     background: #0166ff;
-    color: #d3d2d2;
+    color: #fff;
     border: none;
     gap: 5px;
     border-radius: 10px;

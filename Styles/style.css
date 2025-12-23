@@ -1539,6 +1539,7 @@ body {
 .Chart-coin-name {
     font-size: clamp(18px, 0.4vw, 100px);
     font-weight: bold;
+    text-transform: capitalize;
 }
 
 .value-box {

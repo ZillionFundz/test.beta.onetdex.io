@@ -363,7 +363,7 @@ const networkList = document.querySelectorAll('.major-networks-list-card');
 // MAJOR NEWORK PAGE ANIMATION:...👇
 majorNetworksBtn.addEventListener('click', () => {
     majorNetworksList.style.visibility = 'visible';
-    majorNetworksList.style.top = '75px';
+    majorNetworksList.style.top = '90px';
     majorNetworksList.style.opacity = '1';
 });
 
@@ -559,6 +559,54 @@ popUpExitBtn.addEventListener('click', () => {
 
 
 // CHART.JS INITIALISATION:...👇
+const chartsContainer = document.getElementById('charts-container');
+const chartSelectedCard = document.getElementById('chart-selected-card');
+const chartCoinName = document.getElementById('Chart-coin-name');
+const chartCoinLogo = document.getElementById('chart-coin-logo');
+const chartCoinValue = document.getElementById('chart-coin-value');
+const chartExitBtn = document.getElementById('chart-exit-btn');
+const footerTradeBtn = document.getElementById('footer-trade-btn');
+let listedCards = document.querySelectorAll('.listed-card');
+
+
+footerTradeBtn.addEventListener('click', () => {
+    chartsContainer.style.display = 'block';
+    document.body.classList.add('no-scroll');
+});
+
+chartExitBtn.addEventListener('click', () => {
+    chartsContainer.style.display = 'none';
+    document.body.classList.remove('no-scroll');
+});
+
+
+listedCards.forEach(selectedCard => {
+    selectedCard.addEventListener('click', () => {
+
+        // Get elements INSIDE the clicked card
+        const coinEl = selectedCard.querySelector('[data-coin]');
+        const coinValueEl = selectedCard.querySelector('.coin-value');
+        const coinLogoImg = selectedCard.querySelector('img');
+
+        if (!coinEl) return;
+
+        const coinName = coinEl.dataset.coin; // ✅ correct
+
+        // Update chart UI
+        if (chartCoinName) chartCoinName.dataset.coin = coinName;
+        if (coinValueEl && chartCoinValue) {
+            chartCoinValue.textContent = coinValueEl.textContent;
+        }
+        if (coinLogoImg && chartCoinLogo) {
+            chartCoinLogo.src = coinLogoImg.src;
+        }
+
+        chartsContainer.style.display = 'block';
+        document.body.classList.add('no-scroll');
+    });
+});
+
+
 document.addEventListener('DOMContentLoaded', () => {
 
     const ctx = document.getElementById('priceChart').getContext('2d');

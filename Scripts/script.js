@@ -565,6 +565,7 @@ const chartCoinName = document.getElementById('Chart-coin-name');
 const chartCoinTicker = document.getElementById('chart-coin-ticker');
 const chartCoinLogo = document.getElementById('chart-coin-logo');
 const chartCoinValue = document.getElementById('chart-coin-value');
+const chartCardCoinValue = document.getElementById('chart-card-coin-value');
 const chartExitBtn = document.getElementById('chart-exit-btn');
 const footerTradeBtn = document.getElementById('footer-trade-btn');
 const listedCoinName = document.getElementById('listed-coin-name');
@@ -589,15 +590,19 @@ listedCards.forEach(selectedCard => {
         const coinName = selectedCard.querySelector('span');
         const coinValue = selectedCard.querySelector('.coin-value');
         const coinLogoImg = selectedCard.querySelector('img');
-        const coinTickerChart = selectedCard.querySelector('chart-coin-ticker');
+        const coinTicker = selectedCard.querySelector('.coin-ticker');
+
+
+
 
 
         // Update chart UI
         if (coinName) chartCoinName.textContent = coinName.textContent;
         if (coinValue) {
             chartCoinValue.textContent = coinValue.textContent;
+            chartCardCoinValue.textContent = coinValue.textContent;
         }
-        if (coinTickerChart) chartCoinTicker.textContent = coinTickerChart.textContent;
+        if (coinTicker) chartCoinTicker.textContent = coinTicker.textContent;
         if (coinLogoImg) {
             chartCoinLogo.src = coinLogoImg.src;
         }

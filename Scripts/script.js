@@ -562,10 +562,12 @@ popUpExitBtn.addEventListener('click', () => {
 const chartsContainer = document.getElementById('charts-container');
 const chartSelectedCard = document.getElementById('chart-selected-card');
 const chartCoinName = document.getElementById('Chart-coin-name');
+const chartCoinTicker = document.getElementById('chart-coin-ticker');
 const chartCoinLogo = document.getElementById('chart-coin-logo');
 const chartCoinValue = document.getElementById('chart-coin-value');
 const chartExitBtn = document.getElementById('chart-exit-btn');
 const footerTradeBtn = document.getElementById('footer-trade-btn');
+const listedCoinName = document.getElementById('listed-coin-name');
 let listedCards = document.querySelectorAll('.listed-card');
 
 
@@ -584,20 +586,19 @@ listedCards.forEach(selectedCard => {
     selectedCard.addEventListener('click', () => {
 
         // Get elements INSIDE the clicked card
-        const coinEl = selectedCard.querySelector('[data-coin]');
-        const coinValueEl = selectedCard.querySelector('.coin-value');
+        const coinName = selectedCard.querySelector('span');
+        const coinValue = selectedCard.querySelector('.coin-value');
         const coinLogoImg = selectedCard.querySelector('img');
+        const coinTickerChart = selectedCard.querySelector('chart-coin-ticker');
 
-        if (!coinEl) return;
-
-        const coinName = coinEl.dataset.coin; // ✅ correct
 
         // Update chart UI
-        if (chartCoinName) chartCoinName.dataset.coin = coinName;
-        if (coinValueEl && chartCoinValue) {
-            chartCoinValue.textContent = coinValueEl.textContent;
+        if (coinName) chartCoinName.textContent = coinName.textContent;
+        if (coinValue) {
+            chartCoinValue.textContent = coinValue.textContent;
         }
-        if (coinLogoImg && chartCoinLogo) {
+        if (coinTickerChart) chartCoinTicker.textContent = coinTickerChart.textContent;
+        if (coinLogoImg) {
             chartCoinLogo.src = coinLogoImg.src;
         }
 

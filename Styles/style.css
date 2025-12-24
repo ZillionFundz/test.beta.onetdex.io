@@ -1264,6 +1264,10 @@ body {
     transition: color 0.5s ease;
 }
 
+.hide {
+    display: none;
+}
+
 /* THIS CODE IS FOR DIFERENT COLOR IN PRICE CHANGES: 👇*/
 
 /* color states: match when class is on the element itself or on the .coin-value child */
@@ -1540,6 +1544,14 @@ body {
     flex-direction: column;
 }
 
+.value-box {
+    margin: 0px;
+    padding: 5px 10px;
+    /* background: #e8e8e9; */
+    background: #cdcdce;
+    border-radius: 10px;
+}
+
 .chart-coin-name-and-star-box {
     display: flex;
     justify-content: space-between;
@@ -1550,13 +1562,6 @@ body {
     font-size: clamp(18px, 0.4vw, 100px);
     font-weight: bold;
     text-transform: capitalize;
-}
-
-.value-box {
-    margin: 0px;
-    padding: 5px 10px;
-    background: #e8e8e9;
-    border-radius: 10px;
 }
 
 .chart-value-and-percentage {

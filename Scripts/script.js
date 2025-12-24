@@ -563,6 +563,7 @@ const chartsContainer = document.getElementById('charts-container');
 const chartSelectedCard = document.getElementById('chart-selected-card');
 const chartCoinName = document.getElementById('Chart-coin-name');
 const chartCoinTicker = document.getElementById('chart-coin-ticker');
+const chartCoinPair = document.getElementById('Chart-coin-pair');
 const chartCoinLogo = document.getElementById('chart-coin-logo');
 const chartCoinValue = document.getElementById('chart-coin-value');
 const chartCardCoinValue = document.getElementById('chart-card-coin-value');
@@ -591,8 +592,8 @@ listedCards.forEach(selectedCard => {
         const coinValue = selectedCard.querySelector('.coin-value');
         const coinLogoImg = selectedCard.querySelector('img');
         const coinTicker = selectedCard.querySelector('.coin-ticker');
-
-
+        let listedTicker = coinTicker.textContent;
+        listedTicker = listedTicker.replace(/\$/g, '').trim();
 
 
 
@@ -603,6 +604,7 @@ listedCards.forEach(selectedCard => {
             chartCardCoinValue.textContent = coinValue.textContent;
         }
         if (coinTicker) chartCoinTicker.textContent = coinTicker.textContent;
+        if (listedTicker) chartCoinPair.textContent = `${listedTicker}/USDT`;
         if (coinLogoImg) {
             chartCoinLogo.src = coinLogoImg.src;
         }

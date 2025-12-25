@@ -1584,9 +1584,11 @@ body {
 
 .chart-coin-logo {
     margin: 0px;
-    padding: 0px;
+    padding: 1px;
     border: 1px solid #5e5e72;
+    background: #000;
 }
+
 
 .value-box {
     margin: 0px;

@@ -381,24 +381,26 @@
         <div id="charts-container" class="charts-container">
             <div id="charts-box" class="charts-box">
                 <div class="charts-header">
+                    <h4 class="chart-title">Powered by ONET Technology</h4>
                     <div class="chart-coin-name-and-star-box">
                         <div class="chart-coin-name-and-value">
                             <div class="chart-exit-and-coin-name">
                                 <button id="chart-exit-btn" class="chart-exit-btn"><i
-                                        class="fa-global-icons fa-solid fa-arrow-left"></i>
+                                        class="fa-global-icons chart-fa-arrow-left fa-solid fa-arrow-left"></i>
                                 </button>
                                 <span id="Chart-coin-name" class="Chart-coin-name">Bitcoin<i
                                         class="fa-global-icons fa-solid fa-chevron-down"></i>
                                 </span>
                             </div>
-                            <div class="chart-price-area">
+                            <div class="chart-price-area-and-logo">
                                 <div class="value-box">
                                     <div class="chart-value-and-percentage">
                                         <div id="chart-coin-value" class="chart-coin-value" data-coin="bitcoin">$0.00
                                         </div>
-                                        <span class="chart-percentage-change">%</span>
+                                        <span id="chart-percentage-change" class="chart-percentage-change">%</span>
                                     </div>
                                 </div>
+                                <img id="chart-coin-logo" class="chart-coin-logo" src="Images/bitcoin.png" alt="">
                             </div>
                         </div>
                         <button class="favorite-star-btn"><i class="fa-solid fa-star"></i></button>
@@ -443,8 +445,8 @@
                         </div>
                         <div class="percentage-change-box">
                             <div class="volume-and-amount">
-                                <div id="coin-volume" class="coin-volume">0.001</div>
-                                <div id="coin-amount" class="coin-amount">$0.00</div>
+                                <div id="chart-coin-volume" class="chart-coin-volume">0.001</div>
+                                <div id="chart-coin-amount" class="chart-coin-amount">$0.00</div>
                             </div>
                             <button class="percentage-change">%</button>
                         </div>

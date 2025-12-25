@@ -1851,7 +1851,7 @@ canvas {
     font-size: clamp(16px, 0.5vw, 100px);
     color: #fff;
     margin: 0px;
-    padding: 10px 0px 2px 25px;
+    padding: 5px 0px 2px 25px;
 }
 
 .listed-area {

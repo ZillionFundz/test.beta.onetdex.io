@@ -1496,7 +1496,7 @@ body {
 
 .charts-header {
     margin: 0px;
-    padding: 15px 15px 5px;
+    padding: 15px 15px 10px;
     /* background: #fff; */
     background: linear-gradient(#f0f0f0, #5025d1);
     border: 0.2px dashed #5e5e72;
@@ -1505,7 +1505,7 @@ body {
 
 .chart-title {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: clamp(12px, 1.5vw, 100px);
+    font-size: clamp(16px, 1.5vw, 100px);
     text-transform: uppercase;
     text-align: center;
     font-weight: lighter;
@@ -1516,7 +1516,7 @@ body {
     margin: 0px;
     padding: 5px 0px;
     border-radius: 4px;
-    background: #e8e8e9;
+    /* background: #e8e8e9; */
     box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
@@ -1601,7 +1601,7 @@ body {
     justify-content: space-between;
     align-items: center;
     margin: 0px;
-    padding: 2px 0px;
+    padding: 10px 0px 2px;
 }
 
 .Chart-coin-name {

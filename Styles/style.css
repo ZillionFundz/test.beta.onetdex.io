@@ -1,2228 +1,939 @@
-*,
-*::before,
-*::after {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-}
-
-
-/* ...existing code... */
-:root {
-    --ui-font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
-}
-
-html {
-    font-family: var(--ui-font);
-    font-size: clamp(12px, 0.9vw, 14px);
-    /* tiny, responsive base */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-body {
-    line-height: 1.35;
-    color: #111;
-    margin: 0px;
-    padding: 0px;
-    height: 100%;
-
-}
-
-.no-scroll {
-    overflow: hidden;
-}
-
-/* explicit weights so you can notice changes */
-.coin-ticker {
-    font-weight: 700;
-}
-
-.coin-value {
-    font-weight: 300;
-}
-
-/* ...existing code... */
-
-
-
-
-.testing-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 20px;
-    margin: 20px auto;
-}
-
-
-.container {
-    margin: auto;
-    /* max-width: 350px; */
-    min-width: 250px;
-    max-width: 700px;
-    min-height: 100vh;
-    background: #fff;
-    overflow: hidden;
-    /* margin-bottom: 65px; */
-}
-
-.header {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.header-box {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0px;
-    padding: 15px 15px 10px;
-    gap: 5px;
-    width: 100%;
-    /* background: #815dee; */
-    background: #5820ff;
-    /* border-bottom: 4px solid#5025d1; */
-}
-
-.controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-}
-
-.header img {
-    width: 28px;
-    margin: 0px;
-}
-
-.wallet-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 4px 10px;
-    background: #5025d1;
-    /* border: 0.5px solid #000; */
-    border-radius: 7px;
-    gap: 5px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-}
-
-.wallet-box span {
-    color: #fff;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: clamp(12px, 0.5vw, 100px);
-}
-
-.major-network-choice {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0px;
-    padding: 4px 5px;
-    gap: 5px;
-    border: none;
-    background: #000;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-    border-radius: 8px;
-    width: 100%;
-    max-width: 55px;
-}
-
-.major-network-choice:hover {
-    background: #000;
-}
-
-.major-network-choice:active {
-    background: #dddfe2;
-}
-
-.major-network-choice img {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-}
-
-.fa-major-network-choice {
-    color: #f0f0f0 !important;
-}
-
-.fa-major-network-choice:hover {
-    color: #0166ff !important;
-}
-
-.fa-major-network-choice:active {
-    color: #000 !important;
-}
-
-
-.scanner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 4px;
-    background: #5025d1;
-    /* border: 0.5px solid #000; */
-    border-radius: 7px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-}
-
-.major-networks-list {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2px;
-    width: 100%;
-    max-width: 700px;
-    margin: 0px;
-    padding: 27px 0px 5px 10px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 55px;
-    left: 50%;
-    visibility: hidden;
-    opacity: 0;
-    background: linear-gradient(360deg, #fff, #5820ff);
-    transition: 0.3s ease, top 0.4s;
-}
-
-.major-networks-list-card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    margin: 0px;
-    padding: 2px 7px;
-    border: 0.1px solid #909090;
-    border-radius: 8px;
-    color: #707070;
-    background: #e8e8ee;
-}
-
-.major-networks-list-card:hover {
-    color: #494949;
-    background: #eff3f7;
-}
-
-.major-networks-list-card:active {
-    color: #c9c9ca;
-    border: 0.1px solid #494949;
-}
-
-.major-networks-list img {
-
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-}
-
-.major-networks-list-name {
-    margin: 0px;
-    padding: 0px;
-    line-height: 14px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 550;
-    /* color: #909090; */
-}
-
-.controls-panel {
-    flex-direction: column;
-    margin: 0px;
-    padding: 0px;
-    background: #fff;
-}
-
-.balance-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: clamp(12px, 0.5vw, 100px);
-    margin: 0px;
-    padding: 0px 0px 5px;
-    background: linear-gradient(360deg, #fff, #5820ff);
-}
-
-
-.balance-details {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    margin: 0px;
-    padding: 0px;
-}
-
-/* RULES FOR MASKING AMOUNTS HERE:👇 */
-.balance-details .toggle-eye {
-    color: #292929;
-    /* color: #dd2c2c; */
-    font-size: clamp(14px, 0.5vw, 100px);
-    padding: 4px 0px;
-    margin: 0px;
-    padding: 0px;
-    cursor: pointer;
-    user-select: none;
-}
-
-.balance-details .toggle-eye:hover {
-    color: #0166ff;
-}
-
-.amount-details {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: clamp(10px, 0.5vw, 100px);
-    margin: 0px;
-}
-
-.amount-group {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1px;
-    margin: 2px 0px 2px;
-    padding: 0px;
-}
-
-#pnl {
-    color: #11b928;
-    transition: color 0.3s ease;
-}
-
-#pnl.pnl-positive {
-    color: #11b928;
-}
-
-#pnl.pnl-negative {
-    color: #f83838;
-}
-
-.amount {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: clamp(32px, 0.4vw, 100px);
-    /* font-size: 1.5rem; */
-    font-weight: bold;
-    margin: 0px 2px;
-    padding: 2px 0px;
-}
-
-.exchange {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 4px;
-    /* width: 10vw; */
-    /* background: red; */
-    margin: 0px;
-    padding: 5px 0px 5px;
-}
-
-.fa-solid,
-.fa-solid-footer {
-    color: #d3d2d2;
-    font-size: clamp(25px, 0.5vw, 100px);
-    margin: 0px;
-    padding: 0 0px;
-}
-
-.fa-solid {
-    color: #d3d2d2;
-    font-size: clamp(25px, 0.5vw, 100px);
-    margin: 0px;
-    padding: 0px;
-    user-select: none;
-}
-
-.fa-solid:hover {
-    color: #fff;
-}
-
-.fa-solid:active {
-    color: #000;
-}
-
-.fa-head {
-    color: #292929;
-    /* font-size: clamp(26px, 0.5vw, 100px); */
-    padding: 4px 0px;
-    margin: 0px;
-    padding: 0px;
-}
-
-.fa-head:hover {
-    color: #0166ff;
-}
-
-.fa-footer {
-    color: #d3d2d2;
-    /* font-size: clamp(26px, 0.5vw, 100px); */
-    margin: 0px;
-    padding: 4px 0px;
-}
-
-.fa-footer:hover {
-    color: #5025D1;
-}
-
-.cta-buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: clamp(14px, 0.5vw, 100px);
-    padding: 10px 45px;
-    background: #0166ff;
-    color: #fff;
-    border: none;
-    gap: 5px;
-    border-radius: 10px;
-    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
-    min-width: 23vw;
-    max-width: 20vw;
-    cursor: pointer;
-}
-
-.swap-area {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 5px 0px;
-    padding: 5px 0px;
-    background: #fff;
-    min-width: 100%;
-    gap: 4px;
-    position: relative;
-}
-
-.swap-switch-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 15vw;
-    height: 15vw;
-    max-width: 45px;
-    max-height: 50px;
-    margin: 0px;
-    padding: 5px;
-    border: 2px solid #fff;
-    border-radius: 30%;
-    position: absolute;
-    /* background: #0166ff; */
-    /* background: #5d5d5e; */
-    background: #5025d1;
-    /* transform: translate(-50%, -50%); */
-}
-
-.swap-icon {
-    color: #d3d2d2;
-    font-size: clamp(20px, 0.5vw, 100px);
-    margin: 0px;
-    padding: 0px;
-}
-
-.swap-box-a,
-.swap-box-b {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin: 0px;
-    padding: 5px 5px;
-    width: 50%;
-    min-height: 130px;
-    gap: 10px;
-    background: #efeff0;
-    border: 0.1px solid #000;
-
-}
-
-.swap-box-a {
-    border-radius: 0px 10px 10px 0px;
-    border-left: none;
-}
-
-.swap-box-b {
-    border-radius: 10px 0px 0px 10px;
-    border-right: none;
-}
-
-.chosen-ticker-and-logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 2px;
-}
-
-.wrap-swap-logos {
-    position: relative;
-}
-
-.swap-network {
-    /* left: 50%; */
-    right: -8px;
-    bottom: -5px;
-    position: absolute;
-}
-
-.swap-network-logo {
-    width: 18px;
-    height: 18px;
-    border: 0.2px solid #505063;
-    border-radius: 20%;
-}
-
-.swap-logo {
-    width: 30px;
-    height: 30px;
-    /* border: 0.1px solid #6b6b6b; */
-    border: 1px solid #01e962;
-    border-radius: 50%;
-    margin: 0px;
-    padding: 1px;
-}
-
-.chosing-swap-box {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-}
-
-.chose-to-swap button {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    /* gap: 50px; */
-    min-width: 70px;
-    width: 10vw;
-    max-width: 25vw;
-    margin: 0px;
-    padding: 6px 10px;
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
-}
-
-.chose-to-swap button:hover {
-    background: linear-gradient(#5025d1, #dce7f8);
-    border: 0.1px solid #6b6b6b;
-    color: #dce7f8;
-}
-
-.chose-to-swap button:active {
-    background: linear-gradient(#dce7f8, #5025d1);
-    border: 0.1px solid #6b6b6b;
-    color: #dce7f8;
-}
-
-.fa-chose-chevron {
-    font-size: clamp(14px, 0.5vw, 100px);
-    color: #5d5d5e;
-}
-
-.swap-coin-ticker {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: clamp(12px, 0.4vw, 100px);
-    font-weight: bold;
-}
-
-.max-input {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-}
-
-.max-btn {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 4px;
-    max-width: 25vw;
-    margin: 0px 0px 0px 5px;
-    padding: 5px 8px;
-    border: 0.5px solid #fff;
-    border-radius: 10px;
-    font-size: clamp(12px, 0.5vw, 100px);
-    font-weight: bold;
-    position: absolute;
-    left: -15px;
-    /* bottom: 15px; */
-    /* background: #545474; */
-    background: #000;
-    /* color: #dce7f8; */
-    color: #d3d2d2;
-    /* box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5); */
-}
-
-.max-btn:hover {
-    color: #fff;
-    background: linear-gradient(#dce7f8, #5025d1);
-}
-
-.max-btn:active {
-    color: #000;
-    background: linear-gradient(#5025d1, #dce7f8);
-}
-
-.fa-max-icon {
-    font-size: clamp(10px, 0.5vw, 100px);
-    color: #5d5d5e;
-    color: #d3d2d2;
-}
-
-.swap-entry {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.swap-from-amount,
-.swap-to-amount {
-    min-width: 100px;
-    width: 100%;
-    max-width: 35vw;
-    margin: 0px;
-    padding: 1px 10px;
-    border: none;
-    text-align: center;
-    /* border-radius: 4px; */
-    background: none;
-    /* box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5); */
-    font-size: clamp(18px, 0.4vw, 100px);
-    font-weight: bold;
-    /* color: #5d5d5e; */
-    color: #808080;
-}
-
-.swap-from-amount {
-    min-width: 135px;
-    padding: 6px 5px 6px 43px;
-    border: 0.5px solid #808080;
-    border-radius: 10px 10px 10px 10px;
-}
-
-.swap-entry .swap-from-amount::placeholder {
-    font-weight: lighter;
-    color: #929291;
-    font-size: clamp(14px, 0.4vw, 100px);
-}
-
-.swap-entry .swap-from-amount:hover {
-    border: 0.5px solid #000;
-}
-
-.error-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.error-message {
-    font-size: clamp(12px, 0.4vw, 100px);
-    color: #f83838;
-    display: none;
-}
-
-.fa-circle-info {
-    font-size: clamp(12px, 0.4vw, 100px);
-    /* color: #f83838; */
-    color: #f0f0f0;
-    margin: 0px 2px;
-    display: block;
-}
-
-.fa-circle-info:hover {
-    color: #dadcdf;
-}
-
-.deposit-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 25px;
-    background: #dce7f8;
-    text-align: center;
-    width: 100%;
-    /* max-width: 700px; */
-    min-height: 100vh;
-    margin: 0px auto;
-    padding: 15px 0px 10px;
-    visibility: hidden;
-    position: fixed;
-    left: -100%;
-    top: 0;
-    bottom: 0%;
-    z-index: 4;
-    transition: 0.3s, left 0.4s;
-    opacity: 0.5;
-}
-
-.deposit-header {
-    width: 100%;
-    /* max-width: 400px; */
-    position: relative;
-    padding: 15px;
-    background: linear-gradient(#dce7f8, #5025d1);
-    /* border-radius: 15px 15px 0px 0px; */
-    /* border: 1px dashed #424244; */
-    margin: 0px;
-    padding: 10px 10px 20px;
-    border-bottom: 4px solid #424244;
-    text-align: center;
-}
-
-.deposit-exit-btn {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 20px;
-    left: 30px;
-    background: #000;
-    margin: 0px;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-}
-
-.deposit-header h3 {
-    /* font-family: Arial, Helvetica, sans-serif; */
-    font-size: clamp(18px, 2vh, 100px);
-    text-align: center;
-    padding: 10px 0px 2px;
-    text-transform: uppercase;
-}
-
-.Deposit-powered-by {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: clamp(12px, 1.5vh, 100px);
-    text-align: center;
-    padding: 2px 0px 10px;
-    text-transform: uppercase;
-    font-weight: lighter;
-}
-
-.deposit-area {
-    margin: 0px;
-    padding: 0px 15px;
-}
-
-.receive-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 10px;
-    margin: 0px;
-    padding: 20px 20px 20px;
-    width: 100%;
-    max-width: 400px;
-    /* background: #f0f0f5; */
-    background: #dadcdf;
-    border-radius: 15px;
-    box-shadow: 0px 0px 12px 4px rgba(18, 38, 63, 0.2);
-}
-
-.receive-box {
-    text-transform: uppercase;
-}
-
-.deposit-logo-and-ticker {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-}
-
-.deposit-logo {
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    /* border: 0.8px solid #505050; */
-    border: 0.8px solid #909090;
-}
-
-.deposit-ticker {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: clamp(16px, 1.5vh, 100px);
-    font-weight: bold;
-}
-
-.qr-code-box {
-    position: relative;
-    margin: auto;
-}
-
-.deposit-network-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 4px;
-    margin: 0px;
-    padding: 2px 10px;
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /* background: #e0e0e5; */
-    background: #05c957;
-    border: 0.1px solid #909090;
-    border-radius: 10px;
-}
-
-.deposit-network {
-    font-size: clamp(14px, 0.4vw, 100px);
-    font-weight: bold;
-    color: #fff;
-    margin: 0px;
-    padding: 0px;
-}
-
-.qr-code {
-    width: 250px;
-    height: 250px;
-    margin: 10px auto 10px;
-    padding: 5px;
-    border: 0.1px solid #909090;
-    border-radius: 15px;
-}
-
-.wallet-address-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-    gap: 10px;
-    margin: 0px;
-    padding: 10px 10px;
-    background: #e0e0e5;
-    /* border: 0.1px solid #909090; */
-    box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-    width: 100%;
-}
-
-.wallet-address {
-    /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
-    font-size: clamp(10px, 0.4vw, 100px);
-    font-weight: bold;
-    color: #505050;
-}
-
-.copy-wallet-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    padding: 6px 20px;
-    /* background: #5025d1; */
-    background: linear-gradient(#dce7f8, #5025d1);
-    border: none;
-    border-radius: 10px;
-    font-size: clamp(12px, 0.4vw, 100px);
-    color: #fff;
-    cursor: pointer;
-    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5);
-}
-
-.deposit-footer {
-    width: 100%;
-    /* max-width: 400px; */
-    height: 50px;
-    position: relative;
-    padding: 15px;
-    background: linear-gradient(#5025d1, #dce7f8);
-    /* border-radius: 15px 15px 0px 0px; */
-    /* border: 1px dashed #424244; */
-    margin: 0px;
-    padding: 10px;
-    border-top: 4px solid #424244;
-    text-align: center;
-}
-
-/*Actual Popup Codes Start here:...👇*/
-
-.overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.1);
-    display: none;
-    z-index: 2;
-}
-
-.popup {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    /* height: 250px; */
-    width: 100%;
-    max-width: 700px;
-    max-height: 56%;
-    /* background: #dce7f8; */
-    background: linear-gradient(#f0f0f0, #5025d1);
-    margin: 0px;
-    padding: 5px 5px 25px;
-    border-radius: 30px 30px 0px 0px;
-    position: fixed;
-    z-index: 2;
-    transform: translate(0%, 0%);
-    bottom: -100%;
-    transition: bottom 0.5s ease;
-    touch-action: none;
-    visibility: hidden;
-    box-shadow: 0px -4px 12px 4px rgba(18, 38, 63, 0.2);
-
-}
-
-.popup-header {
-    width: 100%;
-    position: relative;
-    padding: 15px;
-    background: linear-gradient(#f0f0f0, #5025d1);
-    border-radius: 25px 25px 0px 0px;
-    border: 1px dashed #424244;
-    margin: 0px;
-    padding: 10px;
-    border-bottom: 4px solid #424244;
-}
-
-.popup-exit-btn {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    background: none;
-    border: none;
-    font-size: clamp(20px, 0.5vw, 100px);
-    /* color: #292929; */
-    cursor: pointer;
-}
-
-.popup-icon {
-    color: #fff;
-    font-size: clamp(16px, 2vh, 100px);
-
-}
-
-.popup-icon:hover {
-    /* color: #5f5f5f; */
-    color: #5025d1;
-}
-
-.popup-icon:active {
-    color: #fff;
-
-}
-
-.handle-bar {
-    width: 50px;
-    height: 5px;
-    background: #aaaaaa;
-    border-radius: 3px;
-    margin: 0 auto;
-    margin-bottom: 10px;
-}
-
-.popup h3 {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: clamp(16px, 2vh, 100px);
-    text-align: center;
-    padding: 10px 0px 2px;
-    text-transform: uppercase;
-}
-
-.popup-header h4 {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: clamp(10px, 1.5vh, 100px);
-    text-align: center;
-    padding: 2px 0px 10px;
-    text-transform: uppercase;
-    font-weight: lighter;
-}
-
-.search-box {
-    /* width: 100%; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    margin: 0px 0px 10px;
-    padding: 0px 10px;
-}
-
-.search-token {
-    width: 100%;
-    max-width: 85%;
-    padding: 8px 12px;
-    font-size: clamp(16px, 0.4vw, 100px);
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background: none;
-    text-transform: uppercase;
-}
-
-.search-token::placeholder {
-    color: #aaaaf0;
-    text-transform: lowercase;
-}
-
-.swap-networks-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0px;
-    padding: 5px 4px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background: none;
-}
-
-/* .network-btn {
-    margin: 0px;
-    padding: 2px;
-    background: none;
-    border: none;
-    font-size: clamp(16px, 0.5vw, 100px);
-    color: #dce7f8;
-
-} */
-
-.swap-networks-logo {
-    width: 25px;
-    height: 25px;
-    border-radius: 30px;
-}
-
-.listed-popup {
-    font-size: clamp(14px, 0.5vw, 100px);
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-    gap: 5px;
-    background: #6c6583;
-    margin: 0px;
-    padding: 5px 5px 5px;
-    overflow-y: auto;
-    /* padding-bottom: 200px; */
-    /* SCROLL SMOOTHING FOR POPUP LIST HERE:👇 */
-    max-height: 65vh;
-    width: 100%;
-    /* or keep your existing percentage-based value */
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-
-}
-
-.popup-card {
-    font-size: clamp(14px, 0.5vw, 100px);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    min-width: 100%;
-    height: 62px;
-    background: #545474;
-    border-radius: 5px;
-    margin: 0px;
-    padding: 10px 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 4px;
-    cursor: pointer;
-}
-
-.popup-card:hover {
-    background: #444468;
-}
-
-.popup-card:active {
-    border: 1px solid #111;
-}
-
-.transaction {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 4px;
-    /* width: 60vw; */
-    /* background: red; */
-    margin: 0px;
-    padding: 5px 0px 5px;
-}
-
-.trx-buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: clamp(14px, 0.5vw, 100px);
-    padding: 10px 45px;
-    background: #0166ff;
-    color: #fff;
-    border: none;
-    gap: 5px;
-    border-radius: 10px;
-    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
-    min-width: 15vw;
-    max-width: 15vw;
-    cursor: pointer;
-}
-
-#buy-btn {
-    background: #5025d1;
-}
-
-#swap-btn {
-    background: #01e962;
-}
-
-#sell-btn {
-    background: #5025d1;
-}
-
-.notification-popup {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    /* height: 250px; */
-    width: 100%;
-    max-width: 325px;
-    background: #dce7f8;
-    margin: 0px;
-    padding: 5px 20px 25px;
-    border-radius: 10px 10px 10px 10px;
-    position: fixed;
-    transform: translate(-50%, -50%) scale(0.1);
-    transition: 0.3s, top 0.5s;
-    top: 35%;
-    left: 50%;
-    z-index: 5;
-    visibility: hidden;
-    box-shadow: 0px 0px 12px 4px rgba(18, 38, 63, 0.2);
-    text-align: center;
-    opacity: 0.1;
-}
-
-.notification-exit-btn {
-
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    margin: 0px;
-    padding: 5px;
-    background: #000;
-    border: none;
-    border-radius: 5px;
-    font-size: clamp(16px, 0.5vw, 100px);
-    /* color: #292929; */
-    cursor: pointer;
-    z-index: 10000;
-}
-
-.notification-popup h3 {
-    font-size: clamp(16px, 0.5vw, 100px);
-    margin: 0px;
-    padding: 15px 5px 10px;
-    text-transform: uppercase;
-    /* text-align: center; */
-}
-
-.notification-hr {
-    margin: 10px 0px;
-    padding: 0px 0px;
-    width: 100%;
-}
-
-.notification-cta {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-
-.notification-btn {
-    font-size: clamp(16px, 0.5vw, 100px);
-    padding: 10px 25px 10px;
-    border-radius: 10px 10px 10px 10px;
-    min-width: 100px;
-    border: none;
-    /* background: #545474; */
-    background: linear-gradient(#dce7f8, #5025d1);
-    color: #1b1b1b;
-    box-shadow: 0px 1px 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-.notification-btn:hover {
-    color: #fff;
-    background: linear-gradient(#5025d1, #dce7f8);
-}
-
-.notification-btn:active {
-    /* border: 1px solid #545474; */
-    background: #5025d1;
-    color: #d3d2d2;
-}
-
-.trending-title {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: clamp(16px, 0.5vw, 100px);
-    font-weight: bold;
-    margin: 0px;
-    padding: 10px 0px 2px 15px;
-    /* background: #f0f0f0; */
-}
-
-.trending-area {
-    width: 100%;
-    padding: 5px 0px 5px 10px;
-    /* background: #f0f0f0; */
-    gap: 30px;
-}
-
-.trending-card {
-    font-size: clamp(14px, 0.5vw, 100px);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    min-width: 165px;
-    /* max-width: 500px; */
-    height: 62px;
-    /* background: #545474; */
-    background: #505063;
-    border-radius: 10px;
-    margin: 0px;
-    padding: 0px 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 4px;
-}
-
-.coin {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.coin-logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0px;
-    padding: 1px;
-    border-radius: 50%;
-    /* background: #000; */
-    border: 0.5px solid #000;
-}
-
-.coin-logo img {
-    margin: 0px;
-    padding: 0px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: #c9c4c4;
-}
-
-.ticker-and-trend-value {
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
-    gap: 2px;
-    text-align: right;
-}
-
-.ticker-and-value {
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    gap: 2px;
-}
-
-.coin-ticker {
-    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
-    font-size: clamp(14px, 0.5vw, 100px);
-    font-weight: bold;
-    color: #dfdede;
-}
-
-.coin-value {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: clamp(12px, 0.5vw, 100px);
-    color: #b8b8b8;
-    transition: color 0.5s ease;
-}
-
-.hide {
-    display: none;
-}
-
-/* THIS CODE IS FOR DIFERENT COLOR IN PRICE CHANGES: 👇*/
-
-/* color states: match when class is on the element itself or on the .coin-value child */
-.price-up,
-.coin-value.price-up {
-    color: #04ec65 !important;
-    /* green when up ≥ +0.01% */
-}
-
-.price-down,
-.coin-value.price-down {
-    /* color: #e03b3b !important; */
-    color: #ff5e66 !important;
-    /* red when down ≤ -0.01% */
-}
-
-.price-error,
-.coin-value.price-error {
-    color: #888888 !important;
-    /* neutral/error */
-}
-
-.percentage-change-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-
-.volume-and-amount {
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
-    gap: 1px;
-    text-align: right;
-}
-
-.coin-volume {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: clamp(14px, 0.5vw, 100px);
-    font-weight: bold;
-    color: #dfdede;
-}
-
-.coin-amount {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: clamp(12px, 0.5vw, 100px);
-    color: #b8b8b8;
-}
-
-.popup-coin-volume {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: clamp(14px, 0.5vw, 100px);
-    font-weight: bold;
-    color: #dfdede;
-}
-
-.popup-coin-amount {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: clamp(12px, 0.5vw, 100px);
-    color: #b8b8b8;
-}
-
-.percentage-change {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0px;
-    padding: 10px 10px;
-    border-radius: 5px;
-    background: #6e668a;
-    border: none;
-    /* color: gold; */
-    min-width: 80px;
-}
-
-/* Last-column percentage change styles */
-.percentage-change {
-    font-weight: 600;
-    font-size: 0.95rem;
-    transition: color 150ms ease;
-    white-space: nowrap;
-}
-
-/* Up / down indicator before the value */
-.percentage-change.positive::before {
-    content: '▲ ';
-}
-
-.percentage-change.negative::before {
-    content: '▼ ';
-}
-
-/* Colors (adjust to match your theme) */
-.percentage-change.positive {
-    color: #04ec65;
-}
-
-/* green */
-.percentage-change.negative {
-    color: #ff5e66;
-}
-
-/* red */
-
-/* Small styling for trend-change when appended elsewhere */
-.trend-change {
-    font-weight: 600;
-    margin-left: 6px;
-    font-size: 0.85rem;
-}
-
-.trend-change.positive {
-    /* color: #16a34a; */
-    color: #04ec65;
-}
-
-.trend-change.negative {
-    /* color: #ef4444; */
-    color: #ff5e66;
-}
-
-/* SWIPER STYLING HERE:👇 */
-.trending-swiper,
-.major-networks-list-swiper {
-    max-width: 100%;
-    overflow: hidden;
-    position: relative;
-    margin: 0px;
-    padding: 0px;
-}
-
-
-.swiper-wrapper {
-    display: flex;
-    width: 100%;
-}
-
-.swiper-slide {
-    width: auto;
-    flex-shrink: 0;
-}
-
-
-/* FETCHING CRYPTO PRICES ERROR STYLING:👇 */
-
-.price-error {
-    color: #ff0000;
-    font-size: 0.8em;
-}
-
-.price-loading {
-    opacity: 0.5;
-}
-
-.listed-control-area {
-    margin: 0px;
-    padding: 5px 30px;
-    padding-top: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    /* background: linear-gradient(360deg, #815dee, #815dee, #f0f0f0); */
-    /* background: #f0f0f0; */
-    border-bottom: 4px solid #505063;
-}
-
-.tabs {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 35px;
-    /* background: #3b3b50; */
-}
-
-.tabs button {
-    min-width: 65px;
-    /* height: 30px; */
-    border: none;
-    margin: 0px;
-    padding: 5px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: clamp(14px, 0.5vw, 100px);
-    /* font-weight: bold; */
-    /* color: #292929; */
-    color: #808080;
-    /* border: 0.5px solid #7141ff; */
-    border-radius: 20px;
-    background: #f0f0f0;
-    box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.4);
-}
-
-.tabs button:hover {
-    border-bottom: 2px solid #04ec65;
-    background: #5820ff;
-    /* color: #d3d2d2; */
-    color: #292929;
-}
-
-/* .tabs #active {
-    border-bottom: 2px solid #04ec65;
-} */
-
-.tabs button:active {
-    border-bottom: 2px solid #0166ff;
-}
-
-.charts-container {
-    margin: 0px;
-    padding: 25px 0px 10px;
-    width: 100%;
-    max-width: 700px;
-    height: 100vh;
-    background: #3f3f44;
-    /* background: #f00; */
-    position: fixed;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    /* bottom: 0; */
-    z-index: 2;
-    display: none;
-}
-
-.charts-box {
-    margin: 0px;
-    padding: 10px 15px 0px;
-}
-
-.demarketor-box {
-    margin: 0px 0px 10px;
-    padding: 15px 0px 10px;
-    width: 100%;
-    border: 2px solid #5e5e72;
-    border-left: 0px;
-    border-right: 0px;
-    background: #3f3f44;
-}
-
-.charts-header {
-    margin: 0px;
-    padding: 15px 15px 5px;
-    /* background: #fff; */
-    background: linear-gradient(#f0f0f0, #5025d1);
-    border: 0.2px dashed #5e5e72;
-    border-radius: 25px 25px 0px 0px;
-}
-
-.chart-title {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: clamp(12px, 1.5vw, 100px);
-    text-transform: uppercase;
-    text-align: center;
-    font-weight: lighter;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin: 0px;
-    padding: 5px 0px;
-    border-radius: 4px;
-    background: #e8e8e9;
-    box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
-}
-
-.chart-coin-name-and-value {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
-    margin: 0px;
-    margin-bottom: 5px;
-}
-
-.chart-exit-and-coin-name {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    gap: 10px;
-    margin: 0px;
-    padding: 5px 0px;
-}
-
-.chart-exit-btn {
-    border: none;
-    /* background: #e8e8e9; */
-    background: none;
-    width: 25px;
-    height: 25px;
-    margin: 0px;
-    padding: 5px;
-    border-radius: 50%;
-    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.3);
-}
-
-.chart-exit-btn:hover {
-    background: #5025d1;
-}
-
-.chart-exit-btn:active {
-    background: #e8e8e9;
-}
-
-.chart-price-area-and-logo {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-}
-
-.chart-coin-logo {
-    margin: 0px;
-    padding: 1px;
-    border: 1px solid #5e5e72;
-}
-
-.value-box {
-    margin: 0px;
-    padding: 5px 10px;
-    /* background: #e8e8e9; */
-    background: #505063;
-    border-radius: 10px;
-}
-
-.chart-coin-name-and-star-box {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0px;
-    padding: 2px 0px;
-}
-
-.Chart-coin-name {
-    font-size: clamp(18px, 0.4vw, 100px);
-    font-weight: bold;
-    text-transform: capitalize;
-    margin: 0px;
-    padding: 0px;
-}
-
-.chart-value-and-percentage {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    margin: 0px;
-    padding: 0px;
-}
-
-.favorite-star-btn {
-    background: none;
-    border: none;
-    font-size: clamp(18px, 0.4vw, 100px);
-    cursor: pointer;
-}
-
-.chart-coin-logo {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-}
-
-.fa-star {
-    font-size: clamp(18px, 0.4vw, 100px);
-    color: #f3d422;
-}
-
-.fa-star:hover {
-    color: #000;
-}
-
-.fa-star:active {
-    color: #0166ff;
-}
-
-.Chart-coin-pair {
-    font-size: clamp(14px, 0.4vw, 100px);
-    font-weight: bold;
-    margin: 0px;
-    padding: 2px 0px;
-    color: #fff;
-}
-
-.time-interval-area {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2vw;
-    margin: 0px;
-    padding: 10px 0px;
-}
-
-.time-interval-btn {
-    margin: 0px;
-    padding: 4px 10px;
-    border: none;
-    border-radius: 5px;
-    font-size: clamp(12px, 0.4vw, 100px);
-    background: #505063;
-    color: #fff;
-}
-
-.time-interval-btn:hover {
-    background: #000;
-}
-
-.time-interval-btn:active {
-    background: #5025d1;
-}
-
-.more-tf-btn {
-    margin: 0px;
-    padding: 0px;
-    border: none;
-    border-radius: 5px;
-    font-size: clamp(12px, 0.4vw, 100px);
-    /* background: #0166ff; */
-    background: none;
-    color: #fff;
-}
-
-.more-timeframes {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 2px;
-    margin: 0px;
-    padding: 4px 10px;
-    /* background: #505063; */
-    background: #5025d1;
-    border-radius: 5px;
-}
-
-.more-timeframes:hover {
-    background: #000;
-}
-
-.more-timeframes:active {
-    background: #505063;
-}
-
-.fa-global-icons {
-    font-size: clamp(14px, 0.5vw, 100px);
-    color: #fff;
-}
-
-.fa-global-icons:hover {
-    color: #000;
-}
-
-.fa-global-icons:active {
-    color: #0166ff;
-}
-
-.chart-fa-arrow-left {
-    font-size: clamp(16px, 0.5vw, 100px);
-    color: #000;
-}
-
-.chart-fa-arrow-left:hover {
-    color: #fff;
-}
-
-.chart-fa-arrow-left:active {
-    color: #5025d1;
-}
-
-.charts-area {
-    margin: 0px;
-    padding: 10px;
-    background: #000;
-    width: 100%;
-    height: 250px;
-    position: relative;
-}
-
-canvas {
-    width: 100%;
-    height: 100%;
-    display: block;
-}
-
-.chart-tabs {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    margin: 0px;
-    padding: 10px 0px 0px;
-    position: relative;
-}
-
-.chart-tab-btn {
-    margin: 0px;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px 5px 0px 0px;
-    font-size: clamp(14px, 0.5vw, 100px);
-    background: none;
-    color: #fff;
-}
-
-.chart-active-indicator {
-    width: 50px;
-    height: 4px;
-    border-top: 2px solid #04ec65;
-    /* background: red; */
-    border-radius: 25px 25px 0px 0px;
-    margin: 0px 2px;
-    position: absolute;
-    left: 0;
-    bottom: -2px;
-    z-index: -1;
-}
-
-.chart-asset-title {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: opx;
-    padding: 0px 10px 2px;
-    color: #fff;
-}
-
-.chart-selected-card-offsetter {
-    margin: 0px;
-    padding: 0px 10px;
-}
-
-.chart-selected-card {
-    font-size: clamp(14px, 0.5vw, 100px);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    min-width: 100%;
-    height: 62px;
-    /* background: #545474; */
-    background: #505063;
-    border-radius: 5px;
-    margin: 0px;
-    padding: 0px 10px;
-    gap: 4px;
-}
-
-.chart-coin-ticker {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: clamp(16px, 0.5vw, 100px);
-    font-weight: bold;
-    color: #dfdede;
-}
-
-.chart-coin-volume {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: clamp(14px, 0.5vw, 100px);
-    color: #dfdede;
-}
-
-.chart-trade-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    margin: 0px;
-    padding: 10px 0px;
-}
-
-.chart-trade-btn {
-    width: 100px;
-    margin: 0px;
-    padding: 8px 20px;
-    border: none;
-    border-radius: 8px;
-    font-size: clamp(14px, 0.5vw, 100px);
-    background: #0166ff;
-    color: #fff;
-}
-
-.listed-area {
-    font-size: clamp(14px, 0.5vw, 100px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 5px;
-    /* background: #6c6583; */
-    background: #3f3f44;
-    margin: 0px;
-    padding: 5px 5px 72px;
-}
-
-.listed-card {
-    font-size: clamp(14px, 0.5vw, 100px);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    min-width: 100%;
-    height: 62px;
-    /* background: #545474; */
-    background: #505063;
-    border-radius: 5px;
-    margin: 0px;
-    padding: 0px 10px;
-    gap: 4px;
-}
-
-.listed-card:hover {
-    background: #444468;
-}
-
-.listed-card:active {
-    border: 0.2px solid #000;
-    background: #444468;
-}
-
-.coin-and-ticker {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 8px;
-
-}
-
-.nft-card {
-    display: none;
-    gap: 12px;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 12px;
-}
-
-.nft-card img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-    background: #fff;
-}
-
-.nft-controls {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-}
-
-.nft-controls button {
-    padding: 6px 12px;
-    border-radius: 6px;
-    border: none;
-    background: #222;
-    color: #fff;
-    cursor: pointer;
-}
-
-.nft-controls .nft-counter {
-    font-size: 0.9rem;
-    color: #444;
-    min-width: 48px;
-    text-align: center;
-}
-
-.more-listed-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: 100%;
-    height: 62px;
-    /* background: #545474; */
-    background: #505063;
-    border-radius: 5px;
-    margin: 0px;
-    padding: 10px 10px;
-    gap: 5px;
-}
-
-
-.more-listed-box button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: none;
-    margin: 4px 0px;
-    padding: 10px 18px;
-    background: #5025D1;
-    border-radius: 12px;
-    /* color: #d3d2d2; */
-    color: #fff;
-    border: 0.1px solid #909090;
-    gap: 5px;
-}
-
-.fa-sliders {
-    font-size: clamp(16px, 0.5vw, 100px);
-}
-
-.fa-view-more {
-    color: #d3d2d2;
-    font-size: clamp(16px, 0.5vw, 100px);
-}
-
-.more-listed-box button:hover {
-    border: none;
-    border-bottom: 2px solid #04ec65;
-    background: #5025D1;
-    color: #68ffb8;
-}
-
-.more-listed-box button:active {
-    border: 1px solid #000;
-    border-bottom: 2px solid #0166ff;
-    background: #4f2cb8;
-    color: #d3d2d2;
-}
-
-/* ...HIDEN AND REVEAL LISTED COINS HERE, TO REVEAL WHEN BUTTON IS CLICKED...👇 */
-
-.hidden-coin {
-    display: none;
-    animation: fadeIn 0.3s ease-in-out;
-}
-
-.hidden-coin.visible {
-    display: flex;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
+// TRENDING SWIPER INIT
+const swiper = new Swiper('.trending-swiper', {
+    slidesPerView: 'auto',
+    spaceBetween: 2,
+    loop: true,
+    freeMode: {
+        enabled: true,
+        momentum: true,
+        momentumRatio: 0.8,
+        sticky: false,
+    },
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+        waitForTransition: true
+    },
+    speed: 4000
+});
+
+const MajorNetworkSwiper = new Swiper('.major-networks-list-swiper', {
+    slidesPerView: 'auto',
+    spaceBetween: 4,
+    loop: true,
+    freeMode: {
+        enabled: true,
+        momentum: true,
+        momentumRatio: 1,
+        sticky: false,
+    },
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+        waitForTransition: true
+    },
+    speed: 8000
+});
+
+
+// NFT VIEWER MODULE (keeps your existing UX)
+(function () {
+    const nftTabBtn = document.getElementById('cft') || document.getElementById('nftTabBtn');
+    const cryptoTabBtn = document.getElementById('active');
+    const listedArea = document.querySelector('.listed-area');
+    if (!listedArea || !cryptoTabBtn) return;
+
+    const listedCards = Array.from(listedArea.querySelectorAll('.listed-card'));
+    const moreListed = listedArea.querySelector('.more-listed');
+
+    let nftCard = document.getElementById('nft');
+    if (!nftCard) {
+        nftCard = document.createElement('div');
+        nftCard.id = 'nft';
+        nftCard.className = 'nft-card';
+        nftCard.innerHTML = '<img src="Images/nft.png" alt="NFT"><div class="nft-controls"><button type="button" class="nft-prev">Prev</button><div class="nft-counter"></div><button type="button" class="nft-next">Next</button></div>';
+        if (moreListed) listedArea.insertBefore(nftCard, moreListed);
+        else listedArea.appendChild(nftCard);
     }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    const nftImg = nftCard.querySelector('img');
+    let controls = nftCard.querySelector('.nft-controls');
+    if (!controls) {
+        controls = document.createElement('div');
+        controls.className = 'nft-controls';
+        controls.innerHTML = '<button type="button" class="nft-prev">Prev</button><div class="nft-counter"></div><button type="button" class="nft-next">Next</button>';
+        nftCard.appendChild(controls);
+    }
+    const prevBtn = controls.querySelector('.nft-prev');
+    const nextBtn = controls.querySelector('.nft-next');
+    const counter = controls.querySelector('.nft-counter');
+
+    const nftImages = ['Images/kitten.jpg', 'Images/cat.jpg', 'Images/cheetah.jpg', 'Images/panther.jpg', 'Images/lion.jpg'];
+    let currentIndex = 0;
+    function showNftAt(i) {
+        if (!nftImages.length) return;
+        currentIndex = ((i % nftImages.length) + nftImages.length) % nftImages.length;
+        if (nftImg) nftImg.src = nftImages[currentIndex];
+        if (counter) counter.textContent = (currentIndex + 1) + ' / ' + nftImages.length;
+    }
+    function showNFTView() {
+        listedCards.forEach(c => c.style.display = 'none');
+        if (moreListed) moreListed.style.display = 'none';
+        nftCard.style.display = 'flex';
+        showNftAt(0);
+    }
+    function showCryptoView() {
+        listedCards.forEach(c => c.style.display = '');
+        if (moreListed) moreListed.style.display = '';
+        nftCard.style.display = 'none';
+    }
+
+    if (nftTabBtn) nftTabBtn.addEventListener('click', showNFTView);
+    if (cryptoTabBtn) cryptoTabBtn.addEventListener('click', showCryptoView);
+    if (prevBtn) prevBtn.addEventListener('click', () => showNftAt(currentIndex - 1));
+    if (nextBtn) nextBtn.addEventListener('click', () => showNftAt(currentIndex + 1));
+    document.addEventListener('keydown', (e) => {
+        if (nftCard.style.display !== 'none') {
+            if (e.key === 'ArrowLeft') prevBtn && prevBtn.click();
+            if (e.key === 'ArrowRight') nextBtn && nextBtn.click();
+        }
+    });
+    nftCard.style.display = 'none';
+})();
+
+// ------- CONFIG -------
+const DEBUG = true;
+const POLL_INTERVAL_MS = 30000;
+
+// Debug helper
+function dlog(...args) { if (DEBUG) console.log(...args); }
+
+// ------- COIN API-ID MAPPING -------
+window.coinIdMap = {
+    pi: 'pi-network',
+    bitcoin: 'bitcoin',
+    ethereum: 'ethereum',
+    binancecoin: 'binancecoin',
+    coredao: 'coredaoorg',
+    rockycat: 'rockycat',
+    snowman: 'snowman',
+    ice: 'ice',
+    onet: 'onet',
+    dogs: 'dogs-2',
+    dogecoin: 'dogecoin',
+    tether: 'tether',
+    wikicat: 'wiki-cat',
+};
+
+// Price formatting
+function formatPrice(value) {
+    if (typeof value !== 'number' || !isFinite(value)) return '--';
+    const abs = Math.abs(value);
+    const decimals = abs < 1 ? 6 : (abs < 10 ? 4 : 2);
+    return `$${value.toLocaleString(undefined, { minimumFractionDigits: decimals, maximumFractionDigits: decimals })}`;
+}
+
+// Apply color based on change
+function applyColorClass(el, changePercent) {
+    const THRESHOLD = 0.01;
+    el.classList.remove('price-up', 'price-down', 'price-error', 'price-loading');
+    const change = Number(changePercent);
+    if (!isFinite(change)) { el.classList.add('price-error'); return; }
+    if (change >= THRESHOLD) el.classList.add('price-up');
+    else if (change <= -THRESHOLD) el.classList.add('price-down');
+}
+
+// previous prices store
+window.previousPrices = window.previousPrices || {};
+
+// Parse numeric volume like "1.2K"
+function parseNumberString(str) {
+    if (!str || typeof str !== 'string') return NaN;
+    const s = str.trim().replace(/,/g, '').toUpperCase();
+    const match = s.match(/^(-?[\d.]+)\s*([KMBT])?$/);
+    if (!match) return NaN;
+    let value = parseFloat(match[1]);
+    const suffix = match[2];
+    if (!isFinite(value)) return NaN;
+    if (suffix) {
+        switch (suffix) {
+            case 'K': value *= 1e3; break;
+            case 'M': value *= 1e6; break;
+            case 'B': value *= 1e9; break;
+            case 'T': value *= 1e12; break;
+        }
+    }
+    return value;
+}
+
+function parseCurrencyString(str) {
+    if (!str || typeof str !== 'string') return NaN;
+    const s = str.trim().replace(/\$/g, '').replace(/,/g, '').toUpperCase();
+    const match = s.match(/^(-?[\d.]+)\s*([KMBT])?$/);
+    if (!match) return NaN;
+    let value = parseFloat(match[1]);
+    const suffix = match[2];
+    if (!isFinite(value)) return NaN;
+    if (suffix) {
+        switch (suffix) {
+            case 'K': value *= 1e3; break;
+            case 'M': value *= 1e6; break;
+            case 'B': value *= 1e9; break;
+            case 'T': value *= 1e12; break;
+        }
+    }
+    return value;
+}
+
+function formatTotalCurrency(value) {
+    if (typeof value !== 'number' || !isFinite(value)) return '--';
+    return '$' + value.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 4 });
+}
+
+function updateTotalHoldings() {
+    const amountEls = Array.from(document.querySelectorAll('.coin-amount'));
+    if (!amountEls.length) return;
+    let total = 0;
+    amountEls.forEach(el => {
+        const txt = el.textContent.trim();
+        const parsed = parseCurrencyString(txt.replace(/\s+/g, ''));
+        if (!isNaN(parsed)) total += parsed;
+    });
+    const amountGroup = document.querySelector('.amount-group');
+    if (!amountGroup) return;
+    const amountNodes = Array.from(amountGroup.querySelectorAll('.amount'));
+    const target = amountNodes[1] || amountNodes[0];
+    if (target) target.textContent = formatTotalCurrency(total);
+}
+
+// Main update: fetch prices and update UI
+async function updateCryptoPrices() {
+    try {
+        const elems = Array.from(document.querySelectorAll('.coin-value, [data-coin]'));
+        dlog('Price fetch elements:', elems.length);
+        const ids = elems.map(el => {
+            let key = (el.dataset && el.dataset.coin) ? el.dataset.coin.trim().toLowerCase() : '';
+            if (!key) {
+                const ticker = el.querySelector && el.querySelector('.coin-ticker');
+                if (ticker) key = ticker.textContent.replace(/^\s*\$?/, '').trim().toLowerCase();
+            }
+            return (window.coinIdMap[key] || key || '').trim();
+        }).filter(Boolean);
+        const uniqueIds = [...new Set(ids)];
+        if (!uniqueIds.length) return;
+
+        const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${encodeURIComponent(uniqueIds.join(','))}&order=market_cap_desc&per_page=250&page=1&sparkline=false&price_change_percentage=24h`;
+        dlog('Fetching', url);
+        const res = await fetch(url);
+        if (!res.ok) throw new Error('CoinGecko fetch failed: ' + res.status);
+        const data = await res.json();
+        const byId = {};
+        (data || []).forEach(item => { if (item && item.id) byId[item.id] = item; });
+
+        elems.forEach(el => {
+            const uiKey = (el.dataset && el.dataset.coin) ? el.dataset.coin.trim().toLowerCase() : '';
+            const apiId = (window.coinIdMap[uiKey] || uiKey).trim();
+            const entry = byId[apiId];
+            const target = el.classList.contains('coin-value') ? el : (el.querySelector && el.querySelector('.coin-value')) || el;
+
+            target.classList.remove('price-up', 'price-down', 'price-error', 'price-loading');
+
+            if (!entry || typeof entry.current_price === 'undefined') {
+                target.textContent = '--';
+                target.classList.add('price-error');
+                return;
+            }
+            const current = Number(entry.current_price);
+            const apiChange = typeof entry.price_change_percentage_24h === 'number' ? Number(entry.price_change_percentage_24h) : null;
+
+            target.textContent = formatPrice(current);
+            if (apiChange !== null) applyColorClass(target, apiChange);
+            else if (window.previousPrices[apiId]) {
+                const prev = Number(window.previousPrices[apiId]);
+                if (prev && isFinite(prev)) {
+                    const pct = ((current - prev) / prev) * 100;
+                    applyColorClass(target, pct);
+                } else {
+                    target.classList.add('price-error');
+                }
+            } else {
+                target.classList.add('price-error');
+            }
+
+            // update holding amount if present
+            const container = target.closest('.listed-card') || target.closest('.trending-card') || target.closest('.popup-card') || target.parentElement;
+            if (container) {
+                const volumeEl = container.querySelector('.coin-volume');
+                const amountEl = container.querySelector('.coin-amount');
+                if (amountEl) {
+                    let volumeNum = NaN;
+                    if (volumeEl) volumeNum = parseNumberString(volumeEl.textContent || '');
+                    else {
+                        const dataVol = target.dataset.volume || target.getAttribute('data-volume') || '';
+                        volumeNum = parseNumberString(String(dataVol));
+                    }
+                    if (!isNaN(volumeNum) && isFinite(current)) {
+                        const holdingUsd = volumeNum * current;
+                        amountEl.textContent = formatTotalCurrency(holdingUsd);
+                    }
+                }
+            }
+
+            window.previousPrices[apiId] = current;
+        });
+
+        updateTotalHoldings();
+    } catch (err) {
+        console.error('Price update error:', err);
+        document.querySelectorAll('.coin-value, [data-coin]').forEach(el => {
+            const target = el.classList.contains('coin-value') ? el : (el.querySelector && el.querySelector('.coin-value')) || el;
+            if (target) {
+                target.textContent = '--';
+                target.classList.add('price-error');
+            }
+        });
     }
 }
 
-/* ...existing code... */
+
+// TOGGLE EYE VISIBILITY MODULE
+const toggleEye = document.getElementById('toggle-eye');
+const totalAssets = document.getElementById('total-assets');
+let isCurrent = document.getElementById('total-assets').textContent;
+
+let isVisible = true;
+
+toggleEye.addEventListener('click', () => {
+    if (isVisible) {
+        totalAssets.textContent = "$******";
+        toggleEye.classList.remove('fa-eye');
+        toggleEye.classList.add('fa-eye-slash');
+        isVisible = false;
+    } else {
+        toggleEye.classList.remove('fa-eye-slash');
+        toggleEye.classList.add('fa-eye');
+        document.getElementById('total-assets').textContent = isCurrent;
+        isVisible = true;
+    }
+});
+
+//POPUP NOTIFICATIONS AND ANIMATED PAGES START HERE:...👇
+const fromCoinTicker = document.getElementById('chosen-ticker-from');
+const toCoinTicker = document.getElementById('chosen-ticker-to');
+const fromCoinBtn = document.getElementById('swap-from-button');
+const toCoinBtn = document.getElementById('swap-to-button');
+const fromCoinAmount = document.getElementById('swap-from-amount');
+const toCoinAmount = document.getElementById('swap-to-amount');
+const popUp = document.getElementById('popup');
+const overlay = document.getElementById('swap-overlay');
+const popUpExitBtn = document.getElementById('popup-exit-btn');
+const searchToken = document.getElementById('search-token');
+
+//SWAPPING INITIALISATIONS:...👇
+const swapSwitchBtn = document.getElementById('swap-switch');
+const swapSwitchIcon = document.getElementById('swap-switch-icon');
+const swapFromLogo = document.getElementById('chosen-logo-from');
+const swapToLogo = document.getElementById('chosen-logo-to');
+const swapNetworkLogo = document.getElementById('swap-network-Logo');
+const swapBtn = document.getElementById('swap-btn');
+const errorMessage = document.getElementById('error-message');
+const circleInfo = document.getElementById('circle-info');
+
+//NOTIFICATIONS INITIALISATIONS:...👇
+const notificationPopup = document.getElementById('notification-popup');
+const notificationExitBtn = document.getElementById('notification-exit-btn');
+const notificationCancel = document.getElementById('notification-cancel');
+const notificationOk = document.getElementById('notification-ok');
+const maxBtn = document.getElementById('max-btn');
+const depositBox = document.getElementById('deposit-box');
+const depositBtn = document.getElementById('deposit-btn');
+const depositExitBtn = document.getElementById('deposit-exit-btn');
+
+//MAJOR NETWORKS INITIALISATIONS:...👇
+const majorNetworksBtn = document.getElementById('major-networks-btn');
+const majorNetworksList = document.getElementById('major-networks-list');
+const majorNetworkChosenLogo = document.getElementById('major-network-chosen-logo');
+const majorNetworkChosenName = document.getElementById('major-network-chosen-name');
 
 
-.footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    /* background: #5025D1; */
-    /* background: #f0f0f0; */
-    background: linear-gradient(360deg, #5820ff, #fff);
-    color: #fff;
-    /* border-top: 4px solid #545474; */
-    border-top: 4px solid #424244;
-    font-size: clamp(12px, 0.5vw, 100px);
-    text-align: center;
-    width: 100%;
-    min-height: 70px;
-    position: fixed;
-    z-index: 1;
-    margin: 0px;
-    padding: 10px 60px;
-    bottom: 0;
-    /* right: 0; */
-    left: 50%;
-    max-width: 704px;
-    border-radius: 8px 8px 0 0;
-    backdrop-filter: blur(45px);
-    transform: translateX(-50%);
+// SELECTING A NETWORK FROM THE DROPDOWN LIST:...👇
+const networkList = document.querySelectorAll('.major-networks-list-card');
+
+
+// MAJOR NEWORK PAGE ANIMATION:...👇
+majorNetworksBtn.addEventListener('click', () => {
+    majorNetworksList.style.visibility = 'visible';
+    majorNetworksList.style.top = '90px';
+    majorNetworksList.style.opacity = '1';
+});
+
+// CHOSING NETWORK AND EXITING THE MAJOR NETWORKS MENU:...👇
+networkList.forEach(networkChoice => {
+    networkChoice.addEventListener('click', () => {
+        const ChosenNetworkLogo = networkChoice.querySelector('img');
+        const chosenNetworkName = networkChoice.querySelector('span');
+        if (ChosenNetworkLogo) majorNetworkChosenLogo.src = ChosenNetworkLogo.src;
+        if (chosenNetworkName) majorNetworkChosenName.textContent = chosenNetworkName.textContent;
+        majorNetworksList.style.top = '55px';
+        majorNetworksList.style.opacity = '0';
+        majorNetworksList.style.visibility = 'hidden';
+    });
+});
+
+
+
+
+let currentSelection = null;
+// can be "from" or "to"
+
+// FROM button
+fromCoinBtn.addEventListener('click', () => {
+    currentSelection = "from";
+    openPopup();
+});
+
+// TO button
+toCoinBtn.addEventListener('click', () => {
+    currentSelection = "to";
+    openPopup();
+});
+
+// DEPOSIT BUTTON
+depositBtn.addEventListener('click', () => {
+    currentSelection = "deposit";
+    openPopup();
+});
+
+function openPopup() {
+    document.body.classList.add("no-scroll");
+    overlay.style.display = 'block';
+    popUp.style.visibility = 'visible';
+    popUp.style.marginTop = '20px';
+
+    setTimeout(() => {
+        popUp.style.bottom = '0%';
+    }, 200);
 }
 
-.footer-separator {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    /* background: #0166ff; */
-    gap: 5vw;
+
+// SELECTING A COIN FROM THE POPUP CARDS:...👇
+let popupCards = document.querySelectorAll('.popup-card');
+const chosenLogoFrom = document.getElementById('chosen-logo-from');
+const chosenTickerFrom = document.getElementById('chosen-ticker-from');
+const chosenLogoTo = document.getElementById('chosen-logo-to');
+const chosenTickerTo = document.getElementById('chosen-ticker-to');
+const depositLogo = document.getElementById('deposit-logo');
+const depositTicker = document.getElementById('deposit-ticker');
+
+
+
+// Add click listeners ONCE
+popupCards.forEach(card => {
+    card.addEventListener('click', () => {
+
+        const logoImg = card.querySelector('img');
+        const tickerText = card.querySelector('span');
+
+        if (currentSelection === "from") {
+            if (logoImg) chosenLogoFrom.src = logoImg.src;
+            if (tickerText) chosenTickerFrom.textContent = tickerText.textContent;
+        }
+
+        if (currentSelection === "to") {
+            if (logoImg) chosenLogoTo.src = logoImg.src;
+            if (tickerText) chosenTickerTo.textContent = tickerText.textContent;
+        }
+
+        if (currentSelection === "deposit") {
+            const depositCard = card;
+            const depoLogo = depositCard.querySelector('img');
+            const depoTicker = depositCard.querySelector('span');
+            if (depoLogo) depositLogo.src = depoLogo.src;
+            if (depoTicker) depositTicker.textContent = depoTicker.textContent;
+            openDepositPage();
+        }
+
+        closePopup();
+
+
+    });
+});
+
+
+// DEPOSIT PAGE ANIMATION:...👇
+
+function openDepositPage() {
+    depositBox.style.left = '0';
+    depositBox.style.opacity = '1';
+    depositBox.style.visibility = 'visible';
+    overlay.style.display = 'block';
 }
 
-.footer-icon-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 10px;
-    font-size: clamp(10px, 0.5vw, 100px);
-    margin: 0px;
-    padding: 2px 5px;
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-}
+depositExitBtn.addEventListener('click', () => {
+    depositBox.style.left = '-100%';
+    depositBox.style.opacity = '0.5';
+    overlay.style.display = 'none';
+    depositBox.style.visibility = 'hidden';
+});
 
-.footer-icon-box:hover {
-    background: #e7e7e7;
-    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.3);
-    color: #000;
-}
 
-.footer-trading {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 5px;
-    margin: 0px;
-    padding: 5px;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    top: 10px;
-    cursor: pointer;
-    border-radius: 45% 45% 20% 20%;
-    background: #01e962;
-    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5);
-}
 
-.footer-trading:hover {
-    background: #e7e7e7;
-    color: #000;
-    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5);
-}
 
-.footer-trade-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 5px;
-    margin: 0px;
-    padding: 4px;
-    background: #0166ff;
-    color: #d3d2d2;
-    cursor: pointer;
-    border-radius: 50%;
-    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5);
-}
 
-.footer-trade-btn:hover {
-    background: #5025D1;
-    color: #5025D1;
-}
 
-.trade-btn-logo {
-    width: 35px;
-    height: 35;
-    margin: 0px;
-    padding: 2px;
-    border-radius: 50%;
-    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5);
-    background: #0166ff;
-}
+//DRAG VARIABLES HERE:...👇
+let startY = 0;
+let currentY = 0;
+let dragging = false;
+const popupHeader = document.getElementById('popup-header');
 
-.trade-btn-logo:hover {
-    background: #efeff0;
+popupHeader.addEventListener('touchstart', (e) => {
+    startY = e.touches[0].clientY;
+    dragging = true;
+    popUp.style.transition = 'none'; // Disable transition during drag
+});
+
+popupHeader.addEventListener('touchmove', (e) => {
+    if (!dragging) return;
+    currentY = e.touches[0].clientY;
+    let diffY = currentY - startY;
+    if (diffY > 0) { // Only allow dragging downwards
+        popUp.style.transform = `translateY(${diffY}px)`; // Move the popup with finger
+    }
+});
+
+popupHeader.addEventListener('touchend', () => {
+    dragging = false;
+    popUp.style.transition = 'bottom 0.5s ease, transform 0.25s ease'; // Re-enable transition
+
+    //if dragged down enough, close it
+    if (currentY - startY > 350) {
+        closePopup();
+    } else {
+        //Return to normal
+        popUp.style.transform = 'translateY(0)';
+    }
+});
+
+function closePopup() {
+    popUp.style.bottom = '-100%';
+    popUp.style.transform = 'translateY(0)';
+    setTimeout(() => {
+        popUp.style.visibility = 'hidden';
+        overlay.style.display = 'none';
+        document.body.classList.remove("no-scroll");
+        searchToken.value = '';
+    }, 300);
 }
 
 
-/* MEDIA QUERY STARTA HERE: 👇 */
+overlay.addEventListener('click', () => {
+    overlay.style.display = 'none';
+    popUp.style.visibility = 'hidden';
+    popUp.style.bottom = '-100%';
+    searchToken.value = '';
 
-@media screen and (max-width: 450px) {
-    .container {
-        margin: auto;
-        /* max-width: 350px; */
-        min-width: 240px;
-        max-width: 100%;
-        min-height: 100vh;
-        /* background: #dadcdf; */
-        background: #fff;
-        overflow: hidden;
-        /* margin-bottom: 65px; */
-        /* padding-bottom: 130px; */
+    //FOR CLOSING THE NOTIFICATION POPUP
+    notificationPopup.style.top = "35%";
+    notificationPopup.style.opacity = "0";
+    notificationPopup.style.visibility = "hidden";
+    notificationPopup.style.transform = "translate(-50%, -50%) scale(0.1)";
+    document.body.classList.remove("no-scroll");
+
+    //FOR CLOSING THE DEPODIT PAGE:....👇
+    depositBox.style.left = '-100%';
+    depositBox.style.opacity = '0.5';
+    overlay.style.display = 'none';
+    depositBox.style.visibility = 'hidden';
+});
+
+popUpExitBtn.addEventListener('click', () => {
+    overlay.style.display = 'none';
+    popUp.style.visibility = 'hidden';
+    popUp.style.bottom = '-100%';
+    searchToken.value = '';
+    document.body.classList.remove("no-scroll");
+});
+
+
+
+
+// CHART.JS INITIALISATION:...👇
+const chartsContainer = document.getElementById('charts-container');
+const chartSelectedCard = document.getElementById('chart-selected-card');
+const chartCoinName = document.getElementById('Chart-coin-name');
+const chartCoinTicker = document.getElementById('chart-coin-ticker');
+const chartCoinPair = document.getElementById('Chart-coin-pair');
+const chartCoinLogo = document.getElementById('chart-coin-logo');
+const chartCoinValue = document.getElementById('chart-coin-value');
+const chartCardCoinValue = document.getElementById('chart-card-coin-value');
+const chartExitBtn = document.getElementById('chart-exit-btn');
+const footerTradeBtn = document.getElementById('footer-trade-btn');
+const listedCoinName = document.getElementById('listed-coin-name');
+let listedCards = document.querySelectorAll('.listed-card');
+
+
+footerTradeBtn.addEventListener('click', () => {
+    chartsContainer.style.display = 'block';
+    document.body.classList.add('no-scroll');
+});
+
+chartExitBtn.addEventListener('click', () => {
+    chartsContainer.style.display = 'none';
+    document.body.classList.remove('no-scroll');
+});
+
+
+listedCards.forEach(selectedCard => {
+    selectedCard.addEventListener('click', () => {
+
+        // Get elements INSIDE the clicked card
+        const coinName = selectedCard.querySelector('span');
+        const coinValue = selectedCard.querySelector('.coin-value');
+        const coinLogoImg = selectedCard.querySelector('img');
+        const coinTicker = selectedCard.querySelector('.coin-ticker');
+        let listedTicker = coinTicker.textContent;
+        listedTicker = listedTicker.replace(/\$/g, '').trim();
+
+
+
+        // Update chart UI
+        if (coinName) chartCoinName.textContent = coinName.textContent;
+        if (coinValue) {
+            chartCoinValue.textContent = coinValue.textContent;
+            chartCardCoinValue.textContent = coinValue.textContent;
+        }
+        if (coinTicker) chartCoinTicker.textContent = coinTicker.textContent;
+        if (listedTicker) chartCoinPair.textContent = `${listedTicker}/USDT`;
+        if (coinLogoImg) {
+            chartCoinLogo.src = coinLogoImg.src;
+        }
+
+        chartsContainer.style.display = 'block';
+        document.body.classList.add('no-scroll');
+    });
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    const ctx = document.getElementById('priceChart').getContext('2d');
+
+    const candleData = [
+        { x: '2025-01-01T10:00', o: 0.021, h: 0.025, l: 0.020, c: 0.023 },
+        { x: '2025-01-01T11:00', o: 0.023, h: 0.027, l: 0.022, c: 0.026 },
+        { x: '2025-01-01T12:00', o: 0.026, h: 0.028, l: 0.024, c: 0.025 },
+        { x: '2025-01-01T13:00', o: 0.025, h: 0.030, l: 0.025, c: 0.029 },
+        { x: '2025-01-01T14:00', o: 0.029, h: 0.032, l: 0.028, c: 0.031 }
+    ];
+
+    const priceChart = new Chart(ctx, {
+        type: 'candlestick',
+        data: {
+            datasets: [{
+                label: 'RKC/USDT',
+                data: candleData,
+                upColor: '#16c784',
+                downColor: '#ea3943',
+                borderUpColor: '#16c784',
+                borderDownColor: '#ea3943',
+                wickUpColor: '#16c784',
+                wickDownColor: '#ea3943'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            animation: false,
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    mode: 'index',
+                    intersect: false,
+                    callbacks: {
+                        label: ctx => {
+                            const d = ctx.raw;
+                            return [
+                                `Open:  $${d.o}`,
+                                `High:  $${d.h}`,
+                                `Low:   $${d.l}`,
+                                `Close: $${d.c}`
+                            ];
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    type: 'time',
+                    time: {
+                        tooltipFormat: 'HH:mm',
+                        unit: 'hour'
+                    },
+                    grid: { display: false }
+                },
+                y: {
+                    position: 'right',
+                    ticks: {
+                        callback: v => `$${v}`
+                    }
+                }
+            }
+        }
+    });
+
+
+    const priceEl = document.querySelector('.chart-coin-value');
+    const percentEl = document.querySelector('.chart-percentage-change');
+
+    const firstCandle = candleData[0];
+    const lastCandle = candleData[candleData.length - 1];
+
+    priceEl.textContent = `$${lastCandle.c}`;
+
+    const percentChange =
+        (((lastCandle.c - firstCandle.o) / firstCandle.o) * 100).toFixed(2);
+
+    percentEl.textContent = `${percentChange}%`;
+    percentEl.style.color = percentChange >= 0 ? '#16c784' : '#ea3943';
+
+});
+
+
+
+
+
+
+
+
+
+//Clicking the Inter-Switch button changes the Swapping icon order: (From and To).
+const swapALogo = swapFromLogo;
+const swapBLogo = swapToLogo;
+let srcA = swapALogo.getAttribute("src");
+let srcB = swapBLogo.getAttribute("src");
+
+//When user chooses a new token from first option to swap, update the logos accordingly
+function swapChoiceA(newSrc) {
+    swapALogo.src = newSrc;
+}
+
+//When user chooses a new token from second option to swap, update the logos accordingly
+function swapChoiceB(newSrc) {
+    swapBLogo.src = newSrc;
+}
+
+//Clicking the Inter-Switch button changes the Swapping order: (From and To).
+swapSwitchBtn.addEventListener('click', () => {
+    let isDefault = false;
+    if (!isDefault) {
+        const temp = fromCoinTicker.textContent;
+        fromCoinTicker.textContent = toCoinTicker.textContent;
+        toCoinTicker.textContent = temp;
+        isDefault = true;
+    } else {
+        const temp = fromCoinTicker.textContent;
+        fromCoinTicker.textContent = toCoinTicker.textContent;
+        toCoinTicker.textContent = temp;
+        isDefault = false;
     }
 
-    .cta-buttons {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: clamp(16px, 0.5vw, 100px);
-        padding: 10px 45px;
-        background: #0166ff;
-        border: none;
-        border-radius: 10px;
-        min-width: 40vw;
-        max-width: 20vw;
+    // SWITCHING THE LOGOS TOO:...👇
+    const tempLogo = swapALogo.src;
+    swapALogo.src = swapBLogo.src;
+    swapBLogo.src = tempLogo;
+
+});
+
+
+
+//WSAPPING ERROR HERE....!
+swapBtn.addEventListener('click', () => {
+
+    try {
+        const rawValue = fromCoinAmount.value.trim();
+
+        if (rawValue === "") {
+            throw new Error("Enter amount...!");
+        }
+
+        const amount = Number(rawValue);
+        if (isNaN(amount)) {
+            throw new Error("invalid input!");
+        }
+
+        if (amount < 2) {
+            throw new Error("Minimum Swap = $2");
+        }
+
+        errorMessage.style.display = "none";
+        circleInfo.style.color = "#dadcdf";
+        document.body.classList.add("no-scroll");
+        notificationPopup.style.top = "50%";
+        notificationPopup.style.opacity = "1";
+        notificationPopup.style.visibility = "visible";
+        notificationPopup.style.transform = "translate(-50%, -50%) scale(1)";
+        overlay.style.display = "block";
+
+    } catch (err) {
+        errorMessage.style.display = "block";
+        errorMessage.textContent = err.message;
+        circleInfo.style.color = "#f83838";
     }
 
-    .trx-buttons {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: clamp(16px, 0.5vw, 100px);
-        padding: 10px 40px;
-        background: #0166ff;
-        border: none;
-        /* border-radius: 5px; */
-        min-width: 25vw;
-        max-width: 20vw;
+});
+
+notificationExitBtn.addEventListener('click', () => {
+    // fromCoinAmount.value = '';
+    // toCoinAmount.textContent = '$0.0000';
+    document.body.classList.remove("no-scroll");
+    notificationPopup.style.top = "35%";
+    notificationPopup.style.opacity = "0";
+    notificationPopup.style.visibility = "hidden";
+    notificationPopup.style.transform = "translate(-50%, -50%) scale(0.1)";
+    overlay.style.display = "none";
+});
+
+notificationCancel.addEventListener('click', () => {
+    // fromCoinAmount.value = '';
+    // toCoinAmount.textContent = '$0.0000';
+    document.body.classList.remove("no-scroll");
+    notificationPopup.style.top = "35%";
+    notificationPopup.style.opacity = "0";
+    notificationPopup.style.visibility = "hidden";
+    notificationPopup.style.transform = "translate(-50%, -50%) scale(0.1)";
+    overlay.style.display = "none";
+});
+
+notificationOk.addEventListener('click', () => {
+    const usdBalance = document.getElementById('')
+    fromCoinAmount.value
+});
+
+
+// Percentage-change updater (uses markets result when available or fallback)
+(async function changeColumnUpdater() {
+    async function updateChangeColumn() {
+        try {
+            const cards = Array.from(document.querySelectorAll('.listed-card, .trending-card'));
+            if (!cards.length) return;
+            const map = [];
+            const ids = [];
+            cards.forEach(card => {
+                const coinVal = card.querySelector('.coin-value');
+                let uiKey = coinVal?.dataset?.coin?.trim?.().toLowerCase() || '';
+                if (!uiKey) {
+                    const ticker = card.querySelector('.coin-ticker');
+                    if (ticker) uiKey = ticker.textContent.replace(/^\s*\$?/, '').trim().toLowerCase();
+                }
+                if (!uiKey) return;
+                const apiId = (window.coinIdMap && (window.coinIdMap[uiKey] || uiKey)) || uiKey;
+                if (!apiId) return;
+                ids.push(apiId);
+                map.push({ card, apiId });
+            });
+            const uniqueIds = [...new Set(ids)].filter(Boolean);
+            if (!uniqueIds.length) return;
+
+            const marketsUrl = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${encodeURIComponent(uniqueIds.join(','))}&order=market_cap_desc&per_page=250&page=1&sparkline=false&price_change_percentage=24h`;
+            let dataArr = [];
+            try {
+                const r = await fetch(marketsUrl);
+                if (r.ok) dataArr = await r.json();
+            } catch (err) { console.warn('markets fetch failed', err); }
+
+            const dataById = {};
+            (Array.isArray(dataArr) ? dataArr : []).forEach(it => { if (it && it.id) dataById[it.id] = it; });
+
+            function fallbackChange() {
+                return (Math.random() * 40 - 20); // -20% to +20% range for more realistic crypto volatility
+            }
+
+            function formatPercentage(value) {
+                const abs = Math.abs(value);
+                // For extreme changes (>1000%), show fewer decimals
+                const decimals = abs >= 1000 ? 0 : 2;
+                const sign = value >= 0 ? '+' : '';
+                return `${sign}${value.toFixed(decimals)}%`;
+            }
+
+            map.forEach(({ card, apiId }) => {
+                const pcEl = card.querySelector('.percentage-change');
+                if (!pcEl) return;
+                const entry = dataById[apiId];
+                let change = null;
+                let source = 'unknown';
+
+                if (entry && typeof entry.price_change_percentage_24h === 'number') {
+                    change = Number(entry.price_change_percentage_24h);
+                    source = 'api';
+                } else if (window.previousPrices && window.previousPrices[apiId]) {
+                    const prev = window.previousPrices[apiId];
+                    const curr = entry?.current_price;
+                    if (prev && curr) {
+                        change = ((curr - prev) / prev) * 100;
+                        source = 'computed';
+                    }
+                }
+
+                if (change === null) {
+                    change = fallbackChange();
+                    source = 'fallback';
+                }
+
+                // Log extreme changes to help debug
+                if (Math.abs(change) > 1000) {
+                    console.warn(`Extreme change detected for ${apiId}: ${change.toFixed(2)}% (${source})`);
+                }
+
+                pcEl.textContent = formatPercentage(change);
+                pcEl.classList.remove('positive', 'negative');
+                pcEl.classList.add(change >= 0 ? 'positive' : 'negative');
+            });
+
+        } catch (err) {
+            console.error('Update change column failed:', err);
+        }
     }
+    await updateChangeColumn();
+    setInterval(updateChangeColumn, POLL_INTERVAL_MS);
+})();
 
-    .listed-control-area {
-        margin: 0px;
-        padding: 10px 20px;
-        padding-top: 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 5px;
-        /* background: #efeff0; */
-        border-bottom: 4px solid #505063;
-    }
-
-    .footer {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 5px;
-        /* background: #f0f0f0; */
-        background: linear-gradient(360deg, #815dee, #815dee, #f0f0f0);
-        color: #ffffff;
-        /* border-top: 4px solid #545474; */
-        border-top: 4px solid #505063;
-        font-size: clamp(12px, 0.5vw, 100px);
-        text-align: center;
-        width: 100%;
-        /* height: 65px; */
-        position: fixed;
-        margin: 0px;
-        padding: 10px 25px;
-        bottom: 0;
-        /* right: 0; */
-        left: 50%;
-        max-width: 704px;
-        border-radius: 8px 8px 0 0;
-        backdrop-filter: blur(45px);
-        transform: translateX(-50%);
-    }
-
-    .footer-icon-box {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        gap: 5px;
-        margin: 0px;
-        padding: 2px 5px;
-        color: #fff;
-        border-radius: 5px;
-    }
+// Start price updates and schedule
+updateCryptoPrices();
+setInterval(updateCryptoPrices, POLL_INTERVAL_MS);
 
 
+
+// View More button
+const viewMoreBtn = document.getElementById('viewMoreBtn');
+if (viewMoreBtn) {
+    viewMoreBtn.addEventListener('click', function () {
+        const hiddenCoins = document.querySelectorAll('.hidden-coin');
+
+        // Toggle logic
+        let isOpening = true;
+
+        hiddenCoins.forEach(coin => {
+            if (coin.classList.contains('visible')) {
+                isOpening = false;
+                coin.classList.remove('visible');
+                this.textContent = 'View More';
+            } else {
+                coin.classList.add('visible');
+            }
+        });
+
+        // Update button content + icon
+        if (isOpening) {
+            this.innerHTML = 'View Less <i class="fa fa-chevron-up"></i>';
+        } else {
+            this.innerHTML = 'View More <i class="fa fa-chevron-down"></i>';
+        }
+
+        updateCryptoPrices();
+    });
 }
 
-@media screen and (max-width: 360px) {
-    .no-show {
-        display: none;
-    }
+// End of script.js
 
-}

@@ -565,6 +565,7 @@ const chartCoinName = document.getElementById('Chart-coin-name');
 const chartCoinTicker = document.getElementById('chart-coin-ticker');
 const chartCoinPair = document.getElementById('Chart-coin-pair');
 const chartCoinLogo = document.getElementById('chart-coin-logo');
+const chartPair1Logo = document.getElementById('chart-pair1-logo');
 const chartCoinValue = document.getElementById('chart-coin-value');
 const chartCardCoinValue = document.getElementById('chart-card-coin-value');
 const chartExitBtn = document.getElementById('chart-exit-btn');
@@ -607,6 +608,7 @@ listedCards.forEach(selectedCard => {
         if (listedTicker) chartCoinPair.textContent = `${listedTicker}/USDT`;
         if (coinLogoImg) {
             chartCoinLogo.src = coinLogoImg.src;
+            chartPair1Logo.src = coinLogoImg.src;
         }
 
         chartsContainer.style.display = 'block';
@@ -681,6 +683,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
+
 
     const priceEl = document.querySelector('.chart-coin-value');
     const percentEl = document.querySelector('.chart-percentage-change');

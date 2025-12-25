@@ -1494,28 +1494,13 @@ body {
     display: none;
 }
 
-.charts-box {
-    margin: 0px;
-    padding: 10px 15px 0px;
-}
-
-.demarketor-box {
-    margin: 0px 0px 10px;
-    padding: 15px 0px 10px;
-    width: 100%;
-    border: 2px solid #5e5e72;
-    border-left: 0px;
-    border-right: 0px;
-    background: #3f3f44;
-}
-
 .charts-header {
     margin: 0px;
     padding: 15px 15px 5px;
     /* background: #fff; */
     background: linear-gradient(#f0f0f0, #5025d1);
     border: 0.2px dashed #5e5e72;
-    border-radius: 25px 25px 0px 0px;
+    border-radius: 10px 10px 0px 0px;
 }
 
 .chart-title {
@@ -1533,6 +1518,21 @@ body {
     border-radius: 4px;
     background: #e8e8e9;
     box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.charts-box {
+    margin: 0px;
+    padding: 10px 10px 0px;
+}
+
+.demarketor-box {
+    margin: 0px 0px 10px;
+    padding: 15px 0px 10px;
+    width: 100%;
+    border: 2px solid #5e5e72;
+    border-left: 0px;
+    border-right: 0px;
+    background: #3f3f44;
 }
 
 .chart-coin-name-and-value {

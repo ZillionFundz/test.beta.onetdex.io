@@ -1592,10 +1592,21 @@ body {
 
 .value-box {
     margin: 0px;
-    padding: 5px 10px;
+    padding: 0px 0px 0px 10px;
     /* background: #e8e8e9; */
     background: #505063;
-    border-radius: 10px;
+    border-radius: 15px;
+}
+
+.chart-percentage-change {
+    margin: 0px;
+    padding: 5px 10px;
+    border-radius: 15px;
+    background: #6e668a;
+    border: none;
+    /* color: gold; */
+    min-width: 80px;
+    text-align: center;
 }
 
 .chart-coin-name-and-star-box {

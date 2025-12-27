@@ -36,6 +36,25 @@ const MajorNetworkSwiper = new Swiper('.major-networks-list-swiper', {
 });
 
 
+const pumpitSwiper = new Swiper('.chart-promo-swiper', {
+    slidesPerView: '1.2',
+    spaceBetween: 4,
+    loop: true,
+    freeMode: {
+        enabled: true,
+        momentum: true,
+        momentumRatio: 0.1,
+        sticky: true,
+    },
+    autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+        waitForTransition: true
+    },
+    speed: 500
+});
+
+
 // NFT VIEWER MODULE (keeps your existing UX)
 (function () {
     const nftTabBtn = document.getElementById('cft') || document.getElementById('nftTabBtn');
@@ -567,7 +586,11 @@ const chartCoinPair = document.getElementById('Chart-coin-pair');
 const chartCoinLogo = document.getElementById('chart-coin-logo');
 const chartPair1Logo = document.getElementById('chart-pair1-logo');
 const chartCoinValue = document.getElementById('chart-coin-value');
+const chartCoinVolume = document.getElementById('chart-coin-volume');
+const chartCoinAmount = document.getElementById('chart-coin-amount');
 const chartCardCoinValue = document.getElementById('chart-card-coin-value');
+const chartPercentageChange = document.getElementById('chart-percentage-change');
+const chartCardPercentageChange = document.getElementById('chart-card-percentage-change');
 const chartExitBtn = document.getElementById('chart-exit-btn');
 const footerTradeBtn = document.getElementById('footer-trade-btn');
 const listedCoinName = document.getElementById('listed-coin-name');
@@ -585,12 +608,34 @@ chartExitBtn.addEventListener('click', () => {
 });
 
 
+function copyCoinValueToChart(card) {
+    document.addEventListener("click", (e) => {
+        const card = e.target.closest(".listed-card");
+        if (!card) return;
+
+        const source = card.querySelector(".coin-value");
+        const target1 = document.getElementById("chart-card-coin-value");
+        const target2 = document.getElementById("chart-coin-value");
+
+        // copy the data-coin key
+        target1.dataset.coin = source.dataset.coin;
+        target2.dataset.coin = source.dataset.coin;
+
+        // copy the displayed value too
+        target1.textContent = source.textContent;
+        target2.textContent = source.textContent;
+    });
+}
+
+
 listedCards.forEach(selectedCard => {
     selectedCard.addEventListener('click', () => {
-
         // Get elements INSIDE the clicked card
         const coinName = selectedCard.querySelector('span');
-        const coinValue = selectedCard.querySelector('.coin-value');
+        // const coinValue = selectedCard.querySelector('.coin-value');
+        const chartVolume = selectedCard.querySelector('.coin-volume');
+        const chartAmount = selectedCard.querySelector('.coin-amount');
+        const percentageChange = selectedCard.querySelector('.percentage-change');
         const coinLogoImg = selectedCard.querySelector('img');
         const coinTicker = selectedCard.querySelector('.coin-ticker');
         let listedTicker = coinTicker.textContent;
@@ -600,9 +645,15 @@ listedCards.forEach(selectedCard => {
 
         // Update chart UI
         if (coinName) chartCoinName.textContent = coinName.textContent;
-        if (coinValue) {
-            chartCoinValue.textContent = coinValue.textContent;
-            chartCardCoinValue.textContent = coinValue.textContent;
+        // if (coinValue) {
+        //     chartCoinValue.textContent = coinValue.textContent;
+        //     chartCardCoinValue.textContent = coinValue.textContent;
+        // }
+        if (chartVolume) chartCoinVolume.textContent = chartVolume.textContent;
+        if (chartAmount) chartCoinAmount.textContent = chartAmount.textContent;
+        if (percentageChange) {
+            // chartCardPercentageChange.textContent = percentageChange.textContent;
+            // chartPercentageChange.textContent = percentageChange.textContent;
         }
         if (coinTicker) chartCoinTicker.textContent = coinTicker.textContent;
         if (listedTicker) chartCoinPair.textContent = `${listedTicker}/USDT`;
@@ -611,29 +662,72 @@ listedCards.forEach(selectedCard => {
             chartPair1Logo.src = coinLogoImg.src;
         }
 
+        updateCryptoPrices();
+        copyCoinValueToChart();
+
         chartsContainer.style.display = 'block';
         document.body.classList.add('no-scroll');
     });
 });
 
 
+
+
+// CHART.JS CANDLESTICK CHART WITH BINANCE WEBSOCKET:...👇
+
+// === Chart.js registrations (REQUIRED) ===
+const Chart = window.Chart;
+const CandlestickController = window.CandlestickController;
+const CandlestickElement = window.CandlestickElement;
+const TimeScale = window.TimeScale || window.TimeSeriesScale || null;
+const LinearScale = window.LinearScale || null;
+const Tooltip = window.Tooltip || null;
+const Legend = window.Legend || null;
+const CategoryScale = window.CategoryScale || null;
+
+const toRegister = [CandlestickController, CandlestickElement, TimeScale, LinearScale, Tooltip, Legend, CategoryScale].filter(Boolean);
+if (!Chart) {
+    console.error('Chart.js not found on window; ensure <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> is included before this script.');
+} else {
+    if (toRegister.length) Chart.register(...toRegister);
+    else console.warn('Chart components missing — financial plugin may not be loaded. Candlestick controller/element not registered.');
+}
+
+// Register zoom plugin if available
+if (window.ChartZoom && Chart) {
+    Chart.register(window.ChartZoom);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
-    const ctx = document.getElementById('priceChart').getContext('2d');
+    const canvas = document.getElementById('priceChart');
+    if (!canvas) { console.error('Canvas with id "priceChart" not found — chart will not render.'); return; }
+    const ctx = canvas.getContext('2d');
 
-    const candleData = [
-        { x: '2025-01-01T10:00', o: 0.021, h: 0.025, l: 0.020, c: 0.023 },
-        { x: '2025-01-01T11:00', o: 0.023, h: 0.027, l: 0.022, c: 0.026 },
-        { x: '2025-01-01T12:00', o: 0.026, h: 0.028, l: 0.024, c: 0.025 },
-        { x: '2025-01-01T13:00', o: 0.025, h: 0.030, l: 0.025, c: 0.029 },
-        { x: '2025-01-01T14:00', o: 0.029, h: 0.032, l: 0.028, c: 0.031 }
-    ];
+    // =========================
+    // STATE
+    // =========================
+    let candleData = [];
+    let currentCandle = null;
+    let socket = null;
+    let symbol = 'btcusdt';
+    let timeframe = '1m';
 
+    const priceEl = document.querySelector('.chart-coin-value');
+    const percentEl = document.querySelector('.chart-percentage-change');
+
+    // Add a small initial seed candle to render chart immediately
+    const initialTime = Date.now();
+    candleData.push({ x: initialTime, o: 0, h: 0, l: 0, c: 0 });
+
+    // =========================
+    // CHART SETUP
+    // =========================
     const priceChart = new Chart(ctx, {
         type: 'candlestick',
         data: {
             datasets: [{
-                label: 'RKC/USDT',
+                label: 'BTC/USDT',
                 data: candleData,
                 upColor: '#16c784',
                 downColor: '#ea3943',
@@ -647,6 +741,11 @@ document.addEventListener('DOMContentLoaded', () => {
             responsive: true,
             maintainAspectRatio: false,
             animation: false,
+            parsing: false,
+            scales: {
+                x: { type: 'time', time: { tooltipFormat: 'HH:mm' }, grid: { display: false } },
+                y: { position: 'right', ticks: { callback: v => `$${v}` } }
+            },
             plugins: {
                 legend: { display: false },
                 tooltip: {
@@ -663,44 +762,98 @@ document.addEventListener('DOMContentLoaded', () => {
                             ];
                         }
                     }
-                }
-            },
-            scales: {
-                x: {
-                    type: 'time',
-                    time: {
-                        tooltipFormat: 'HH:mm',
-                        unit: 'hour'
-                    },
-                    grid: { display: false }
                 },
-                y: {
-                    position: 'right',
-                    ticks: {
-                        callback: v => `$${v}`
-                    }
+                zoom: {
+                    pan: { enabled: true, mode: 'x' },
+                    zoom: { wheel: { enabled: true }, pinch: { enabled: true }, mode: 'x' }
                 }
             }
         }
     });
 
+    // =========================
+    // HEADER PRICE UPDATE
+    // =========================
+    function updateHeaderPrice() {
+        if (!candleData.length) return;
 
-    const priceEl = document.querySelector('.chart-coin-value');
-    const percentEl = document.querySelector('.chart-percentage-change');
+        // Only use candles with o > 0 for percentage calculation
+        const validCandles = candleData.filter(c => c.o > 0);
+        if (!validCandles.length) return;
 
-    const firstCandle = candleData[0];
-    const lastCandle = candleData[candleData.length - 1];
+        const first = validCandles[0];
+        const last = validCandles[validCandles.length - 1];
 
-    priceEl.textContent = `$${lastCandle.c}`;
+        priceEl.textContent = `$${last.c.toFixed(6)}`;
 
-    const percentChange =
-        (((lastCandle.c - firstCandle.o) / firstCandle.o) * 100).toFixed(2);
+        const percent = ((last.c - first.o) / first.o) * 100;
+        percentEl.textContent = `${percent.toFixed(2)}%`;
+        percentEl.style.color = percent >= 0 ? '#16c784' : '#ea3943';
+    }
 
-    percentEl.textContent = `${percentChange}%`;
-    percentEl.style.color = percentChange >= 0 ? '#16c784' : '#ea3943';
+    // =========================
+    // HANDLE LIVE CANDLE UPDATE
+    // =========================
+    function handleCandleUpdate(candle) {
+        if (!currentCandle || currentCandle.x !== candle.x) {
+            currentCandle = candle;
+            candleData.push(currentCandle);
+
+            // Limit history to 150 candles
+            if (candleData.length > 150) candleData.shift();
+        } else {
+            currentCandle.h = candle.h;
+            currentCandle.l = candle.l;
+            currentCandle.c = candle.c;
+        }
+
+        candleData[candleData.length - 1] = currentCandle;
+
+        priceChart.update('none');
+        updateHeaderPrice();
+    }
+
+    // =========================
+    // BINANCE WEBSOCKET
+    // =========================
+    function connectBinance(sym = 'btcusdt', tf = '1m') {
+        if (socket) socket.close();
+
+        currentCandle = null;
+
+        const url = `wss://stream.binance.com:9443/ws/${sym}@kline_${tf}`;
+        socket = new WebSocket(url);
+
+        socket.onopen = () => console.log('✅ Connected to Binance:', sym, tf);
+
+        socket.onmessage = (event) => {
+            const data = JSON.parse(event.data);
+            const k = data.k;
+
+            const candle = { x: k.t, o: +k.o, h: +k.h, l: +k.l, c: +k.c };
+            handleCandleUpdate(candle);
+        };
+
+        socket.onclose = () => {
+            console.warn('⚠️ Binance disconnected — reconnecting...');
+            setTimeout(() => connectBinance(sym, tf), 2000);
+        };
+    }
+
+    // =========================
+    // TIMEFRAME SWITCHER
+    // =========================
+    window.changeTimeframe = function (tf) {
+        timeframe = tf;
+        connectBinance(symbol, timeframe);
+    };
+
+    // =========================
+    // START STREAM
+    // =========================
+    connectBinance(symbol, timeframe);
 
 });
-
 
 
 

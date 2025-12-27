@@ -590,11 +590,19 @@ const chartCoinVolume = document.getElementById('chart-coin-volume');
 const chartCoinAmount = document.getElementById('chart-coin-amount');
 const chartCardCoinValue = document.getElementById('chart-card-coin-value');
 const chartPercentageChange = document.getElementById('chart-percentage-change');
-const chartCardPercentageChange = document.getElementById('chart-card-percentage-change');
+const chartCardPercentageChange = document.querySelector('.chart-card-percentage-change');
 const chartExitBtn = document.getElementById('chart-exit-btn');
 const footerTradeBtn = document.getElementById('footer-trade-btn');
 const listedCoinName = document.getElementById('listed-coin-name');
 let listedCards = document.querySelectorAll('.listed-card');
+
+// Ensure the chart percentage elements also have the base percentage-change class
+if (chartCardPercentageChange && !chartCardPercentageChange.classList.contains('percentage-change')) {
+    chartCardPercentageChange.classList.add('percentage-change');
+}
+if (chartPercentageChange && !chartPercentageChange.classList.contains('percentage-change')) {
+    chartPercentageChange.classList.add('percentage-change');
+}
 
 
 footerTradeBtn.addEventListener('click', () => {
@@ -646,14 +654,32 @@ listedCards.forEach(selectedCard => {
         // Update chart UI
         if (coinName) chartCoinName.textContent = coinName.textContent;
         if (coinValue) {
+            // copy coin value and coin id to chart
+            if (coinValue.dataset && coinValue.dataset.coin) {
+                chartCardCoinValue.dataset.coin = coinValue.dataset.coin;
+            }
             chartCoinValue.textContent = coinValue.textContent;
-            // chartCardCoinValue.textContent = coinValue.textContent;
+            chartCardCoinValue.textContent = coinValue.textContent;
         }
         if (chartVolume) chartCoinVolume.textContent = chartVolume.textContent;
         if (chartAmount) chartCoinAmount.textContent = chartAmount.textContent;
         if (percentageChange) {
-            // chartCardPercentageChange.textContent = percentageChange.textContent;
-            // chartPercentageChange.textContent = percentageChange.textContent;
+            const pctText = percentageChange.textContent;
+            if (chartCardPercentageChange) {
+                chartCardPercentageChange.textContent = pctText;
+                chartCardPercentageChange.classList.remove('positive', 'negative');
+                // Add the shared base class so CSS positive/negative rules apply
+                if (!chartCardPercentageChange.classList.contains('percentage-change')) chartCardPercentageChange.classList.add('percentage-change');
+                if (percentageChange.classList.contains('positive')) chartCardPercentageChange.classList.add('positive');
+                if (percentageChange.classList.contains('negative')) chartCardPercentageChange.classList.add('negative');
+            }
+            if (chartPercentageChange) {
+                chartPercentageChange.textContent = pctText;
+                chartPercentageChange.classList.remove('positive', 'negative');
+                if (!chartPercentageChange.classList.contains('percentage-change')) chartPercentageChange.classList.add('percentage-change');
+                if (percentageChange.classList.contains('positive')) chartPercentageChange.classList.add('positive');
+                if (percentageChange.classList.contains('negative')) chartPercentageChange.classList.add('negative');
+            }
         }
         if (coinTicker) chartCoinTicker.textContent = coinTicker.textContent;
         if (listedTicker) chartCoinPair.textContent = `${listedTicker}/USDT`;
@@ -674,191 +700,6 @@ listedCards.forEach(selectedCard => {
 
 
 // CHART.JS CANDLESTICK CHART WITH BINANCE WEBSOCKET:...👇
-
-// === Chart.js registrations (REQUIRED) ===
-const Chart = window.Chart;
-const CandlestickController = window.CandlestickController;
-const CandlestickElement = window.CandlestickElement;
-const TimeScale = window.TimeScale || window.TimeSeriesScale || null;
-const LinearScale = window.LinearScale || null;
-const Tooltip = window.Tooltip || null;
-const Legend = window.Legend || null;
-const CategoryScale = window.CategoryScale || null;
-
-const toRegister = [CandlestickController, CandlestickElement, TimeScale, LinearScale, Tooltip, Legend, CategoryScale].filter(Boolean);
-if (!Chart) {
-    console.error('Chart.js not found on window; ensure <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> is included before this script.');
-} else {
-    if (toRegister.length) Chart.register(...toRegister);
-    else console.warn('Chart components missing — financial plugin may not be loaded. Candlestick controller/element not registered.');
-}
-
-// Register zoom plugin if available
-if (window.ChartZoom && Chart) {
-    Chart.register(window.ChartZoom);
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-
-    const canvas = document.getElementById('priceChart');
-    if (!canvas) { console.error('Canvas with id "priceChart" not found — chart will not render.'); return; }
-    const ctx = canvas.getContext('2d');
-
-    // =========================
-    // STATE
-    // =========================
-    let candleData = [];
-    let currentCandle = null;
-    let socket = null;
-    let symbol = 'btcusdt';
-    let timeframe = '1m';
-
-    const priceEl = document.querySelector('.chart-coin-value');
-    const percentEl = document.querySelector('.chart-percentage-change');
-
-    // Add a small initial seed candle to render chart immediately
-    const initialTime = Date.now();
-    candleData.push({ x: initialTime, o: 0, h: 0, l: 0, c: 0 });
-
-    // =========================
-    // CHART SETUP
-    // =========================
-    const priceChart = new Chart(ctx, {
-        type: 'candlestick',
-        data: {
-            datasets: [{
-                label: 'BTC/USDT',
-                data: candleData,
-                upColor: '#16c784',
-                downColor: '#ea3943',
-                borderUpColor: '#16c784',
-                borderDownColor: '#ea3943',
-                wickUpColor: '#16c784',
-                wickDownColor: '#ea3943'
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            animation: false,
-            parsing: false,
-            scales: {
-                x: { type: 'time', time: { tooltipFormat: 'HH:mm' }, grid: { display: false } },
-                y: { position: 'right', ticks: { callback: v => `$${v}` } }
-            },
-            plugins: {
-                legend: { display: false },
-                tooltip: {
-                    mode: 'index',
-                    intersect: false,
-                    callbacks: {
-                        label: ctx => {
-                            const d = ctx.raw;
-                            return [
-                                `Open:  $${d.o}`,
-                                `High:  $${d.h}`,
-                                `Low:   $${d.l}`,
-                                `Close: $${d.c}`
-                            ];
-                        }
-                    }
-                },
-                zoom: {
-                    pan: { enabled: true, mode: 'x' },
-                    zoom: { wheel: { enabled: true }, pinch: { enabled: true }, mode: 'x' }
-                }
-            }
-        }
-    });
-
-    // =========================
-    // HEADER PRICE UPDATE
-    // =========================
-    function updateHeaderPrice() {
-        if (!candleData.length) return;
-
-        // Only use candles with o > 0 for percentage calculation
-        const validCandles = candleData.filter(c => c.o > 0);
-        if (!validCandles.length) return;
-
-        const first = validCandles[0];
-        const last = validCandles[validCandles.length - 1];
-
-        priceEl.textContent = `$${last.c.toFixed(6)}`;
-
-        const percent = ((last.c - first.o) / first.o) * 100;
-        percentEl.textContent = `${percent.toFixed(2)}%`;
-        percentEl.style.color = percent >= 0 ? '#16c784' : '#ea3943';
-    }
-
-    // =========================
-    // HANDLE LIVE CANDLE UPDATE
-    // =========================
-    function handleCandleUpdate(candle) {
-        if (!currentCandle || currentCandle.x !== candle.x) {
-            currentCandle = candle;
-            candleData.push(currentCandle);
-
-            // Limit history to 150 candles
-            if (candleData.length > 150) candleData.shift();
-        } else {
-            currentCandle.h = candle.h;
-            currentCandle.l = candle.l;
-            currentCandle.c = candle.c;
-        }
-
-        candleData[candleData.length - 1] = currentCandle;
-
-        priceChart.update('none');
-        updateHeaderPrice();
-    }
-
-    // =========================
-    // BINANCE WEBSOCKET
-    // =========================
-    function connectBinance(sym = 'btcusdt', tf = '1m') {
-        if (socket) socket.close();
-
-        currentCandle = null;
-
-        const url = `wss://stream.binance.com:9443/ws/${sym}@kline_${tf}`;
-        socket = new WebSocket(url);
-
-        socket.onopen = () => console.log('✅ Connected to Binance:', sym, tf);
-
-        socket.onmessage = (event) => {
-            const data = JSON.parse(event.data);
-            const k = data.k;
-
-            const candle = { x: k.t, o: +k.o, h: +k.h, l: +k.l, c: +k.c };
-            handleCandleUpdate(candle);
-        };
-
-        socket.onclose = () => {
-            console.warn('⚠️ Binance disconnected — reconnecting...');
-            setTimeout(() => connectBinance(sym, tf), 2000);
-        };
-    }
-
-    // =========================
-    // TIMEFRAME SWITCHER
-    // =========================
-    window.changeTimeframe = function (tf) {
-        timeframe = tf;
-        connectBinance(symbol, timeframe);
-    };
-
-    // =========================
-    // START STREAM
-    // =========================
-    connectBinance(symbol, timeframe);
-
-});
-
-
-
-
-
 
 
 
@@ -1044,6 +885,28 @@ notificationOk.addEventListener('click', () => {
                 pcEl.textContent = formatPercentage(change);
                 pcEl.classList.remove('positive', 'negative');
                 pcEl.classList.add(change >= 0 ? 'positive' : 'negative');
+
+                // If this card corresponds to the coin currently shown in the chart, update chart percentage too
+                try {
+                    const selectedCoin = (chartCardCoinValue && chartCardCoinValue.dataset && chartCardCoinValue.dataset.coin) ? chartCardCoinValue.dataset.coin.trim().toLowerCase() : '';
+                    const cardCoinEl = card.querySelector('.coin-value');
+                    const cardCoinKey = cardCoinEl?.dataset?.coin?.trim?.().toLowerCase() || '';
+                    if (selectedCoin && cardCoinKey && selectedCoin === cardCoinKey) {
+                        const pctText = formatPercentage(change);
+                        if (chartCardPercentageChange) {
+                            chartCardPercentageChange.textContent = pctText;
+                            chartCardPercentageChange.classList.remove('positive', 'negative');
+                            if (!chartCardPercentageChange.classList.contains('percentage-change')) chartCardPercentageChange.classList.add('percentage-change');
+                            chartCardPercentageChange.classList.add(change >= 0 ? 'positive' : 'negative');
+                        }
+                        if (chartPercentageChange) {
+                            chartPercentageChange.textContent = pctText;
+                            chartPercentageChange.classList.remove('positive', 'negative');
+                            if (!chartPercentageChange.classList.contains('percentage-change')) chartPercentageChange.classList.add('percentage-change');
+                            chartPercentageChange.classList.add(change >= 0 ? 'positive' : 'negative');
+                        }
+                    }
+                } catch (err) { /* no-op */ }
             });
 
         } catch (err) {

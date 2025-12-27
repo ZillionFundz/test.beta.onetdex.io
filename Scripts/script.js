@@ -632,7 +632,7 @@ listedCards.forEach(selectedCard => {
     selectedCard.addEventListener('click', () => {
         // Get elements INSIDE the clicked card
         const coinName = selectedCard.querySelector('span');
-        // const coinValue = selectedCard.querySelector('.coin-value');
+        const coinValue = selectedCard.querySelector('.coin-value');
         const chartVolume = selectedCard.querySelector('.coin-volume');
         const chartAmount = selectedCard.querySelector('.coin-amount');
         const percentageChange = selectedCard.querySelector('.percentage-change');
@@ -645,10 +645,10 @@ listedCards.forEach(selectedCard => {
 
         // Update chart UI
         if (coinName) chartCoinName.textContent = coinName.textContent;
-        // if (coinValue) {
-        //     chartCoinValue.textContent = coinValue.textContent;
-        //     chartCardCoinValue.textContent = coinValue.textContent;
-        // }
+        if (coinValue) {
+            chartCoinValue.textContent = coinValue.textContent;
+            // chartCardCoinValue.textContent = coinValue.textContent;
+        }
         if (chartVolume) chartCoinVolume.textContent = chartVolume.textContent;
         if (chartAmount) chartCoinAmount.textContent = chartAmount.textContent;
         if (percentageChange) {

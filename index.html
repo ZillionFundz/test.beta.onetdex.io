@@ -411,12 +411,12 @@
                     <canvas id="priceChart"></canvas>
                 </div>
                 <div class="time-interval-area">
-                    <button class="time-interval-btn">5m</button>
-                    <button class="time-interval-btn">15m</button>
-                    <button class="time-interval-btn no-show">30m</button>
-                    <button class="time-interval-btn">1h</button>
-                    <button class="time-interval-btn">4h</button>
-                    <button class="time-interval-btn">1D</button>
+                    <button class="time-interval-btn" data-tf="300000">5m</button>
+                    <button class="time-interval-btn" data-tf="900000">15m</button>
+                    <button class="time-interval-btn no-show" data-tf="1800000">30m</button>
+                    <button class="time-interval-btn" data-tf="3600000">1h</button>
+                    <button class="time-interval-btn" data-tf="14400000">4h</button>
+                    <button class="time-interval-btn" data-tf="86400000">1D</button>
                     <div class="more-timeframes">
                         <button id="more-tf-btn" class="more-tf-btn">More</button>
                         <i class="fa-global-icons fa-solid fa-chevron-down"></i>
@@ -448,7 +448,7 @@
                                 <div id="chart-coin-volume" class="chart-coin-volume">0.001</div>
                                 <div id="chart-coin-amount" class="chart-coin-amount">$0.00</div>
                             </div>
-                            <button class="percentage-change">%</button>
+                            <button class="chart-card-percentage-change">%</button>
                         </div>
                     </div>
                     <div class="chart-trade-box">
@@ -1083,10 +1083,10 @@
     <script src="https://cdn.jsdelivr.net/npm/luxon"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-financial"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
     <script src="Scripts/script.js" defer></script>
+
 
 </body>
 
 </html>
-
-

@@ -1881,7 +1881,8 @@ canvas {
 }
 
 .chart-promo-title {
-    font-size: clamp(16px, 0.5vw, 100px);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(16px, 1.5vw, 100px);
     color: #fff;
     margin: 0px;
     padding: 5px 0px 2px 25px;

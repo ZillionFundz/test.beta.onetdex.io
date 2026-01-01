@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ONET Exchange</title>
+    <!-- TRADINGVIEW PRELOADS BELOW -->
+    <link rel="preload" href="https://s3.tradingview.com/tv.js" as="script">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
@@ -408,7 +410,8 @@
                     <span id="Chart-coin-pair" class="Chart-coin-pair">BTC/USDT</span>
                 </div>
                 <div class="charts-area">
-                    <canvas id="priceChart"></canvas>
+                    <!-- <canvas id="tv-chart"></canvas> -->
+                    <div id="tv-chart" class="tv-chart" style="width:100%;"></div>
                 </div>
                 <div class="time-interval-area">
                     <button class="time-interval-btn" data-tf="300000">5m</button>
@@ -1077,7 +1080,7 @@
     </div>
     <!-- SWIPER JS BELOW -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="Scripts/script.js" defer></script>
+    <script type="module" src="Scripts/main.js"></script>
 
 
 </body>

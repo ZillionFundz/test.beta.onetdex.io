@@ -1,4 +1,8 @@
-// tvwidget.js
+
+// ===========================================================
+// TradingView Advanced Chart (SINGLE CONTAINER): tvwidget.js
+// ===========================================================
+
 
 export function loadTradingView(containerId = "tv-chart", options = {}) {
     const container = document.getElementById(containerId);
@@ -24,7 +28,7 @@ export function loadTradingView(containerId = "tv-chart", options = {}) {
 
             // ---- STYLE ----
             style: options.style || "1",
-            backgroundColor: options.backgroundColor || "#3f3f44",
+            backgroundColor: options.backgroundColor || "#1e1e1eff",
             gridColor: options.gridColor || "rgba(255,255,255,0.06)",
 
             // ---- UI CONTROLS ----
@@ -44,3 +48,4 @@ export function loadTradingView(containerId = "tv-chart", options = {}) {
 
     document.head.appendChild(script);
 }
+

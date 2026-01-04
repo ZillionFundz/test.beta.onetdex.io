@@ -2,54 +2,94 @@
 // TradingView Advanced Chart (ES Module Safe)
 // ===========================================================
 
-let tvReadyPromise = null;
+// Shared promise → guarantees single script load
+let tradingViewPromise = null;
 
-function loadTvCore() {
-    if (window.TradingView) return Promise.resolve();
+/**
+ * Load TradingView library ONCE
+ * - Safe for ES modules
+ * - Safe on refresh
+ * - Safe on multiple calls
+ */
+function loadTradingViewScript() {
+    // If TradingView already exists, resolve immediately
+    if (window.TradingView) {
+        return Promise.resolve();
+    }
 
-    if (tvReadyPromise) return tvReadyPromise;
+    // If loading is already in progress, reuse it
+    if (tradingViewPromise) {
+        return tradingViewPromise;
+    }
 
-    tvReadyPromise = new Promise((resolve, reject) => {
+    tradingViewPromise = new Promise((resolve, reject) => {
         const script = document.createElement("script");
         script.src = "https://s3.tradingview.com/tv.js";
         script.async = true;
 
-        script.onload = () => {
-            if (window.TradingView) resolve();
-            else reject("TradingView failed to load");
-        };
-
-        script.onerror = () => reject("TradingView script error");
+        script.onload = () => resolve();
+        script.onerror = () =>
+            reject(new Error("TradingView script failed to load"));
 
         document.head.appendChild(script);
     });
 
-    return tvReadyPromise;
+    return tradingViewPromise;
 }
 
-export async function loadTradingView(
-    containerId = "tv-chart",
-    symbol = "BTCUSDT"
-) {
+/**
+ * Default TradingView configuration
+ * (Safe fallbacks + flexible overrides)
+ */
+const DEFAULT_CONFIG = {
+    // ---- Core ----
+    symbol: "NASDAQ:AAPL",
+    interval: "D",
+    timezone: "Etc/UTC",
+    autosize: true,
+    theme: "dark",
+
+    // ---- Style ----
+    style: "1",
+    backgroundColor: "#1e1e1eff",
+    gridColor: "rgba(255,255,255,0.06)",
+
+    // ---- UI ----
+    hide_top_toolbar: false,
+    hide_side_toolbar: true,
+    hide_legend: false,
+    allow_symbol_change: true,
+    save_image: false,
+
+    // ---- Extras ----
+    locale: "en",
+    studies_overrides: {},
+    enabled_features: [],
+    disabled_features: []
+};
+
+/**
+ * Create a TradingView widget
+ * - Does NOT reload the script
+ * - Fully configurable
+ * - ES-module friendly
+ */
+export async function loadTradingView(containerId = "tv-chart", options = {}) {
     const container = document.getElementById(containerId);
-    if (!container) return;
-
-    await loadTvCore();
-
-    // Remove existing widget safely
-    if (window.tvWidget) {
-        window.tvWidget.remove();
-        window.tvWidget = null;
+    if (!container) {
+        console.warn(`TradingView container "${containerId}" not found`);
+        return null;
     }
 
-    window.tvWidget = new TradingView.widget({
+    // Ensure TradingView is loaded first
+    await loadTradingViewScript();
+
+    // Merge defaults with user options
+    const config = {
         container_id: containerId,
-        symbol,
-        interval: "15",
-        autosize: true,
-        theme: "dark",
-        timezone: "Etc/UTC",
-        locale: "en",
-        hide_side_toolbar: false,
-    });
+        ...DEFAULT_CONFIG,
+        ...options
+    };
+
+    return new TradingView.widget(config);
 }

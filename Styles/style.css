@@ -1492,6 +1492,13 @@ body {
     /* bottom: 0; */
     z-index: 2;
     display: none;
+    background: #000;
+}
+
+.charts-box {
+    margin: 0px;
+    padding: 0px 0px 0px;
+    background: #000;
 }
 
 .charts-header {
@@ -1518,11 +1525,6 @@ body {
     border-radius: 4px;
     /* background: #e8e8e9; */
     box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
-}
-
-.charts-box {
-    margin: 0px;
-    padding: 10px 10px 0px;
 }
 
 .demarketor-box {
@@ -1688,7 +1690,8 @@ body {
 }
 
 .time-interval-btn:hover {
-    background: #000;
+    background: #fff;
+    color: #000;
 }
 
 .time-interval-btn:active {
@@ -1697,29 +1700,36 @@ body {
 
 .more-tf-btn {
     margin: 0px;
-    padding: 0px;
+    padding: 4px 4px 4px 10px;
     border: none;
     border-radius: 5px;
     font-size: clamp(12px, 0.4vw, 100px);
     /* background: #0166ff; */
     background: none;
-    color: #fff;
+    color: #000;
+    font-weight: bold;
+}
+
+.more-tf-btn:hover {
+    color: #5025d1;
 }
 
 .more-timeframes {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 2px;
+    gap: 0px;
     margin: 0px;
-    padding: 4px 10px;
+    padding: 0px 10px 0px 0px;
     /* background: #505063; */
     background: #5025d1;
+    color: #fff;
     border-radius: 5px;
 }
 
 .more-timeframes:hover {
-    background: #000;
+    background: #fff;
+    color: #000;
 }
 
 .more-timeframes:active {
@@ -1782,6 +1792,7 @@ body {
     margin: 0px;
     padding: 10px 0px 0px;
     position: relative;
+    background: #3f3f44;
 }
 
 .chart-tab-btn {
@@ -1804,7 +1815,7 @@ body {
     position: absolute;
     left: 0;
     bottom: -2px;
-    z-index: -1;
+    z-index: 0;
 }
 
 .chart-asset-title {

@@ -53,10 +53,3 @@ export async function loadTradingView(
         hide_side_toolbar: false,
     });
 }
-
-    return new TradingView.widget(config);
-}
-
-
-
-

@@ -43,7 +43,7 @@ function loadTradingViewScript() {
  */
 const DEFAULT_CONFIG = {
     // ---- Core ----
-    symbol: "NASDAQ:AAPL",
+    symbol: "NASDAQ:BTC",
     interval: "D",
     timezone: "Etc/UTC",
     autosize: true,
@@ -93,3 +93,4 @@ export async function loadTradingView(containerId = "tv-chart", options = {}) {
 
     return new TradingView.widget(config);
 }
+

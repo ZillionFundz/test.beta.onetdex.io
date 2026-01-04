@@ -3,7 +3,11 @@
 import { loadTradingView } from "./tvwidget.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-    loadTradingView("tv-chart");
+    const chart = document.getElementById("tv-chart");
+    if (!chart?.dataset.loaded) {
+        loadTradingView("tv-chart");
+        chart.dataset.loaded = "true";
+    }
 
     // TRENDING SWIPER INIT
     const swiper = new Swiper('.trending-swiper', {
@@ -665,12 +669,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // TV-widget CHART FOR EACH COIN CANDLESTICKS CHART HERE:...👇
-    const tvSymbolMap = {
-        BTC: "BINANCE:BTCUSDT",
-        ETH: "BINANCE:ETHUSDT",
-        WKC: "MEXC:WKCUSDT",     // example – adjust to real exchange
-        RKC: "MEXC:RKCUSDT"      // example – adjust to real exchange
-    };
+    // const tvSymbolMap = {
+    //     BTC: "BINANCE:BTCUSDT",
+    //     ETH: "BINANCE:ETHUSDT",
+    //     WKC: "MEXC:WKCUSDT",     // example – adjust to real exchange
+    //     RKC: "MEXC:RKCUSDT"      // example – adjust to real exchange
+    // };
 
 
     listedCards.forEach(selectedCard => {
@@ -728,20 +732,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             /* ================= ✅ TRADINGVIEW UPDATE ================= */
-            const tvSymbol = tvSymbolMap[listedTicker] || `BINANCE:${listedTicker}USDT`;
-            if (!tvSymbol) return;
+            // const tvSymbol = tvSymbolMap[listedTicker] || `BINANCE:${listedTicker}USDT`;
+            // if (!tvSymbol) return;
 
-            // 2️⃣ Get TradingView widget
-            const widget = getTVWidget();
-            if (!widget) return;
+            // // 2️⃣ Get TradingView widget
+            // const widget = getTVWidget();
+            // if (!widget) return;
 
-            // 3️⃣ Update chart
-            widget.onChartReady(() => {
-                widget.activeChart().setSymbol(
-                    tvSymbol,
-                    widget.activeChart().resolution()
-                );
-            });
+            // // 3️⃣ Update chart
+            // widget.onChartReady(() => {
+            //     widget.activeChart().setSymbol(
+            //         tvSymbol,
+            //         widget.activeChart().resolution()
+            //     );
+            // });
         });
     });
 

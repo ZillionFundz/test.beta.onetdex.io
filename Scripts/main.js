@@ -3,7 +3,7 @@
 import { loadTradingView } from "./tvwidget.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-    loadTradingView("tv-chart");
+    loadTradingView("tv-chart", "BTCUSDT");
 
     // TRENDING SWIPER INIT
     const swiper = new Swiper('.trending-swiper', {

@@ -664,9 +664,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
+    // TV-widget CHART FOR EACH COIN CANDLESTICKS CHART HERE:...👇
+    const tvSymbolMap = {
+        BTC: "BINANCE:BTCUSDT",
+        ETH: "BINANCE:ETHUSDT",
+        WKC: "MEXC:WKCUSDT",     // example – adjust to real exchange
+        RKC: "MEXC:RKCUSDT"      // example – adjust to real exchange
+    };
+
+
     listedCards.forEach(selectedCard => {
         selectedCard.addEventListener('click', () => {
-            // Get elements INSIDE the clicked card
+
             const coinName = selectedCard.querySelector('span');
             const coinValue = selectedCard.querySelector('.coin-value');
             const chartVolume = selectedCard.querySelector('.coin-volume');
@@ -674,40 +683,35 @@ document.addEventListener("DOMContentLoaded", () => {
             const percentageChange = selectedCard.querySelector('.percentage-change');
             const coinLogoImg = selectedCard.querySelector('img');
             const coinTicker = selectedCard.querySelector('.coin-ticker');
-            let listedTicker = coinTicker.textContent;
-            listedTicker = listedTicker.replace(/\$/g, '').trim();
+
+            let listedTicker = coinTicker.textContent.replace(/\$/g, '').trim();
 
 
 
-            // Update chart UI
+            /* =================  UPDATES CHART UI ================= */
             if (coinName) chartCoinName.textContent = coinName.textContent;
             if (coinValue) {
                 // copy coin value and coin id to chart
-                if (coinValue.dataset && coinValue.dataset.coin) {
+                if (coinValue.dataset?.coin) {
                     chartCardCoinValue.dataset.coin = coinValue.dataset.coin;
                 }
                 chartCoinValue.textContent = coinValue.textContent;
                 chartCardCoinValue.textContent = coinValue.textContent;
             }
+
             if (chartVolume) chartCoinVolume.textContent = chartVolume.textContent;
             if (chartAmount) chartCoinAmount.textContent = chartAmount.textContent;
             if (percentageChange) {
                 const pctText = percentageChange.textContent;
-                if (chartCardPercentageChange) {
-                    chartCardPercentageChange.textContent = pctText;
-                    chartCardPercentageChange.classList.remove('positive', 'negative');
-                    // Add the shared base class so CSS positive/negative rules apply
-                    if (!chartCardPercentageChange.classList.contains('percentage-change')) chartCardPercentageChange.classList.add('percentage-change');
-                    if (percentageChange.classList.contains('positive')) chartCardPercentageChange.classList.add('positive');
-                    if (percentageChange.classList.contains('negative')) chartCardPercentageChange.classList.add('negative');
-                }
-                if (chartPercentageChange) {
-                    chartPercentageChange.textContent = pctText;
-                    chartPercentageChange.classList.remove('positive', 'negative');
-                    if (!chartPercentageChange.classList.contains('percentage-change')) chartPercentageChange.classList.add('percentage-change');
-                    if (percentageChange.classList.contains('positive')) chartPercentageChange.classList.add('positive');
-                    if (percentageChange.classList.contains('negative')) chartPercentageChange.classList.add('negative');
-                }
+
+                [chartCardPercentageChange, chartPercentageChange].forEach(el => {
+                    if (!el) return;
+                    el.textContent = pctText;
+                    el.classList.remove('positive', 'negative');
+                    el.classList.add('percentage-change');
+                    if (percentageChange.classList.contains('positive')) el.classList.add('positive');
+                    if (percentageChange.classList.contains('negative')) el.classList.add('negative');
+                });
             }
             if (coinTicker) chartCoinTicker.textContent = coinTicker.textContent;
             if (listedTicker) chartCoinPair.textContent = `${listedTicker}/USDT`;
@@ -721,13 +725,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
             chartsContainer.style.display = 'block';
             document.body.classList.add('no-scroll');
+
+
+            /* ================= ✅ TRADINGVIEW UPDATE ================= */
+            const tvSymbol = tvSymbolMap[listedTicker] || `BINANCE:${listedTicker}USDT`;
+            if (!tvSymbol) return;
+
+            // 2️⃣ Get TradingView widget
+            const widget = getTVWidget();
+            if (!widget) return;
+
+            // 3️⃣ Update chart
+            widget.onChartReady(() => {
+                widget.activeChart().setSymbol(
+                    tvSymbol,
+                    widget.activeChart().resolution()
+                );
+            });
         });
     });
 
 
 
-
-    // CHART.JS CANDLESTICK CHART WITH BINANCE WEBSOCKET:...👇
 
 
 

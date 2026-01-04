@@ -1,13 +1,24 @@
 
 
-import { loadTradingView } from "./tvwidget.js";
+// import { loadTradingView } from "./tvwidget.js";
 
-document.addEventListener("DOMContentLoaded", () => {
-    const chart = document.getElementById("tv-chart");
-    if (!chart?.dataset.loaded) {
-        loadTradingView("tv-chart");
-        chart.dataset.loaded = "true";
-    }
+// document.addEventListener("DOMContentLoaded", () => {
+//     const chart = document.getElementById("tv-chart");
+//     if (!chart?.dataset.loaded) {
+//         loadTradingView("tv-chart");
+//         chart.dataset.loaded = "true";
+//     }
+
+
+import { loadTradingView } from './tvwidget.js';
+
+window.addEventListener("DOMContentLoaded", () => {
+    loadTradingView("tv-chart", {
+        symbol: "BINANCE:WKCUSDT",
+        interval: "15",   // 15-min candles
+        theme: "dark"
+    });
+
 
     // TRENDING SWIPER INIT
     const swiper = new Swiper('.trending-swiper', {

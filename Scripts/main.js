@@ -14,7 +14,7 @@ import { loadTradingView } from './tvwidget.js';
 
 window.addEventListener("DOMContentLoaded", () => {
     loadTradingView("tv-chart", {
-        symbol: "BINANCE:WKCUSDT",
+        //symbol: "BINANCE:WKCUSDT",
         interval: "15",   // 15-min candles
         theme: "dark"
     });
@@ -1018,4 +1018,5 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 // End of script.js
+
 

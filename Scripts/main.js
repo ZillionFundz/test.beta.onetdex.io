@@ -460,23 +460,25 @@ window.addEventListener("DOMContentLoaded", () => {
     const depositTicker = document.getElementById('deposit-ticker');
 
 
-    // SEARCHING A COIN FROM THE SEARCH INPUT:...👇
+    // SEARCHING A COIN FROM THE SEARCH INPUT 👇
 
     const searchToken = document.getElementById("search-token");
-    const searchCard = document.querySelectorAll(".popup-card");
+    const searchCards = document.querySelectorAll(".popup-card");
 
     searchToken.addEventListener("input", () => {
-        const query = searchToken.value.toLowerCase();
+        const query = searchToken.value.toLowerCase().trim();
 
-        searchCard.forEach(card => {
+        searchCards.forEach(card => {
             const coinValueEl = card.querySelector(".coin-value");
             const coinName = coinValueEl.dataset.name.toLowerCase();
             const ticker = card.querySelector(".coin-ticker").textContent.toLowerCase();
-            const name = coinValueEl.dataset.name.toLowerCase();
+
             const match = coinName.includes(query) || ticker.includes(query);
             card.style.display = match ? "" : "none";
         });
     });
+
+
 
 
     // Add click listeners ONCE

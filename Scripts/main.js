@@ -1,14 +1,7 @@
 
-
-// import { loadTradingView } from "./tvwidget.js";
-
-// document.addEventListener("DOMContentLoaded", () => {
-//     const chart = document.getElementById("tv-chart");
-//     if (!chart?.dataset.loaded) {
-//         loadTradingView("tv-chart");
-//         chart.dataset.loaded = "true";
-//     }
-
+// ===========================================================
+// Main js that calls the tvwidget.js and other modules.
+// ===========================================================
 
 import { loadTradingView } from './tvwidget.js';
 
@@ -368,7 +361,7 @@ window.addEventListener("DOMContentLoaded", () => {
     const popUp = document.getElementById('popup');
     const overlay = document.getElementById('swap-overlay');
     const popUpExitBtn = document.getElementById('popup-exit-btn');
-    const searchToken = document.getElementById('search-token');
+
 
     //SWAPPING INITIALISATIONS:...👇
     const swapSwitchBtn = document.getElementById('swap-switch');
@@ -466,6 +459,24 @@ window.addEventListener("DOMContentLoaded", () => {
     const depositLogo = document.getElementById('deposit-logo');
     const depositTicker = document.getElementById('deposit-ticker');
 
+
+    // SEARCHING A COIN FROM THE SEARCH INPUT:...👇
+
+    const searchToken = document.getElementById("search-token");
+    const searchCard = document.querySelectorAll(".popup-card");
+
+    searchToken.addEventListener("input", () => {
+        const query = searchToken.value.toLowerCase();
+
+        searchCard.forEach(card => {
+            const coinValueEl = card.querySelector(".coin-value");
+            const coinName = coinValueEl.dataset.name.toLowerCase();
+            const ticker = card.querySelector(".coin-ticker").textContent.toLowerCase();
+            const name = coinValueEl.dataset.name.toLowerCase();
+            const match = coinName.includes(query) || ticker.includes(query);
+            card.style.display = match ? "" : "none";
+        });
+    });
 
 
     // Add click listeners ONCE
@@ -1018,9 +1029,4 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 // End of script.js
-
-
-
-
-
 

@@ -468,6 +468,14 @@ window.addEventListener("DOMContentLoaded", () => {
     searchToken.addEventListener("input", () => {
         const query = searchToken.value.toLowerCase().trim();
 
+        // ✅ If search is empty, show all cards again
+        if (query === "") {
+            searchCards.forEach(card => {
+                card.style.display = "";
+            });
+            return;
+        }
+
         searchCards.forEach(card => {
             const coinValueEl = card.querySelector(".coin-value");
             const coinName = coinValueEl.dataset.name.toLowerCase();
@@ -477,6 +485,7 @@ window.addEventListener("DOMContentLoaded", () => {
             card.style.display = match ? "" : "none";
         });
     });
+
 
 
 

@@ -381,146 +381,149 @@
 
         <!-- PRICE CHARTS HERE:.... 👇 -->
         <div id="charts-container" class="charts-container">
-            <div id="charts-box" class="charts-box">
-                <div class="charts-header">
-                    <h4 class="chart-title">Powered by ONET Technology</h4>
-                    <div class="chart-coin-name-and-star-box">
-                        <div class="chart-coin-name-and-value">
-                            <div class="chart-exit-and-coin-name">
-                                <button id="chart-exit-btn" class="chart-exit-btn"><i
-                                        class="fa-global-icons chart-fa-arrow-left fa-solid fa-arrow-left"></i>
-                                </button>
-                                <span id="Chart-coin-name" class="Chart-coin-name">Bitcoin<i
-                                        class="fa-global-icons fa-solid fa-chevron-down"></i>
-                                </span>
-                            </div>
-                            <div class="chart-price-area-and-logo">
-                                <div class="value-box">
-                                    <div class="chart-value-and-percentage">
-                                        <div id="chart-coin-value" class="chart-coin-value" data-coin="bitcoin">$0.00
+            <div class="chart-body">
+                <div id="charts-box" class="charts-box">
+                    <div class="charts-header">
+                        <h4 class="chart-title">Powered by ONET Technology</h4>
+                        <div class="chart-coin-name-and-star-box">
+                            <div class="chart-coin-name-and-value">
+                                <div class="chart-exit-and-coin-name">
+                                    <button id="chart-exit-btn" class="chart-exit-btn"><i
+                                            class="fa-global-icons chart-fa-arrow-left fa-solid fa-arrow-left"></i>
+                                    </button>
+                                    <span id="Chart-coin-name" class="Chart-coin-name">Bitcoin<i
+                                            class="fa-global-icons fa-solid fa-chevron-down"></i>
+                                    </span>
+                                </div>
+                                <div class="chart-price-area-and-logo">
+                                    <div class="value-box">
+                                        <div class="chart-value-and-percentage">
+                                            <div id="chart-coin-value" class="chart-coin-value" data-coin="bitcoin">
+                                                $0.00
+                                            </div>
+                                            <span id="chart-percentage-change" class="chart-percentage-change">%</span>
                                         </div>
-                                        <span id="chart-percentage-change" class="chart-percentage-change">%</span>
+                                    </div>
+                                    <img id="chart-pair1-logo" class="chart-coin-logo" src="Images/bitcoin.png" alt="">
+                                </div>
+                            </div>
+                            <button class="favorite-star-btn"><i class="fa-solid fa-star"></i></button>
+                        </div>
+                        <span id="Chart-coin-pair" class="Chart-coin-pair">BTC/USDT</span>
+                    </div>
+
+                    <!-- TRADINGVIEW WIDGET CHARTS BELOW:.... 👇 -->
+                    <div class="tv-box">
+                        <div id="tv-chart" class="tv-chart" style="width:100%; height:250px"></div>
+                    </div>
+                    <div class="time-interval-area">
+                        <button class="time-interval-btn" data-tf="300000">5m</button>
+                        <button class="time-interval-btn" data-tf="900000">15m</button>
+                        <button class="time-interval-btn no-show" data-tf="1800000">30m</button>
+                        <button class="time-interval-btn" data-tf="3600000">1h</button>
+                        <button class="time-interval-btn" data-tf="14400000">4h</button>
+                        <button class="time-interval-btn" data-tf="86400000">1D</button>
+                        <div class="more-timeframes">
+                            <button id="more-tf-btn" class="more-tf-btn">More</button>
+                            <i class="fa-global-icons fa-solid fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="chart-tabs">
+                        <button class="chart-tab-btn">Chart</button>
+                        <button class="chart-tab-btn">history</button>
+                        <button class="chart-tab-btn">About</button>
+                        <div class="chart-active-indicator"></div>
+                    </div>
+                </div>
+                <div class="demarketor-box">
+                    <div class="chart-selected-card-offsetter">
+                        <h3 class="chart-asset-title">Asset Holding</h3>
+                        <div id="chart-selected-card" class="chart-selected-card">
+                            <div class="coin-and-ticker">
+                                <div class="coin-logo">
+                                    <img id="chart-coin-logo" src="Images/bitcoin.png" alt="">
+                                </div>
+                                <div class="ticker-and-value">
+                                    <div id="chart-coin-ticker" class="chart-coin-ticker">$BTC</div>
+                                    <div id="chart-card-coin-value" class="chart-card-coin-value" data-coin="bitcoin">
+                                        $0.00
                                     </div>
                                 </div>
-                                <img id="chart-pair1-logo" class="chart-coin-logo" src="Images/bitcoin.png" alt="">
+                            </div>
+                            <div class="percentage-change-box">
+                                <div class="volume-and-amount">
+                                    <div id="chart-coin-volume" class="chart-coin-volume">0.001</div>
+                                    <div id="chart-coin-amount" class="chart-coin-amount">$0.00</div>
+                                </div>
+                                <button class="chart-card-percentage-change">%</button>
                             </div>
                         </div>
-                        <button class="favorite-star-btn"><i class="fa-solid fa-star"></i></button>
+                        <div class="chart-trade-box">
+                            <button class="chart-trade-btn">P2P</button>
+                            <button class="chart-trade-btn">Transfer</button>
+                            <button class="chart-trade-btn">Trade</button>
+                        </div>
                     </div>
-                    <span id="Chart-coin-pair" class="Chart-coin-pair">BTC/USDT</span>
                 </div>
 
-                <!-- TRADINGVIEW WIDGET CHARTS BELOW:.... 👇 -->
-                <div class="tv-box">
-                    <div id="tv-chart" class="tv-chart" style="width:100%; height:250px"></div>
-                </div>
-                <div class="time-interval-area">
-                    <button class="time-interval-btn" data-tf="300000">5m</button>
-                    <button class="time-interval-btn" data-tf="900000">15m</button>
-                    <button class="time-interval-btn no-show" data-tf="1800000">30m</button>
-                    <button class="time-interval-btn" data-tf="3600000">1h</button>
-                    <button class="time-interval-btn" data-tf="14400000">4h</button>
-                    <button class="time-interval-btn" data-tf="86400000">1D</button>
-                    <div class="more-timeframes">
-                        <button id="more-tf-btn" class="more-tf-btn">More</button>
-                        <i class="fa-global-icons fa-solid fa-chevron-down"></i>
-                    </div>
-                </div>
-                <div class="chart-tabs">
-                    <button class="chart-tab-btn">Chart</button>
-                    <button class="chart-tab-btn">history</button>
-                    <button class="chart-tab-btn">About</button>
-                    <div class="chart-active-indicator"></div>
-                </div>
-            </div>
-            <div class="demarketor-box">
-                <div class="chart-selected-card-offsetter">
-                    <h3 class="chart-asset-title">Asset Holding</h3>
-                    <div id="chart-selected-card" class="chart-selected-card">
-                        <div class="coin-and-ticker">
-                            <div class="coin-logo">
-                                <img id="chart-coin-logo" src="Images/bitcoin.png" alt="">
-                            </div>
-                            <div class="ticker-and-value">
-                                <div id="chart-coin-ticker" class="chart-coin-ticker">$BTC</div>
-                                <div id="chart-card-coin-value" class="chart-card-coin-value" data-coin="bitcoin">$0.00
+
+
+                <!-- PROMOTION AND ADS CENTER -->
+                <h3 class="chart-promo-title">PUMPIT Memes (10,000X):</h3>
+
+                <div class="trending-area">
+                    <div class="swiper chart-promo-swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide chart-promo-card">
+                                <div class="coin-logo">
+                                    <img src="Images/snow.png" alt="">
+                                </div>
+                                <div class="ticker-and-trend-value">
+                                    <div class="coin-ticker">$SNOW</div>
+                                    <div class="coin-value" data-coin="snowman">$0.00</div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="percentage-change-box">
-                            <div class="volume-and-amount">
-                                <div id="chart-coin-volume" class="chart-coin-volume">0.001</div>
-                                <div id="chart-coin-amount" class="chart-coin-amount">$0.00</div>
+                            <div class=" swiper-slide chart-promo-card">
+                                <div class="coin-logo">
+                                    <img src="Images/rkc.jpg" alt="">
+                                </div>
+                                <div class="ticker-and-trend-value">
+                                    <div class="coin-ticker">$RKC</div>
+                                    <div class="coin-value" data-coin="rockycat">$0.00</div>
+                                </div>
                             </div>
-                            <button class="chart-card-percentage-change">%</button>
-                        </div>
-                    </div>
-                    <div class="chart-trade-box">
-                        <button class="chart-trade-btn">P2P</button>
-                        <button class="chart-trade-btn">Transfer</button>
-                        <button class="chart-trade-btn">Trade</button>
-                    </div>
-                </div>
-            </div>
+                            <div class="swiper-slide chart-promo-card">
+                                <div class="coin-logo">
+                                    <img src="Images/onet.png" alt="">
+                                </div>
+                                <div class="ticker-and-trend-value">
+                                    <div class="coin-ticker">$ONET</div>
+                                    <div class="coin-value" data-coin="onet">$2M.00</div>
+                                </div>
+                            </div>
+                            <div class=" swiper-slide chart-promo-card">
+                                <div class="coin-logo">
+                                    <img src="Images/wikicat.png" alt="">
+                                </div>
+                                <div class="ticker-and-trend-value">
+                                    <div class="coin-ticker">$WKC</div>
+                                    <div class="coin-value" data-coin="wiki-cat">$0.00</div>
+                                </div>
+                            </div>
+                            <div class=" swiper-slide chart-promo-card">
+                                <div class="coin-logo">
+                                    <img src="Images/dogs.png" alt="">
+                                </div>
+                                <div class="ticker-and-trend-value">
+                                    <div class="coin-ticker">$DOGS</div>
+                                    <div class="coin-value" data-coin="dogs">$0.00</div>
+                                </div>
+                            </div>
 
-
-
-            <!-- PROMOTION AND ADS CENTER -->
-            <h3 class="chart-promo-title">PUMPIT Memes (10,000X):</h3>
-
-            <div class="trending-area">
-                <div class="swiper chart-promo-swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide chart-promo-card">
-                            <div class="coin-logo">
-                                <img src="Images/snow.png" alt="">
-                            </div>
-                            <div class="ticker-and-trend-value">
-                                <div class="coin-ticker">$SNOW</div>
-                                <div class="coin-value" data-coin="snowman">$0.00</div>
-                            </div>
                         </div>
-                        <div class=" swiper-slide chart-promo-card">
-                            <div class="coin-logo">
-                                <img src="Images/rkc.jpg" alt="">
-                            </div>
-                            <div class="ticker-and-trend-value">
-                                <div class="coin-ticker">$RKC</div>
-                                <div class="coin-value" data-coin="rockycat">$0.00</div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide chart-promo-card">
-                            <div class="coin-logo">
-                                <img src="Images/onet.png" alt="">
-                            </div>
-                            <div class="ticker-and-trend-value">
-                                <div class="coin-ticker">$ONET</div>
-                                <div class="coin-value" data-coin="onet">$2M.00</div>
-                            </div>
-                        </div>
-                        <div class=" swiper-slide chart-promo-card">
-                            <div class="coin-logo">
-                                <img src="Images/wikicat.png" alt="">
-                            </div>
-                            <div class="ticker-and-trend-value">
-                                <div class="coin-ticker">$WKC</div>
-                                <div class="coin-value" data-coin="wiki-cat">$0.00</div>
-                            </div>
-                        </div>
-                        <div class=" swiper-slide chart-promo-card">
-                            <div class="coin-logo">
-                                <img src="Images/dogs.png" alt="">
-                            </div>
-                            <div class="ticker-and-trend-value">
-                                <div class="coin-ticker">$DOGS</div>
-                                <div class="coin-value" data-coin="dogs">$0.00</div>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
             </div>
-
         </div>
 
 
@@ -639,6 +642,25 @@
                 <div class="percentage-change-box">
                     <div class="volume-and-amount">
                         <div id="coin-volume" class="coin-volume">4,743</div>
+                        <div id="coin-amount" class="coin-amount">$0.00</div>
+                    </div>
+                    <button class="percentage-change">%</button>
+                </div>
+            </div>
+            <div class="listed-card hidden-coin">
+                <div class="coin-and-ticker">
+                    <div class="coin-logo">
+                        <img src="Images/aster.png" alt="">
+                    </div>
+                    <div class="ticker-and-value">
+                        <div class="coin-ticker">$ASTER</div>
+                        <div class="coin-value" data-coin="aster">$0.00</div>
+                        <span class="listed-coin-name hide">Aster</span>
+                    </div>
+                </div>
+                <div class="percentage-change-box">
+                    <div class="volume-and-amount">
+                        <div id="coin-volume" class="coin-volume">250</div>
                         <div id="coin-amount" class="coin-amount">$0.00</div>
                     </div>
                     <button class="percentage-change">%</button>

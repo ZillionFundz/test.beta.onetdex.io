@@ -1477,6 +1477,14 @@ body {
     border-bottom: 2px solid #0166ff;
 }
 
+.chart-body {
+    max-height: 100vh;
+    overflow-y: auto;
+    margin: 0px;
+    padding: 10px 0px 5px;
+    padding: 2px 0px 10px;
+}
+
 .charts-container {
     margin: 0px;
     /* padding: 30px 0px 10px; */
@@ -1495,18 +1503,10 @@ body {
     display: none;
 }
 
-.chart-body {
-    max-height: 95vh;
-    overflow-y: auto;
-    margin: 0px;
-    padding: 2px 0px;
-    padding: 2px 0px 10px;
-}
-
 .charts-box {
     margin: 0px;
-    padding: 0px 0px 0px;
-    background: #000;
+    padding: 10px 0px 0px;
+    /* background: #000; */
 }
 
 .charts-header {
@@ -1735,14 +1735,15 @@ body {
     gap: 0px;
     margin: 0px;
     padding: 0px 10px 0px 0px;
-    /* background: #505063; */
-    background: #5025d1;
+    background: #505063;
+    /* background: #5025d1; */
     color: #fff;
     border-radius: 5px;
 }
 
 .more-timeframes:hover {
-    background: #505063;
+    /* background: #505063; */
+    background: #5025d1;
 }
 
 .more-timeframes:active {
@@ -1908,8 +1909,18 @@ body {
     border: none;
     border-radius: 8px;
     font-size: clamp(14px, 0.5vw, 100px);
-    background: #0166ff;
+    background: #000;
+    background: #5025d1;
     color: #fff;
+}
+
+.chart-trade-btn:hover {
+    background: #000;
+}
+
+.chart-trade-btn:active {
+    background: #fff;
+    color: #000;
 }
 
 .chart-promo-title {
